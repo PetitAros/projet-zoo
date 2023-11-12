@@ -9,3 +9,11 @@ MONNEY Romain: monn0042
 PARENT Arthur: pare0028
 
 ## Installation / Configuration
+
+Script de lancement du serveur :
+
+```
+composer start
+```
+
+
