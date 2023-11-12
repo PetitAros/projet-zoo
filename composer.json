@@ -102,5 +102,8 @@
         "symfony/phpunit-bridge": "^6.3",
         "symfony/stopwatch": "6.3.*",
         "symfony/web-profiler-bundle": "6.3.*"
+    },
+    "scripts-descriptions": {
+        "start" : "Lance le serveur symfony"
     }
 }
