@@ -22,3 +22,7 @@
 ###> PHPStorm idea ###
 .idea/
 ###< PHPStorm idea ###
+
+###> Users Credientials ###
+~.git-credientials
+###< Users Credientials ###
