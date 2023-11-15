@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Event;
+use App\Repository\EventRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,8 +11,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class EventController extends AbstractController
 {
     #[Route('/event', name: 'app_event')]
-    public function index(): Response
+    public function index(EventRepository $eRep): Response
     {
-        return $this->render('event/index.html.twig');
+        $events = $eRep->findBy([]);
+
+        return $this->render('event/index.html.twig',['events' => $events]);
     }
 }
