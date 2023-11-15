@@ -12,3 +12,8 @@ header{
     flex-direction:row;
     justify-content: space-around;
 }
+.bouton_header{
+    background-color: #004225;
+    padding: 2%;
+    border-radius: 15%;
+}
