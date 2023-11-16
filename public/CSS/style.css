@@ -8,6 +8,11 @@ body{
 }
 
 header{
+    position: relative;
+    background-color: #3b82f6;
+    height: 74px;
+}
+.button_navabar{
     display: flex;
     flex-direction:row;
     justify-content: space-around;
@@ -16,7 +21,10 @@ header{
     background-color: #004225;
     padding: 2%;
     border-radius: 15%;
-    opacity: 0.80;
+    height: 65px;
+    width: 120px;
+    margin-top:30px ;
+    padding: 0;
 }
 .reservation{
     background-color: #E7E049;
