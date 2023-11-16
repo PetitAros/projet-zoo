@@ -16,4 +16,8 @@ header{
     background-color: #004225;
     padding: 2%;
     border-radius: 15%;
+    opacity: 0.80;
+}
+.reservation{
+    background-color: #E7E049;
 }
