@@ -83,6 +83,10 @@
         "start": [
             "Composer\\Config::disableProcessTimeout",
             "symfony serve"
+        ],
+        "watch": [
+            "Composer\\Config::disableProcessTimeout",
+            "npm run watch"
         ]
     },
     "conflict": {
