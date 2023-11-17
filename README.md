@@ -16,4 +16,9 @@ Script de lancement du serveur :
 composer start
 ```
 
+Script d'utilisation de tailwindCSS :
+
+```bash
+composer run watch
+```
 
