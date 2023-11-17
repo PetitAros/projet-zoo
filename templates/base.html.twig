@@ -13,16 +13,15 @@
     </head>
     <body>
     <header class="header">
-        <div class="header__logo">
-            <img src="images/LogoZoo.png">
-        </div>
         <div class="navbar">
-        <button class="navbar_button">Découvrire le parc</button>
-        <button class="navbar_button">Préparez votre visite</button>
-        <button class="navbar_button">Spéctacles et activités</button>
-        <button class="navbar_button">Les hôtels du parc</button>
-        <button class="navbar_button">Se connecter/Mon compte</button>
-        <button class="navbar_button--ctl">Réservez vos billets</button>
+            <div class="navbar__background"></div>
+            <button class="navbar__button">Découvrire le parc</button>
+            <button class="navbar__button">Préparez votre visite</button>
+            <button class="navbar__button">Spéctacles et activités</button>
+            <img src="images/LogoZoo.png" class="navbar__logo">
+            <button class="navbar__button">Les hôtels du parc</button>
+            <button class="navbar__button">Se connecter/Mon compte</button>
+            <button class="navbar__button navbar__button--ctl">Réservez vos billets</button>
         </div>
     </header>
         {% block body %}{% endblock %}
