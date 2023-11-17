@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <link href="CSS/style.css" rel="stylesheet" >
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -13,6 +14,18 @@
         {% endblock %}
     </head>
     <body>
+    <header class="header">
+        <div class="navbar">
+            <div class="navbar__background"></div>
+            <button class="navbar__button">Découvrire le parc</button>
+            <button class="navbar__button">Préparez votre visite</button>
+            <button class="navbar__button">Spéctacles et activités</button>
+            <img src="images/LogoZoo.png" class="navbar__logo">
+            <button class="navbar__button">Les hôtels du parc</button>
+            <button class="navbar__button">Se connecter/Mon compte</button>
+            <button class="navbar__button navbar__button--ctl">Réservez vos billets</button>
+        </div>
+    </header>
         {% block body %}{% endblock %}
     </body>
 </html>
