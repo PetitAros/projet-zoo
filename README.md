@@ -2,7 +2,7 @@
 
 ![Static Badge](https://img.shields.io/badge/BUT-S3-teal)
 ![Static Badge](https://img.shields.io/badge/SAE-301-green)
-![Static Badge](https://img.shields.io/badge/Symfony-6-blue)
+![Static Badge](https://img.shields.io/badge/Symfony-6.3-blue)
 ![Static Badge](https://img.shields.io/badge/Status-In_progress-gold)
 
 Ce projet est un site de gestion pour un zoo. Il permet de gérer les animaux, les enclos et les évènements. Les visiteurs peuvent réserver leurs places à des évènements.
