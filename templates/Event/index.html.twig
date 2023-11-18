@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Evénements{% endblock %}
+
+{% block body %}
+    <h1>Liste des évenements</h1>
+    {% for event in events %}
+        <li><a href="{{ url('detail',{id: event.id}) }}">{{contact.nomEvent}}</li>
+    {% endfor %}
+{% endblock %}
