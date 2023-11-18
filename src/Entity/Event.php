@@ -14,9 +14,6 @@ class Event
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $idEvent = null;
-
     #[ORM\Column(length: 128)]
     private ?string $nomEvent = null;
 
@@ -32,18 +29,6 @@ class Event
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getIdEvent(): ?int
-    {
-        return $this->idEvent;
-    }
-
-    public function setIdEvent(int $idEvent): static
-    {
-        $this->idEvent = $idEvent;
-
-        return $this;
     }
 
     public function getNomEvent(): ?string
