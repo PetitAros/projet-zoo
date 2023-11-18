@@ -1,7 +1,132 @@
+
+
+@layer base {
+    :root {
+        --text-50: 254 247 231;
+        --text-100: 252 239 207;
+        --text-200: 250 224 158;
+        --text-300: 247 208 110;
+        --text-400: 245 193 61;
+        --text-500: 242 177 13;
+        --text-600: 194 142 10;
+        --text-700: 145 106 8;
+        --text-800: 97 71 5;
+        --text-900: 48 35 3;
+        --text-950: 24 18 1;
+
+        --background-50: 250 250 235;
+        --background-100: 244 244 215;
+        --background-200: 233 233 175;
+        --background-300: 222 222 135;
+        --background-400: 211 211 95;
+        --background-500: 200 200 55;
+        --background-600: 160 160 44;
+        --background-700: 120 120 33;
+        --background-800: 80 80 22;
+        --background-900: 40 40 11;
+        --background-950: 20 20 5;
+
+        --primary-50: 255 248 229;
+        --primary-100: 255 241 204;
+        --primary-200: 255 228 153;
+        --primary-300: 255 214 102;
+        --primary-400: 255 201 51;
+        --primary-500: 255 187 0;
+        --primary-600: 204 150 0;
+        --primary-700: 153 112 0;
+        --primary-800: 102 75 0;
+        --primary-900: 51 37 0;
+        --primary-950: 26 19 0;
+
+        --secondary-50: 229 255 244;
+        --secondary-100: 204 255 234;
+        --secondary-200: 153 255 213;
+        --secondary-300: 102 255 191;
+        --secondary-400: 51 255 170;
+        --secondary-500: 0 255 149;
+        --secondary-600: 0 204 119;
+        --secondary-700: 0 153 89;
+        --secondary-800: 0 102 60;
+        --secondary-900: 0 51 30;
+        --secondary-950: 0 26 15;
+
+        --accent-50: 255 243 229;
+        --accent-100: 255 230 204;
+        --accent-200: 255 206 153;
+        --accent-300: 255 181 102;
+        --accent-400: 255 156 51;
+        --accent-500: 255 132 0;
+        --accent-600: 204 105 0;
+        --accent-700: 153 79 0;
+        --accent-800: 102 53 0;
+        --accent-900: 51 26 0;
+        --accent-950: 26 13 0;
+
+    }
+    .dark {
+        --text-50: 24 18 1;
+        --text-100: 48 35 3;
+        --text-200: 97 71 5;
+        --text-300: 145 106 8;
+        --text-400: 194 142 10;
+        --text-500: 242 177 13;
+        --text-600: 245 193 61;
+        --text-700: 247 208 110;
+        --text-800: 250 224 158;
+        --text-900: 252 239 207;
+        --text-950: 254 247 231;
+
+        --background-50: 20 20 5;
+        --background-100: 40 40 11;
+        --background-200: 80 80 22;
+        --background-300: 120 120 33;
+        --background-400: 160 160 44;
+        --background-500: 200 200 55;
+        --background-600: 211 211 95;
+        --background-700: 222 222 135;
+        --background-800: 233 233 175;
+        --background-900: 244 244 215;
+        --background-950: 250 250 235;
+
+        --primary-50: 26 19 0;
+        --primary-100: 51 37 0;
+        --primary-200: 102 75 0;
+        --primary-300: 153 112 0;
+        --primary-400: 204 150 0;
+        --primary-500: 255 187 0;
+        --primary-600: 255 201 51;
+        --primary-700: 255 214 102;
+        --primary-800: 255 228 153;
+        --primary-900: 255 241 204;
+        --primary-950: 255 248 229;
+
+        --secondary-50: 0 26 15;
+        --secondary-100: 0 51 30;
+        --secondary-200: 0 102 60;
+        --secondary-300: 0 153 89;
+        --secondary-400: 0 204 119;
+        --secondary-500: 0 255 149;
+        --secondary-600: 51 255 170;
+        --secondary-700: 102 255 191;
+        --secondary-800: 153 255 213;
+        --secondary-900: 204 255 234;
+        --secondary-950: 229 255 244;
+
+        --accent-50: 26 13 0;
+        --accent-100: 51 26 0;
+        --accent-200: 102 53 0;
+        --accent-300: 153 79 0;
+        --accent-400: 204 105 0;
+        --accent-500: 255 132 0;
+        --accent-600: 255 156 51;
+        --accent-700: 255 181 102;
+        --accent-800: 255 206 153;
+        --accent-900: 255 230 204;
+        --accent-950: 255 243 229;
+
+    }
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-body {
-    background-color: lightgray;
-}

@@ -20,7 +20,8 @@ Ce projet est un site de gestion pour un zoo. Il permet de gérer les animaux, l
 ### Installation
 
 1. Cloner le projet
-2. Installer les dépendances avec `composer install`
+2. Installer les dépendances Composer avec `composer install`
+3. Installer les dépendances JavaScript avec `npm install`
 
 ### Configuration
 
