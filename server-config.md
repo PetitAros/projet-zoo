@@ -15,8 +15,16 @@ SSH Déjà installé dans la configuration minimale UBUNTU
 
 ## Mise à jour des dépots apt.
 
+Mise à jour des dépots
+
 ```
 apt-get update
+```
+
+Mise à jour des paquets installés
+
+```
+apt-get upgrade
 ```
 
 ## Installation de Apache2
@@ -25,4 +33,12 @@ Installation de Apache2
 
 ```terminal
 apt-get install apache2
+```
+
+## Installation de MySQL
+
+Installation de MYSQL-Server
+
+```
+apt-get install mysql-server
 ```
