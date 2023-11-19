@@ -76,3 +76,11 @@ exit
 
 User : `saezoo`  
 Password : `saezoo`
+
+## Installation PhpMyAdmin
+
+```
+apt-get install phpmyadmin
+```
+
+password : `saezoo`
