@@ -9,9 +9,15 @@ Adresse du serveur sur le réseau de l'IUT: `10.31.32.214`
 Nom de l'utilisateur sudo : `root`  
 Mot de passe de l'utilisateur sudo : AUCUN
 
-## Installation d'un SSH
+## Installation d'un SSH et de Nano
 
 SSH Déjà installé dans la configuration minimale UBUNTU
+
+Installation de Nano
+
+```
+apt-get install nano
+```
 
 ## Mise à jour des dépots apt.
 
@@ -34,6 +40,15 @@ Installation de Apache2
 ```terminal
 apt-get install apache2
 ```
+
+## Installation de PHP
+
+```
+apt-get install php
+apt-get install libapache2-mod-php
+```
+
+Édition du fichier conf pour commenter les 5dernières lignes.
 
 ## Installation de MySQL
 
@@ -58,3 +73,6 @@ CREATE USER 'saezoo'@'localhost' IDENTIFIED BY 'saezoo';
 GRANT ALL PRIVILEGES ON *.* TO 'saezoo'@'localhost' WITH GRANT OPTION;
 exit
 ```
+
+User : `saezoo`  
+Password : `saezoo`
