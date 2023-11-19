@@ -13,24 +13,16 @@ Mot de passe de l'utilisateur sudo : AUCUN
 
 SSH Déjà installé dans la configuration minimale UBUNTU
 
+## Mise à jour des dépots apt.
+
+```
+apt-get update
+```
+
 ## Installation de Apache2
 
 Installation de Apache2
 
 ```terminal
-sudo apt-get install apache2
-```
-
-Ajout des répertoires par utilisateurs
-
-```
-user@saeZoo:/home$ sudo chown -R user:www-data user
-user@saeZoo:/home& cd user
-user@saeZoo:~$ sudo chown -R user:www-data public_html/
-```
-
-Désactivation du système d'index
-
-```
-user@saeZoo:/etc/apache2/mods-enabled$ sudo nano userdir.conf
+apt-get install apache2
 ```
