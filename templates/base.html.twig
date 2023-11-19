@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Welcome{% endblock %} - Zoo Parc de Laval</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        <link href="CSS/style.css" rel="stylesheet" >
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -13,19 +12,21 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body>
-    <header class="header">
-        <div class="navbar">
-            <div class="navbar__background"></div>
-            <button class="navbar__button">Découvrire le parc</button>
-            <button class="navbar__button">Préparez votre visite</button>
-            <button class="navbar__button">Spéctacles et activités</button>
-            <img src="images/LogoZoo.png" class="navbar__logo">
-            <button class="navbar__button">Les hôtels du parc</button>
-            <button class="navbar__button">Se connecter/Mon compte</button>
-            <button class="navbar__button navbar__button--ctl">Réservez vos billets</button>
-        </div>
-    </header>
+    <body class="bg-background-100">
+        <header class="flex justify-evenly">
+                <div class="bg-secondary-800/40 w-full absolute h-12 z-[-1] bg-clip-padding  backdrop-filter backdrop-blur-sm border-b border-secondary-50 border-s"></div>
+                <div class="flex justify-between gap-6">
+                    <button class="mt-3 p-4 bg-secondary-800/40  rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Découvrir le parc</button>
+                    <button class="mt-3 p-4 bg-secondary-800/40  rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Préparez votre visite</button>
+                    <button class="mt-3 p-4 bg-secondary-800/40  rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Spectacles et activités</button>
+                </div>
+                <img src="{{ asset('images/LogoZoo.png') }}" class="navbar__logo h-10 pt-1" alt="Logo">
+                <div class="flex justify-between gap-6">
+                    <button class="mt-3 p-4 bg-secondary-800/40  rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Les hôtels du parc</button>
+                    <button class="mt-3 p-4 bg-secondary-800/40  rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Se connecter</button>
+                    <button class="mt-3 p-4 bg-primary-500/40 rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Réservez vos billets</button>
+                </div>
+        </header>
         {% block body %}{% endblock %}
     </body>
 </html>
