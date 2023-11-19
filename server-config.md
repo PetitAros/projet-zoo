@@ -42,3 +42,19 @@ Installation de MYSQL-Server
 ```
 apt-get install mysql-server
 ```
+
+## Configuration de MySQL
+
+Accès à MySQL
+
+```
+mysql
+```
+
+Création et dons des accès à un utilisateur 'saezoo'
+
+```
+CREATE USER 'saezoo'@'localhost' IDENTIFIED BY 'saezoo';
+GRANT ALL PRIVILEGES ON *.* TO 'saezoo'@'localhost' WITH GRANT OPTION;
+exit
+```
