@@ -72,7 +72,11 @@ module.exports = {
         950: 'rgb(var(--accent-950))',
       },
     },
-    extend: {},
+    extend: {
+      backgroundImage:{
+        'lion':"url('/public/images/lion.png')",
+      }
+    },
   },
   plugins: [],
 }
