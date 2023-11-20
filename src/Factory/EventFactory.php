@@ -46,11 +46,13 @@ final class EventFactory extends ModelFactory
      */
     protected function getDefaults(): array
     {
+       $liste=['Spectacle avec les oiseaux','Ballet de dauphins','Activités ludiques pour enfants','Visites guidées','Expérience de soigneur de pingouin'];
+
         return [
-            'dateEvent' => self::faker()->dateTime(),
+            'dateEvent' => self::faker()->unixTime(new \DateTime('+ 4 weeks')),
             'description' => self::faker()->text(512),
-            'nbPlaces' => self::faker()->randomNumber(),
-            'nomEvent' => self::faker()->text(128),
+            'nbPlaces' => self::faker()->numberBetween(50,100),
+            'nomEvent' => self::faker()->randomElement($liste),
         ];
     }
 
