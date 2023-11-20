@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ familleAnimal.nomFamilleAnimal }} {% endblock %}
+{% block body %}
+
+    <ul>
+        <li>Nom de la famille : {{ familleAnimal.nomFamilleAnimal }}</li>
+        <li>Nom scientifique : {{ familleAnimal.nomScientifique }}</li>
+        <li>Degree de danger d'extinction : {{ familleAnimal.dangerExctinction}}
+        <li>Type d'alimentation : {{ familleAnimal.typeAlimentation }} </li>
+        <li>Description : {{ familleAnimal.description}}</li>
+        <li>{{ familleAnimal.imgFamilleAnimal}}</li>
+
+    </ul>
+{% endblock %}
+
+
+{% endblock %}
+
