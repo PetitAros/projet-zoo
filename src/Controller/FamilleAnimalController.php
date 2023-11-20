@@ -16,9 +16,9 @@ class FamilleAnimalController extends AbstractController
     }
 
     #[Route('/famille_animal/{id}', name: 'app_famille_animal_fambyid')]
-    public function famById(FamilleAnimal $famAn): Response
+    public function famById(FamilleAnimal $famAnId): Response
     {
-        return $this->render('famille_animal/show.html.twig', ['famille_animal' => $famAn]);
+        return $this->render('famille_animal/famById.html.twig', ['famille_animal' => $famAnId]);
     }
 
 }
