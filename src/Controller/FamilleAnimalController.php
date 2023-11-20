@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\FamilleAnimal;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,4 +14,11 @@ class FamilleAnimalController extends AbstractController
     {
         return $this->render('famille_animal/index.html.twig');
     }
+
+    #[Route('/famille_animal/{id}', name: 'app_famille_animal_fambyid')]
+    public function famById(FamilleAnimal $famAn): Response
+    {
+        return $this->render('famille_animal/show.html.twig', ['famille_animal' => $famAn]);
+    }
+
 }
