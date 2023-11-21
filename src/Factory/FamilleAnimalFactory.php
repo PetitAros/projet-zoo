@@ -46,12 +46,14 @@ final class FamilleAnimalFactory extends ModelFactory
      */
     protected function getDefaults(): array
     {
+        $Animal=['Lion','Zebre','Vaches','Kiwi','Hérisson','Tigre','Serpent','Corbeau','Aigle','Requin','Corail'];
+        $nourriture=['Omnivore','Carnivore','Herbivore'];
         return [
-            'dangerExtinction' => self::faker()->randomNumber(),
+            'dangerExtinction' => self::faker()->numberBetween(0,5),
             'description' => self::faker()->text(511),
-            'nomFamilleAnimal' => self::faker()->text(128),
-            'nomScientifique' => self::faker()->text(128),
-            'typeAlimentation' => self::faker()->text(128),
+            'nomFamilleAnimal' => self::faker()->randomElement($Animal),
+            'nomScientifique' => self::faker()->words(2,true),
+            'typeAlimentation' => self::faker()->randomElement($nourriture),
         ];
     }
 
