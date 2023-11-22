@@ -4,14 +4,15 @@
 
 {% block body %}
 <div class="flex flex-col ">
-    <h1>Les zones du parc</h1>
-    <div class="flex flex-row flex-wrap justify-center">
+    <h1 class="text-center">Les zones du parc</h1>
+    <div class="flex flex-row flex-wrap justify-center ">
     {% for zone in zones_Parc %}
-        <div class="flex flex-col">
+        <div class="flex flex-col content-center m-3">
             <div class="bg-secondary-800/60 p-2 rounded"> <img src="{{ asset('images/zone_illustration.jpg') }}" class="w-[100] rounded"></div>
 
-            <p>{{ zone.libZone }}</p>
+            <p class="text-center m-2">{{ zone.libZone }}</p>
         </div>
     {% endfor %}
+    </div>
 </div>
 {% endblock %}
