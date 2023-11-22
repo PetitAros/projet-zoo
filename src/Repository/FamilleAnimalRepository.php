@@ -21,6 +21,14 @@ class FamilleAnimalRepository extends ServiceEntityRepository
         parent::__construct($registry, FamilleAnimal::class);
     }
 
+    /**
+     * Méthode de classe de FamilleAnimal Repository
+     *
+     * Retourne une liste aléatoire de $number famille d'animaux.
+     *
+     * @param int $number
+     * @return FamilleAnimal[]
+     */
     public function findSomeRandom(int $number): array
     {
         $allList = $this->findAll();
