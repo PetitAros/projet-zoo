@@ -23,6 +23,14 @@ class EventRepository extends ServiceEntityRepository
 
     public function findSomeRandom(int $number): array
     {
+        $allList = $this->findAll();
+        shuffle($allList);
+        $maxNumber = count($allList);
+        if ($number > $maxNumber)
+        {
+            $number = $maxNumber;
+        }
+        return array_slice($allList,0,$number);
     }
 //    /**
 //     * @return Event[] Returns an array of Event objects
