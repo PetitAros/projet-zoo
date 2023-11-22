@@ -94,7 +94,7 @@
             "php bin/console doctrine:migrations:migrate --no-interaction",
             "php bin/console doctrine:fixtures:load --no-interaction"
         ],
-        "test:codeception": [
+        "test:codecept": [
             "php vendor/bin/codecept clean",
             "php bin/console doctrine:database:drop --force --quiet --env=test",
             "php bin/console doctrine:database:create --quiet --env=test",
@@ -129,6 +129,7 @@
         "zenstruck/foundry": "^1.36"
     },
     "scripts-descriptions": {
-        "start" : "Lance le serveur symfony"
+        "start" : "Lance le serveur symfony",
+        "test:codecept" : "Lance les tests unitaires du projet après suppression et création d'une base de test"
     }
 }
