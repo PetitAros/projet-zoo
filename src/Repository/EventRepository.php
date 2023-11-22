@@ -21,6 +21,15 @@ class EventRepository extends ServiceEntityRepository
         parent::__construct($registry, Event::class);
     }
 
+
+    /**
+     * Méthode de classe de Event Repository
+     *
+     * Retourne une liste aléatoire de $number event.
+     *
+     * @param int $number
+     * @return Event[]
+     */
     public function findSomeRandom(int $number): array
     {
         $allList = $this->findAll();
