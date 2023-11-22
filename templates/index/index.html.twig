@@ -18,6 +18,9 @@
     <div class="flex flex-col grow">
         <div class="bg-secondary-800 grow">
             <H1 class="text-background-100 ml-3 mt-3">Nos Animations</H1>
+            {% for event in events %}
+                <button class="bg-secondary-50/50 rounded-2xl p-4 border-secondary-50">{{ event.nomEvent }}</button>
+            {% endfor %}
         </div>
         <div class="bg-background-100 grow">
             <H1 class="text-secondary-800  ml-3 mt-3 ">Nos Animaux</H1>
