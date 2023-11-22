@@ -3,13 +3,14 @@
 {% block title %}Hello ZoneParcController!{% endblock %}
 
 {% block body %}
-<div class="flex flex-col">
+<div class="flex flex-col ">
     <h1>Les zones du parc</h1>
-    <div class="flex flex-row">
+    <div class="flex flex-row flex-wrap justify-center">
     {% for zone in zones_Parc %}
         <div class="flex flex-col">
-            <img src="{{ asset('images/zone_illustration.jpg') }}"></img>
-            {{ zone.libZone }}
+            <div class="bg-secondary-800/60 p-2 rounded"> <img src="{{ asset('images/zone_illustration.jpg') }}" class="w-[100] rounded"></div>
+
+            <p>{{ zone.libZone }}</p>
         </div>
     {% endfor %}
 </div>
