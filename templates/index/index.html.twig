@@ -3,24 +3,31 @@
 {% block title %}index{% endblock %}
 
 {% block body %}
-    <div class="flex justify-center bg-lion bg-cover bg-center bg-no-repeat">
-        <div class="flex flex-col w-80 justify-center  rounded p-4 bg-secondary-50/50 backdrop-filter backdrop-blur-sm ">
+    <div class="grid grid-cols-12 bg-lion bg-cover bg-center bg-no-repeat h-[90svh] min-h-fit">
+
+        <div class="col-start-2 col-end-12 lg:col-end-7 xl:col-end-6 flex gap-3 flex-col justify-center rounded-2xl p-4 bg-secondary-50/40 backdrop-filter backdrop-blur-sm self-center border border-secondary-50 border-s">
             <div class="flex justify-center">
-                <img class="w-40"  src="images/LogoZoo.png">
+                <img class="w-60 lg:w-40" src="images/LogoZoo.png" alt="Logo">
             </div>
-            <p class="text-center">Découvrez le Zoo Parc de Laval, un joyau de la biodiversité en plein cœur de la Mayenne. Rencontrez des animaux fascinants, vivez des moments uniques en famille et explorez la beauté de la nature. Une aventure inoubliable vous attend !</p>
-            <div class="flex flex-col">
-                <button class="bg-primary-500 rounded-2xl p-2 ">Réservez vos billets</button>
-                <button class="bg-secondary-800 rounded-2xl m-3 p-1 text-background-50 backdrop-filter backdrop-blur-sm">Réservez votre hôtel</button>
+            <p class="text-4xl lg:text-2xl xl:text-xl text-justify px-2">Découvrez le Zoo Parc de Laval, un joyau de la biodiversité en plein cœur de la Mayenne. Rencontrez des animaux fascinants, vivez des moments uniques en famille et explorez la beauté de la nature. Une aventure inoubliable vous attend!</p>
+            <div class="grid grid-cols-4">
+                <button class="bg-primary-500/70 col-start-2 col-end-4 text-xl rounded-xl p-2 border border-primary-50 border-s">Réservez vos billets</button>
+                <button class="bg-secondary-800/70 col-start-2 col-end-4 text-lg rounded-xl m-3 p-1 text-text-50 backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Réservez votre hôtel</button>
             </div>
         </div>
     </div>
-    <div class="flex flex-col grow">
-        <div class="bg-secondary-800 grow">
-            <H1 class="text-background-100 ml-3 mt-3">Nos Animations</H1>
-        </div>
-        <div class="bg-background-100 grow">
-            <H1 class="text-secondary-800  ml-3 mt-3 ">Nos Animaux</H1>
-        </div>
-    </div>
+
+    <section class="w-full bg-secondary-800">
+        <h2 class="text-7xl lg:text-4xl text-center my-4 text-text-50">Nos Animations</h2>
+<div class="grid grid-cols-4 gap-4">
+            <div class="col-start-2 col-end-4 bg-secondary-50/40 backdrop-filter backdrop-blur-sm rounded-2xl p-4 border border-secondary-50 border-s">
+                <h3 class="text-2xl text-center">Les otaries</h3>
+                <p class="text-justify">Les otaries sont des mammifères marins de la famille des otariidés. Elles sont appelées « lions de mer » en raison de la crinière des mâles. Elles sont très agiles sur terre et dans l'eau. Elles sont carnivores et se nourrissent de poissons, de crustacés et de céphalopodes.</p>
+            </div>
+            <div class="col-start-2 col-end-4 bg-secondary-50/40 backdrop-filter backdrop-blur-sm rounded-2xl p-4 border border-secondary-50 border-s">
+                <h3 class="text-2xl text-center">Les girafes</h3>
+                <p class="text-justify">La girafe est un mammifère ongulé artiodactyle et ruminant, appartenant à la famille des girafidés. C'est le plus grand animal terrestre vivant. Elle est reconnaissable à son long cou et à ses taches sur le corps. Elle se nourrit de feuilles d'ac
+
+    </section>
+
 {% endblock %}
