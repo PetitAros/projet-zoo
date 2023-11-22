@@ -21,6 +21,21 @@ class FamilleAnimalRepository extends ServiceEntityRepository
         parent::__construct($registry, FamilleAnimal::class);
     }
 
+    /**
+     * Cette méthode retourne tous les animaux de la zone concerné
+     * @param int $idZone id de la zone dont on veut lister les animaux
+     * @return FamilleAnimal[]
+     */
+    public function findAllByZone(int $idZone):array
+    {
+        return $this->createQueryBuilder('a')
+            ->where('e.zone_parc_id =:idzone')
+            ->setParameter('idzone',$idZone)
+            ->getQuery()
+            ->getResult();
+    }
+
+
 //    /**
 //     * @return FamilleAnimal[] Returns an array of FamilleAnimal objects
 //     */
