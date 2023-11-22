@@ -21,6 +21,9 @@ class EventRepository extends ServiceEntityRepository
         parent::__construct($registry, Event::class);
     }
 
+    public function findSomeRandom(int $number): array
+    {
+    }
 //    /**
 //     * @return Event[] Returns an array of Event objects
 //     */
