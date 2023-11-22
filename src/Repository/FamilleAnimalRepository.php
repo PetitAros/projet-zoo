@@ -29,7 +29,7 @@ class FamilleAnimalRepository extends ServiceEntityRepository
     public function findAllByZone(int $idZone):array
     {
         return $this->createQueryBuilder('a')
-            ->where('e.zone_parc_id =:idzone')
+            ->where('a.zoneParc =:idzone')
             ->setParameter('idzone',$idZone)
             ->getQuery()
             ->getResult();

@@ -22,7 +22,7 @@ class ZoneParcController extends AbstractController
     }
 
     #[Route('/zone_parc/{id}',name: 'app_zoneParc_details',requirements: ['id'=>'\d+'])]
-    public function detailsZoneParc(FamilleAnimalRepository $repoAnimal,ZoneParc $Zone,int $idZone):Response{
+    public function detailsZoneParc(FamilleAnimalRepository $repoAnimal,ZoneParc $Zone,int $idZone=0):Response{
         $animals=$repoAnimal->findAllByZone($idZone);
 
         return $this->render('zone_parc/detailZoneParc.html.twig',['zone'=>$Zone,'animals'=>$animals]);
