@@ -21,10 +21,15 @@ class ZoneParcController extends AbstractController
         ]);
     }
 
+    /**
+     * @param int $id Id de la Zone où l'on souhaite extraire les infos/animaux
+     * @param FamilleAnimalRepository $repoAnimal Ensemble des animaux situé dans la zone du parc
+     * @param ZoneParc $Zone Entité de la zone du parc concerné
+     * @return Response
+     */
     #[Route('/zone_parc/{id}',name: 'app_zoneParc_details',requirements: ['id'=>'\d+'])]
-    public function detailsZoneParc(FamilleAnimalRepository $repoAnimal,ZoneParc $Zone,int $idZone=0):Response{
-        $animals=$repoAnimal->findAllByZone($idZone);
-
+    public function detailsZoneParc(int $id,FamilleAnimalRepository $repoAnimal,ZoneParc $Zone):Response{
+        $animals=$repoAnimal->findAllByZone($id);
         return $this->render('zone_parc/detailZoneParc.html.twig',['zone'=>$Zone,'animals'=>$animals]);
     }
 }

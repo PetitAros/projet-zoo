@@ -3,4 +3,12 @@
 {% block title %}{{ zone.libZone }}{% endblock %}
 
 {% block body %}
+    <div>
+        <h1>{{ zone.libZone }}</h1>
+        {% for animal in animals %}
+            <div><a href="{{ path('app_zoneParc_details',{'id':zone.id}) }}">{{ animal.nomFamilleAnimal }}</a></div>
+        {%endfor%}
+    </div>
+
+
 {% endblock %}
