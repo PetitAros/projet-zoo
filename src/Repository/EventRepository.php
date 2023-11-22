@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Event;
+use App\Entity\FamilleAnimal;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -19,6 +20,20 @@ class EventRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Event::class);
+    }
+
+    /**
+     * Cette méthode retourne tous les animaux de la zone concerné
+     * @param int $idZone id de la zone dont on veut lister les animaux
+     * @return FamilleAnimal[]
+     */
+    public function findAllByZone(int $idZone):array
+    {
+                return $this->createQueryBuilder('a')
+                    ->where('e.zone_parc_id =:idzone')
+                    ->setParameter('idzone',$idZone)
+                    ->getQuery()
+                    ->getResult();
     }
 
 //    /**
