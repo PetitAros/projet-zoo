@@ -3,9 +3,11 @@
 {% block title %}{{event.nomEvent}}{% endblock %}
 
 {% block body %}
-    <h1>{{nomEvent}}</h1>
+    <h1>{{event.nomEvent}}</h1>
+    <ul>
     <li>Nombre de places : {{event.nbPlaces}}</li>
     <li>Description : {{event.description}}</li>
     <li>Date : {{event.dateEvent}}</li>
+    </ul>
 
 {% endblock %}
