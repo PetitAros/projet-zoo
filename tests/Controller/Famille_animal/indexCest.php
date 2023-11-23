@@ -12,7 +12,15 @@ class indexCest
     }
 
     // tests
-    public function tryToTest(ControllerTester $I)
+    public function correctName(ControllerTester $I)
     {
+        $I->amOnPage('/famille_animal');
+        $I->seeInTitle('Familles - Zoo Parc de Laval');
+    }
+
+    public function correctHttpResponse(ControllerTester $I)
+    {
+        $I->amOnPage('/famille_animal');
+        $I->seeResponseCodeIs(200);
     }
 }
