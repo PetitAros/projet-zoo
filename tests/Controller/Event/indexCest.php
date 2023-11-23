@@ -14,13 +14,13 @@ class indexCest
     // tests
     public function correctName(ControllerTester $I)
     {
-        $I->amOnPage('/zone_parc');
-        $I->seeInTitle('Zones Parc - Zoo Parc de Laval');
+        $I->amOnPage('/event');
+        $I->seeInTitle('Evénements - Zoo Parc de Laval');
     }
 
     public function correctHttpResponse(ControllerTester $I)
     {
-        $I->amOnPage('/zone_parc');
+        $I->amOnPage('/event');
         $I->seeResponseCodeIs(200);
     }
 
