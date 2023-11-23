@@ -47,5 +47,14 @@ composer run watch
 Script de lancement des tests unitaires codeception:
 
 ```bash
-composer test:codecept
+composer t
 ```
+
+Script de création de la base de donnée(test)
+
+```bash
+composer db
+```
+
+
+
