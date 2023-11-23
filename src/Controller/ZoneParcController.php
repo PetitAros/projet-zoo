@@ -22,7 +22,6 @@ class ZoneParcController extends AbstractController
     }
 
     /**
-     * @param int $id Id de la Zone où l'on souhaite extraire les infos/animaux
      * @param FamilleAnimalRepository $repoAnimal Ensemble des animaux situé dans la zone du parc
      * @param ZoneParc $Zone Entité de la zone du parc concerné
      * @return Response
