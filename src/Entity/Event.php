@@ -23,9 +23,6 @@ class Event
     #[ORM\Column(length: 512)]
     private ?string $description = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $dateEvent = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -63,18 +60,6 @@ class Event
     public function setDescription(string $description): static
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function getDateEvent(): ?\DateTimeInterface
-    {
-        return $this->dateEvent;
-    }
-
-    public function setDateEvent(\DateTimeInterface $dateEvent): static
-    {
-        $this->dateEvent = $dateEvent;
 
         return $this;
     }
