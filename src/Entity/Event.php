@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EventRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -23,8 +25,13 @@ class Event
     #[ORM\Column(length: 512)]
     private ?string $description = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $dateEvent = null;
+    #[ORM\ManyToMany(targetEntity: DateEvent::class, inversedBy: 'event')]
+    private Collection $dateEvent;
+
+    public function __construct()
+    {
+        $this->dateEvent = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -67,14 +74,26 @@ class Event
         return $this;
     }
 
-    public function getDateEvent(): ?\DateTimeInterface
+    /**
+     * @return Collection<int, DateEvent>
+     */
+    public function getDateEvent(): Collection
     {
         return $this->dateEvent;
     }
 
-    public function setDateEvent(\DateTimeInterface $dateEvent): static
+    public function addDateEvent(DateEvent $dateEvent): static
     {
-        $this->dateEvent = $dateEvent;
+        if (!$this->dateEvent->contains($dateEvent)) {
+            $this->dateEvent->add($dateEvent);
+        }
+
+        return $this;
+    }
+
+    public function removeDateEvent(DateEvent $dateEvent): static
+    {
+        $this->dateEvent->removeElement($dateEvent);
 
         return $this;
     }
