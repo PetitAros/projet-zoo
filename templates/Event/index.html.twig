@@ -8,8 +8,13 @@
     {% for event in events %}
         <div class="flex flex-row m-2 bg-secondary-800/40 rounded-2xl ">
             <img class="w-1/4 rounded-2xl p-2" src="{{ asset("images/soigneur.jpg") }}">
-            <div class="flex flex-col justify-center">
-                <p class="text-primary-50 text-6sm md:text-2xl text-center ">{{ event.nomEvent }} </p>
+            <div class="flex flex-col justify-center grow">
+                <div class="flex flex-row">
+                    <p class="text-primary-50 text-6sm md:text-2xl text-center ">{{ event.nomEvent }} </p>
+                    <div class="hidden lg:flex justify-end grow lg:mr-3">
+                        <p class="text-primary-50 text-4sm md:text-2xl text-end">Nombre de place : {{ event.nbPlaces }}</p>
+                    </div>
+                </div>
             </div>
         </div>
     {% endfor %}
