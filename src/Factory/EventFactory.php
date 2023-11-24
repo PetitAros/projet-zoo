@@ -49,7 +49,6 @@ final class EventFactory extends ModelFactory
        $liste=['Spectacle avec les oiseaux','Ballet de dauphins','Activités ludiques pour enfants','Visites guidées','Expérience de soigneur de pingouin'];
 
         return [
-            'dateEvent' => self::faker()->dateTimeInInterval('- 0 days','+ 4 weeks'),
             'description' => self::faker()->text(512),
             'nbPlaces' => self::faker()->numberBetween(50,100),
             'nomEvent' => self::faker()->randomElement($liste),
