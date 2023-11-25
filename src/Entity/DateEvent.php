@@ -19,8 +19,6 @@ class DateEvent
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $dateEvent = null;
 
-    #[ORM\ManyToMany(targetEntity: Event::class, mappedBy: 'dateEvent')]
-    private Collection $event;
 
     public function __construct()
     {
@@ -44,30 +42,4 @@ class DateEvent
         return $this;
     }
 
-    /**
-     * @return Collection<int, Event>
-     */
-    public function getEvent(): Collection
-    {
-        return $this->event;
-    }
-
-    public function addEvent(Event $event): static
-    {
-        if (!$this->event->contains($event)) {
-            $this->event->add($event);
-            $event->addDateEvent($this);
-        }
-
-        return $this;
-    }
-
-    public function removeEvent(Event $event): static
-    {
-        if ($this->event->removeElement($event)) {
-            $event->removeDateEvent($this);
-        }
-
-        return $this;
-    }
 }

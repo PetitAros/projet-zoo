@@ -25,8 +25,6 @@ class Event
     #[ORM\Column(length: 512)]
     private ?string $description = null;
 
-    #[ORM\ManyToMany(targetEntity: DateEvent::class, inversedBy: 'event')]
-    private Collection $dateEvent;
 
     public function __construct()
     {
@@ -74,27 +72,5 @@ class Event
         return $this;
     }
 
-    /**
-     * @return Collection<int, DateEvent>
-     */
-    public function getDateEvent(): Collection
-    {
-        return $this->dateEvent;
-    }
 
-    public function addDateEvent(DateEvent $dateEvent): static
-    {
-        if (!$this->dateEvent->contains($dateEvent)) {
-            $this->dateEvent->add($dateEvent);
-        }
-
-        return $this;
-    }
-
-    public function removeDateEvent(DateEvent $dateEvent): static
-    {
-        $this->dateEvent->removeElement($dateEvent);
-
-        return $this;
-    }
 }
