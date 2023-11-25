@@ -19,11 +19,18 @@ class AssoEventDateEvent
     #[ORM\Column(type: Types::TIME_MUTABLE)]
     private ?\DateTimeInterface $horaire = null;
 
-    #[ORM\OneToMany(mappedBy: 'dateEvent', targetEntity: Event::class)]
-    private Collection $events;
+    #[ORM\ManyToOne(inversedBy: 'datesEvent')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Event $event = null;
 
-    #[ORM\OneToMany(mappedBy: 'events', targetEntity: DateEvent::class)]
-    private Collection $dateEvents;
+    #[ORM\ManyToOne(inversedBy: 'events')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?DateEvent $dateEvent = null;
+
+
+
+
+
 
     public function __construct()
     {
@@ -48,63 +55,28 @@ class AssoEventDateEvent
         return $this;
     }
 
-    /**
-     * @return Collection<int, Event>
-     */
-    public function getEvents(): Collection
+    public function getEvent(): ?Event
     {
-        return $this->events;
+        return $this->event;
     }
 
-    public function addEvent(Event $event): static
+    public function setEvent(?Event $event): static
     {
-        if (!$this->events->contains($event)) {
-            $this->events->add($event);
-            $event->setDateEvent($this);
-        }
+        $this->event = $event;
 
         return $this;
     }
 
-    public function removeEvent(Event $event): static
+    public function getDateEvent(): ?DateEvent
     {
-        if ($this->events->removeElement($event)) {
-            // set the owning side to null (unless already changed)
-            if ($event->getDateEvent() === $this) {
-                $event->setDateEvent(null);
-            }
-        }
+        return $this->dateEvent;
+    }
+
+    public function setDateEvent(?DateEvent $dateEvent): static
+    {
+        $this->dateEvent = $dateEvent;
 
         return $this;
     }
 
-    /**
-     * @return Collection<int, DateEvent>
-     */
-    public function getDateEvents(): Collection
-    {
-        return $this->dateEvents;
-    }
-
-    public function addDateEvent(DateEvent $dateEvent): static
-    {
-        if (!$this->dateEvents->contains($dateEvent)) {
-            $this->dateEvents->add($dateEvent);
-            $dateEvent->setEvents($this);
-        }
-
-        return $this;
-    }
-
-    public function removeDateEvent(DateEvent $dateEvent): static
-    {
-        if ($this->dateEvents->removeElement($dateEvent)) {
-            // set the owning side to null (unless already changed)
-            if ($dateEvent->getEvents() === $this) {
-                $dateEvent->setEvents(null);
-            }
-        }
-
-        return $this;
-    }
 }

@@ -19,13 +19,16 @@ class DateEvent
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $dateEvent = null;
 
-    #[ORM\ManyToOne(inversedBy: 'dateEvents')]
-    private ?AssoEventDateEvent $events = null;
+    #[ORM\OneToMany(mappedBy: 'dateEvent', targetEntity: AssoEventDateEvent::class)]
+    private Collection $events;
+
+
 
 
     public function __construct()
     {
         $this->event = new ArrayCollection();
+        $this->events = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -45,16 +48,36 @@ class DateEvent
         return $this;
     }
 
-    public function getEvents(): ?AssoEventDateEvent
+    /**
+     * @return Collection<int, AssoEventDateEvent>
+     */
+    public function getEvents(): Collection
     {
         return $this->events;
     }
 
-    public function setEvents(?AssoEventDateEvent $events): static
+    public function addEvent(AssoEventDateEvent $event): static
     {
-        $this->events = $events;
+        if (!$this->events->contains($event)) {
+            $this->events->add($event);
+            $event->setDateEvent($this);
+        }
 
         return $this;
     }
+
+    public function removeEvent(AssoEventDateEvent $event): static
+    {
+        if ($this->events->removeElement($event)) {
+            // set the owning side to null (unless already changed)
+            if ($event->getDateEvent() === $this) {
+                $event->setDateEvent(null);
+            }
+        }
+
+        return $this;
+    }
+
+
 
 }
