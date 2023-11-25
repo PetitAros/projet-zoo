@@ -13,9 +13,9 @@ class EventController extends AbstractController
     #[Route('/event', name: 'app_event')]
     public function index(EventRepository $eRep): Response
     {
-        $events = $eRep->findBy([]);
+        $events = $eRep->findAll();
 
-        return $this->render('event/index.html.twig',['events' => $events]);
+        return $this->render('Event/index.html.twig',['events' => $events]);
     }
 
     #[Route('/event/{id}', name: 'detail')]
