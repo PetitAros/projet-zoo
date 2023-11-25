@@ -25,6 +25,9 @@ class Event
     #[ORM\Column(length: 512)]
     private ?string $description = null;
 
+    #[ORM\ManyToOne(inversedBy: 'events')]
+    private ?AssoEventDateEvent $dateEvent = null;
+
 
     public function __construct()
     {
@@ -68,6 +71,18 @@ class Event
     public function setDescription(string $description): static
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getDateEvent(): ?AssoEventDateEvent
+    {
+        return $this->dateEvent;
+    }
+
+    public function setDateEvent(?AssoEventDateEvent $dateEvent): static
+    {
+        $this->dateEvent = $dateEvent;
 
         return $this;
     }

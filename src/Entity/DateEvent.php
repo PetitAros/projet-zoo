@@ -19,6 +19,9 @@ class DateEvent
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $dateEvent = null;
 
+    #[ORM\ManyToOne(inversedBy: 'dateEvents')]
+    private ?AssoEventDateEvent $events = null;
+
 
     public function __construct()
     {
@@ -38,6 +41,18 @@ class DateEvent
     public function setDateEvent(\DateTimeInterface $dateEvent): static
     {
         $this->dateEvent = $dateEvent;
+
+        return $this;
+    }
+
+    public function getEvents(): ?AssoEventDateEvent
+    {
+        return $this->events;
+    }
+
+    public function setEvents(?AssoEventDateEvent $events): static
+    {
+        $this->events = $events;
 
         return $this;
     }
