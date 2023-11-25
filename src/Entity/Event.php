@@ -25,12 +25,15 @@ class Event
     #[ORM\Column(length: 512)]
     private ?string $description = null;
 
-    #[ORM\ManyToMany(targetEntity: DateEvent::class, inversedBy: 'event')]
-    private Collection $dateEvent;
+    #[ORM\OneToMany(mappedBy: 'event', targetEntity: AssoEventDateEvent::class)]
+    private Collection $datesEvent;
+
+
 
     public function __construct()
     {
         $this->dateEvent = new ArrayCollection();
+        $this->datesEvent = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -75,26 +78,36 @@ class Event
     }
 
     /**
-     * @return Collection<int, DateEvent>
+     * @return Collection<int, AssoEventDateEvent>
      */
-    public function getDateEvent(): Collection
+    public function getDatesEvent(): Collection
     {
-        return $this->dateEvent;
+        return $this->datesEvent;
     }
 
-    public function addDateEvent(DateEvent $dateEvent): static
+    public function addDatesEvent(AssoEventDateEvent $datesEvent): static
     {
-        if (!$this->dateEvent->contains($dateEvent)) {
-            $this->dateEvent->add($dateEvent);
+        if (!$this->datesEvent->contains($datesEvent)) {
+            $this->datesEvent->add($datesEvent);
+            $datesEvent->setEvent($this);
         }
 
         return $this;
     }
 
-    public function removeDateEvent(DateEvent $dateEvent): static
+    public function removeDatesEvent(AssoEventDateEvent $datesEvent): static
     {
-        $this->dateEvent->removeElement($dateEvent);
+        if ($this->datesEvent->removeElement($datesEvent)) {
+            // set the owning side to null (unless already changed)
+            if ($datesEvent->getEvent() === $this) {
+                $datesEvent->setEvent(null);
+            }
+        }
 
         return $this;
     }
+
+
+
+
 }
