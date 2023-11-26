@@ -47,7 +47,7 @@ final class AssoEventDateEventFactory extends ModelFactory
     protected function getDefaults(): array
     {
         return [
-            'horaire' => self::faker()->unixTime(),
+            'horaire' => self::faker()->time('H'),
         ];
     }
 
