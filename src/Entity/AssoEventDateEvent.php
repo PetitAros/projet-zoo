@@ -16,8 +16,6 @@ class AssoEventDateEvent
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::TIME_MUTABLE)]
-    private ?\DateTimeInterface $horaire = null;
 
     #[ORM\ManyToOne(inversedBy: 'datesEvent')]
     #[ORM\JoinColumn(nullable: false)]
@@ -27,8 +25,8 @@ class AssoEventDateEvent
     #[ORM\JoinColumn(nullable: false)]
     private ?DateEvent $dateEvent = null;
 
-
-
+    #[ORM\Column(length: 10)]
+    private ?string $horaire = null;
 
 
 
@@ -41,18 +39,6 @@ class AssoEventDateEvent
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getHoraire(): ?\DateTimeInterface
-    {
-        return $this->horaire;
-    }
-
-    public function setHoraire(\DateTimeInterface $horaire): static
-    {
-        $this->horaire = $horaire;
-
-        return $this;
     }
 
     public function getEvent(): ?Event
@@ -75,6 +61,18 @@ class AssoEventDateEvent
     public function setDateEvent(?DateEvent $dateEvent): static
     {
         $this->dateEvent = $dateEvent;
+
+        return $this;
+    }
+
+    public function getHoraire(): ?string
+    {
+        return $this->horaire;
+    }
+
+    public function setHoraire(string $horaire): static
+    {
+        $this->horaire = $horaire;
 
         return $this;
     }
