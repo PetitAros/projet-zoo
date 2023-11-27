@@ -7,7 +7,9 @@
     <ul>
     <li>Nombre de places : {{event.nbPlaces}}</li>
     <li>Description : {{event.description}}</li>
-    <li>Date : {{event.dateEvent}}</li>
+        {% for date in event.datesEvent %}
+        <li>{{ date.dateEvent.dateEvent|date("m/d/Y") }}</li>
+        {% endfor %}
     </ul>
 
 {% endblock %}
