@@ -46,13 +46,18 @@ final class AnimalFactory extends ModelFactory
      */
     protected function getDefaults(): array
     {
-        return [
+        $result = [
             'caracteristique' => self::faker()->text(128),
             'dateNaissance' => self::faker()->dateTime(),
             'nom' => self::faker()->text(128),
             'poids' => self::faker()->randomFloat(),
             'taille' => self::faker()->randomFloat(),
         ];
+        if (self::faker()->boolean(33))
+        {
+            $result['dateMort'] = self::faker()->dateTime();
+        }
+        return $result;
     }
 
     /**
