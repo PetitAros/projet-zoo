@@ -32,6 +32,10 @@ class Animal
     #[ORM\Column(length: 128)]
     private ?string $caracteristique = null;
 
+    #[ORM\ManyToOne(inversedBy: 'animals')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?FamilleAnimal $famille = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,6 +109,18 @@ class Animal
     public function setCaracteristique(string $caracteristique): static
     {
         $this->caracteristique = $caracteristique;
+
+        return $this;
+    }
+
+    public function getFamille(): ?FamilleAnimal
+    {
+        return $this->famille;
+    }
+
+    public function setFamille(?FamilleAnimal $famille): static
+    {
+        $this->famille = $famille;
 
         return $this;
     }
