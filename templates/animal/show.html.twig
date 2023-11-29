@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{animal.nom}}{% endblock %}
+
+{%  block body %}
+<div>
+    <div class="">
+        <article>
+            PLACE POUR L'IMAGE
+        </article>
+    </div>
+    <div>
+        <article>Prénom : {{ animal.nom }}</article>
+        <article>Poids : {{ animal.poids }}</article>
+        <article>Taille : {{ animal.taille }}</article>
+        <article>Date de naissance : DATE DE NAISSANCE</article>
+        <article>Caractéristiques : {{ animal.caracteristique }}</article>
+    </div>
+</div>
+{% endblock %}
