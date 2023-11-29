@@ -48,14 +48,14 @@ final class AnimalFactory extends ModelFactory
     {
         $result = [
             'caracteristique' => self::faker()->text(128),
-            'dateNaissance' => self::faker()->dateTime(),
-            'nom' => self::faker()->text(128),
-            'poids' => self::faker()->randomFloat(),
-            'taille' => self::faker()->randomFloat(),
+            'dateNaissance' => self::faker()->dateTimeInInterval('-20 years', '+10 years'),
+            'nom' => self::faker()->firstName(),
+            'poids' => self::faker()->randomFloat(2,0,6000),
+            'taille' => self::faker()->randomFloat(2,0,800),
         ];
         if (self::faker()->boolean(33))
         {
-            $result['dateMort'] = self::faker()->dateTime();
+            $result['dateMort'] = self::faker()->dateTimeInInterval('-10 years', '+10 years');
         }
         return $result;
     }
