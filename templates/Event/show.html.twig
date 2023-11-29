@@ -4,19 +4,28 @@
 
 {% block body %}
 <div class="flex flex-col">
-    <div class="flex justify-center">
-        <h1 class="text-center">{{event.nomEvent}}</h1>
-        <img src="{{ asset("images/soigneur.jpg") }}">
+    <h1 class="text-center">{{event.nomEvent}}</h1>
+
+    <div class="flex flex-col  justify-center">
+        <div class="lg:flex lg:flex-row">
+            <div class="flex justify-center p-4" >
+                <img class=" max-w-lg rounded-2xl" src="{{ asset("images/soigneur.jpg") }}">
+            </div>
+            <div class="m-4 lg:w-1/2">
+                <p>{{event.description}}</p>
+            </div>
+        </div>
+
+            <h2>Informations complémentaires:</h2>
+            <p>Nombre de places : {{event.nbPlaces}}</p>
+
     </div>
-    <div>
-        <p>Nombre de places : {{event.nbPlaces}}</p>
-        <p>Description : {{event.description}}</p>
-    </div>
+
     <div class="flex flex-col">
-        <h2>Les dates prochaines: </h2>
+        <h2 class="text-secondary-800">Les dates prochaines: </h2>
         {% for date in event.datesEvent %}
         <div class="flex flex-row">
-            <p>{{ date.dateEvent.dateEvent|date("d/m/Y") }}</p>
+            <p class="text-center">{{ date.dateEvent.dateEvent|date("d/m/Y") }}</p>
             <p>{{ date.horaire }}h</p>
         </div>
         {% endfor %}
