@@ -40,6 +40,16 @@ final class AnimalFactory extends ModelFactory
     }
 
     /**
+     * Fonction de création d'un animal au hasard.
+     *
+     * L'animal se voit définir :
+     * - Une caractéristiques aléatoire (Chaine de 128 lettres)
+     * - une date de naissance aléatoire datant d'entre 20 et 10 ans dans le passé
+     * - un nom au hasard
+     * - un poids au hasard en kg (2 décimales maximum, compris entre 0 et 6000
+     * - une taille au hasard en cm (2 décimales maximum, compris entre 0 et 800
+     * - Une date de décès avec 33% de chance, aléatoire, datant d'entre 10 ans dans le passé et aujourd'hui
+     *
      * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#model-factories
      *
      * @todo add your default values here
