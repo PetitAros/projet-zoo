@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EventRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -23,8 +25,16 @@ class Event
     #[ORM\Column(length: 512)]
     private ?string $description = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $dateEvent = null;
+    #[ORM\OneToMany(mappedBy: 'event', targetEntity: AssoEventDateEvent::class)]
+    private Collection $datesEvent;
+
+
+
+    public function __construct()
+    {
+        $this->dateEvent = new ArrayCollection();
+        $this->datesEvent = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -67,15 +77,37 @@ class Event
         return $this;
     }
 
-    public function getDateEvent(): ?\DateTimeInterface
+    /**
+     * @return Collection<int, AssoEventDateEvent>
+     */
+    public function getDatesEvent(): Collection
     {
-        return $this->dateEvent;
+        return $this->datesEvent;
     }
 
-    public function setDateEvent(\DateTimeInterface $dateEvent): static
+    public function addDatesEvent(AssoEventDateEvent $datesEvent): static
     {
-        $this->dateEvent = $dateEvent;
+        if (!$this->datesEvent->contains($datesEvent)) {
+            $this->datesEvent->add($datesEvent);
+            $datesEvent->setEvent($this);
+        }
 
         return $this;
     }
+
+    public function removeDatesEvent(AssoEventDateEvent $datesEvent): static
+    {
+        if ($this->datesEvent->removeElement($datesEvent)) {
+            // set the owning side to null (unless already changed)
+            if ($datesEvent->getEvent() === $this) {
+                $datesEvent->setEvent(null);
+            }
+        }
+
+        return $this;
+    }
+
+
+
+
 }

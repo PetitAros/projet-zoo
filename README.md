@@ -44,3 +44,8 @@ Script d'utilisation de tailwindCSS :
 composer run watch
 ```
 
+Script de lancement des tests unitaires codeception:
+
+```bash
+composer test:codecept
+```
