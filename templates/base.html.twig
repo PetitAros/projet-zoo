@@ -2,31 +2,19 @@
 <html lang="fr" class="w-[100%] h-[100%]">
     <head>
         <meta charset="UTF-8">
+        <meta name="theme-color" content="#00663D">
         <title>{% block title %}Welcome{% endblock %} - Zoo Parc de Laval</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
-
+        
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body class="flex flex-col bg-background-100 w-[100%] h-[100%]">
-        <header class="flex justify-evenly">
-                <div class="bg-secondary-800/40 w-full absolute h-12 z-[-1] bg-clip-padding  backdrop-filter backdrop-blur-sm border-b border-secondary-50 border-s"></div>
-                <div class="flex justify-between gap-6">
-                    <button class="mt-3 p-4 bg-secondary-800/40  rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Découvrir le parc</button>
-                    <button class="mt-3 p-4 bg-secondary-800/40  rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Préparez votre visite</button>
-                    <button class="mt-3 p-4 bg-secondary-800/40  rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Spectacles et activités</button>
-                </div>
-                <img src="{{ asset('images/LogoZoo.png') }}" class="navbar__logo h-10 pt-1" alt="Logo">
-                <div class="flex justify-between gap-6">
-                    <button class="mt-3 p-4 bg-secondary-800/40  rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Les hôtels du parc</button>
-                    <button class="mt-3 p-4 bg-secondary-800/40  rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Se connecter</button>
-                    <button class="mt-3 p-4 bg-primary-500/40 rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Réservez vos billets</button>
-                </div>
-        </header>
+    <body class="flex flex-col bg-background-100">
+        <header id="header"></header>
         {% block body %}{% endblock %}
     </body>
 </html>
