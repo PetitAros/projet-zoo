@@ -48,10 +48,10 @@ final class UserFactory extends ModelFactory
     {
         return [
             'email' => self::faker()->text(180),
-            'nomUser' => self::faker()->text(128),
-            'password' => self::faker()->text(),
+            'nomUser' => self::faker()->lastName(),
+            'password' => self::faker()->password(),
             'phoneUser' => self::faker()->text(10),
-            'pnomUser' => self::faker()->text(128),
+            'pnomUser' => self::faker()->firstName(),
             'roles' => [],
         ];
     }
