@@ -49,3 +49,15 @@ Script de lancement des tests unitaires codeception:
 ```bash
 composer test:codecept
 ```
+
+### Users
+
+#### Louise
+- nom de famille: Parent
+- email: louise@example.com
+- password: password
+
+#### Wilfried
+- nom de famille: Noel
+- email: Wil@example.com
+- password: test
