@@ -3,18 +3,20 @@
 {% block title %}{{animal.nom}}{% endblock %}
 
 {%  block body %}
-    <div class="flex bg-background-800/40 rounded-2xl justify-between min-h-[80%] p-6 m-8">
-        <div class="">
-            <article>
-                PLACE POUR L'IMAGE
+    <div class="m-6">
+    <div class="flex-row sm:flex items-center bg-background-800/40 rounded-2xl justify-between min-h-[100%] p-6 m-8">
+        <div class="h-[70%] md:h-[50%] max-w-[100%] sm:min-w-[30%] md:max-w-[50%]">
+            <article class="flex p-6 m-8 ">
+                <img class="object-contain" src="{{ (animal.image is defined ? animal.image : '/images/animal-placeholder.png')}}"  alt="Image de {{ animal.nom }}">
             </article>
         </div>
         <div class="flex flex-col justify-evenly">
-            <article class="bg-background-600 rounded-2xl min-h-[10%] p-4">Prénom : {{ animal.nom }}</article>
-            <article class="bg-background-600 rounded-2xl min-h-[10%] p-4">Poids : {{ animal.poids }}</article>
-            <article class="bg-background-600 rounded-2xl min-h-[10%] p-4">Taille : {{ animal.taille }}</article>
-            <article class="bg-background-600 rounded-2xl min-h-[10%] p-4">Date de naissance : DATE DE NAISSANCE</article>
-            <article class="bg-background-600 rounded-2xl min-h-[10%] p-4">Caractéristiques : {{ animal.caracteristique }}</article>
+            <article class="flex-row items-center bg-background-600 rounded-2xl min-h-[10%] m-2 p-4">Prénom : {{ animal.nom }}</article>
+            <article class="bg-background-600 rounded-2xl min-h-[10%] m-2 p-4">Poids : {{ animal.poids }}</article>
+            <article class="bg-background-600 rounded-2xl min-h-[10%] m-2 p-4">Taille : {{ animal.taille }}</article>
+            <article class="bg-background-600 rounded-2xl min-h-[10%] m-2 p-4">Date de naissance : DATE DE NAISSANCE</article>
+            <article class="bg-background-600 rounded-2xl min-h-[10%] m-2 p-4">Caractéristiques : {{ animal.caracteristique }}</article>
         </div>
+    </div>
     </div>
 {% endblock %}
