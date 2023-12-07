@@ -2,8 +2,6 @@
 
 namespace App\DataFixtures;
 
-use App\Factory\EventFactory;
-use App\Factory\FamilleAnimalFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 

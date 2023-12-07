@@ -20,5 +20,4 @@ class FamilleAnimalController extends AbstractController
     {
         return $this->render('famille_animal/famById.html.twig', ['famille_animal' => $famAnId]);
     }
-
 }
