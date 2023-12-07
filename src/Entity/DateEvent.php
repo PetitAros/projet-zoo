@@ -22,9 +22,6 @@ class DateEvent
     #[ORM\OneToMany(mappedBy: 'dateEvent', targetEntity: AssoEventDateEvent::class)]
     private Collection $events;
 
-
-
-
     public function __construct()
     {
         $this->event = new ArrayCollection();
@@ -77,7 +74,4 @@ class DateEvent
 
         return $this;
     }
-
-
-
 }

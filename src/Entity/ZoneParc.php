@@ -20,7 +20,7 @@ class ZoneParc
     private ?string $libZone = null;
 
     #[ORM\Column(type: Types::BLOB, nullable: true)]
-    private $imgZone = null;
+    private $imgZone;
 
     #[ORM\OneToMany(mappedBy: 'zoneParc', targetEntity: FamilleAnimal::class)]
     private Collection $familleAnimals;

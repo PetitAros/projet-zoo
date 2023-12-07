@@ -21,13 +21,11 @@ class EventRepository extends ServiceEntityRepository
         parent::__construct($registry, Event::class);
     }
 
-
     /**
-     * Méthode de classe de Event Repository
+     * Méthode de classe de Event Repository.
      *
      * Retourne une liste aléatoire de $number event.
      *
-     * @param int $number
      * @return Event[]
      */
     public function findSomeRandom(int $number): array
@@ -35,34 +33,34 @@ class EventRepository extends ServiceEntityRepository
         $allList = $this->findAll();
         shuffle($allList);
         $maxNumber = count($allList);
-        if ($number > $maxNumber)
-        {
+        if ($number > $maxNumber) {
             $number = $maxNumber;
         }
-        return array_slice($allList,0,$number);
-    }
-//    /**
-//     * @return Event[] Returns an array of Event objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('e')
-//            ->andWhere('e.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('e.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
 
-//    public function findOneBySomeField($value): ?Event
-//    {
-//        return $this->createQueryBuilder('e')
-//            ->andWhere('e.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+        return array_slice($allList, 0, $number);
+    }
+    //    /**
+    //     * @return Event[] Returns an array of Event objects
+    //     */
+    //    public function findByExampleField($value): array
+    //    {
+    //        return $this->createQueryBuilder('e')
+    //            ->andWhere('e.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->orderBy('e.id', 'ASC')
+    //            ->setMaxResults(10)
+    //            ->getQuery()
+    //            ->getResult()
+    //        ;
+    //    }
+
+    //    public function findOneBySomeField($value): ?Event
+    //    {
+    //        return $this->createQueryBuilder('e')
+    //            ->andWhere('e.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
 }

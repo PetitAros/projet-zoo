@@ -12,10 +12,10 @@ class ZoneParcFixtures extends Fixture
     {
         // $product = new Product();
         // $manager->persist($product);
-        $file=file_get_contents(__DIR__.'/data/ZoneParc.json');
-        $zoneArray=json_decode($file,true);
-        foreach ($zoneArray as $zone){
-            $zoneParc=new ZoneParc();
+        $file = file_get_contents(__DIR__.'/data/ZoneParc.json');
+        $zoneArray = json_decode($file, true);
+        foreach ($zoneArray as $zone) {
+            $zoneParc = new ZoneParc();
             $zoneParc->setLibZone($zone['libZone']);
             $manager->persist($zoneParc);
         }

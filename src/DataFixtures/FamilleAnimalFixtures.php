@@ -13,19 +13,21 @@ class FamilleAnimalFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
-        $familles=FamilleAnimalFactory::createMany(20,function (){
-            return[
-                'zoneParc'=> ZoneParcFactory::random(),
+        $familles = FamilleAnimalFactory::createMany(20, function () {
+            return [
+                'zoneParc' => ZoneParcFactory::random(),
             ];
         });
-        foreach ($familles as $famille){
-            if($famille instanceof FamilleAnimal){
+        foreach ($familles as $famille) {
+            if ($famille instanceof FamilleAnimal) {
                 $manager->persist($famille);
             }
         }
         $manager->flush();
     }
-    public function getDependencies():array{
+
+    public function getDependencies(): array
+    {
         return [
             ZoneParcFixtures::class,
         ];

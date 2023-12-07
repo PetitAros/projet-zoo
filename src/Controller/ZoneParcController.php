@@ -14,7 +14,7 @@ class ZoneParcController extends AbstractController
     #[Route('/zone_parc', name: 'app_zone_parc')]
     public function index(ZoneParcRepository $zoneParcRepository): Response
     {
-        $values=$zoneParcRepository->findAll();
+        $values = $zoneParcRepository->findAll();
 
         return $this->render('zone_parc/index.html.twig', [
             'zones_Parc' => $values,
@@ -23,12 +23,13 @@ class ZoneParcController extends AbstractController
 
     /**
      * @param FamilleAnimalRepository $repoAnimal Ensemble des animaux situé dans la zone du parc
-     * @param ZoneParc $Zone Entité de la zone du parc concerné
-     * @return Response
+     * @param ZoneParc                $Zone       Entité de la zone du parc concerné
      */
-    #[Route('/zone_parc/{id}',name: 'app_zoneParc_details',requirements: ['id'=>'\d+'])]
-    public function detailsZoneParc(FamilleAnimalRepository $repoAnimal,ZoneParc $Zone):Response{
-        $animals=$repoAnimal->findBy(['zoneParc'=>$Zone->getId()]);
-        return $this->render('zone_parc/detailZoneParc.html.twig',['zone'=>$Zone,'animals'=>$animals]);
+    #[Route('/zone_parc/{id}', name: 'app_zoneParc_details', requirements: ['id' => '\d+'])]
+    public function detailsZoneParc(FamilleAnimalRepository $repoAnimal, ZoneParc $Zone): Response
+    {
+        $animals = $repoAnimal->findBy(['zoneParc' => $Zone->getId()]);
+
+        return $this->render('zone_parc/detailZoneParc.html.twig', ['zone' => $Zone, 'animals' => $animals]);
     }
 }

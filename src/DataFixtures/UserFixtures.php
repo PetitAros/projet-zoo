@@ -16,13 +16,13 @@ class UserFixtures extends Fixture
             'email' => 'louise@example.com',
             'pnomUser' => 'Louise',
             'nomUser' => 'Parent',
-            'password'=> 'password',
+            'password' => 'password',
         ]);
         UserFactory::createOne([
             'email' => 'Wil@example.com',
             'pnomUser' => 'Wilfried',
             'nomUser' => 'Noel',
-            'password'=>'test'
+            'password' => 'test',
         ]);
 
         $manager->flush();
