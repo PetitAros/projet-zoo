@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{animal.nom}}{% endblock %}
+
+{%  block body %}
+    <div class="m-6">
+    <div class="flex-row sm:flex items-center bg-background-800/40 rounded-2xl justify-between min-h-[100%] p-6 m-8">
+        <div class="h-[70%] md:h-[50%] max-w-[100%] sm:min-w-[30%] md:max-w-[50%]">
+            <article class="flex p-6 m-8 ">
+                <img class="object-contain" src="{{ (animal.image is defined and animal.image is not null ? animal.image : '/images/animal-placeholder.png')}}"  alt="Image de {{ animal.nom }}">
+            </article>
+        </div>
+        <div class="flex flex-col justify-evenly">
+            <article class="flex-row items-center bg-background-600 rounded-2xl min-h-[10%] m-2 p-4">Prénom : {{ animal.nom }}</article>
+            <article class="bg-background-600 rounded-2xl min-h-[10%] m-2 p-4">Poids : {{ animal.poids }} kg</article>
+            <article class="bg-background-600 rounded-2xl min-h-[10%] m-2 p-4">Taille : {{ animal.taille }} cm</article>
+            <article class="flex-row bg-background-600 rounded-2xl min-h-[10%] m-2 p-4">
+                <div>Date de Naissance : {{ animal.dateNaissance|date("d/m/Y") }}</div>
+                {% if animal.dateMort is not null %}
+                    <div>Date de Mort : {{ animal.dateMort|date("d/m/Y") }}</div>
+                {% endif %}
+            </article>
+            <article class="bg-background-600 rounded-2xl min-h-[10%] m-2 p-4">Caractéristiques : {{ animal.caracteristique }}</article>
+        </div>
+    </div>
+    </div>
+{% endblock %}
