@@ -22,11 +22,10 @@ class FamilleAnimalRepository extends ServiceEntityRepository
     }
 
     /**
-     * Méthode de classe de FamilleAnimal Repository
+     * Méthode de classe de FamilleAnimal Repository.
      *
      * Retourne une liste aléatoire de $number famille d'animaux.
      *
-     * @param int $number
      * @return FamilleAnimal[]
      */
     public function findSomeRandom(int $number): array
@@ -34,34 +33,34 @@ class FamilleAnimalRepository extends ServiceEntityRepository
         $allList = $this->findAll();
         shuffle($allList);
         $maxNumber = count($allList);
-        if ($number > $maxNumber)
-        {
+        if ($number > $maxNumber) {
             $number = $maxNumber;
         }
-        return array_slice($allList,0,$number);
-    }
-//    /**
-//     * @return FamilleAnimal[] Returns an array of FamilleAnimal objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('f')
-//            ->andWhere('f.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('f.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
 
-//    public function findOneBySomeField($value): ?FamilleAnimal
-//    {
-//        return $this->createQueryBuilder('f')
-//            ->andWhere('f.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+        return array_slice($allList, 0, $number);
+    }
+    //    /**
+    //     * @return FamilleAnimal[] Returns an array of FamilleAnimal objects
+    //     */
+    //    public function findByExampleField($value): array
+    //    {
+    //        return $this->createQueryBuilder('f')
+    //            ->andWhere('f.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->orderBy('f.id', 'ASC')
+    //            ->setMaxResults(10)
+    //            ->getQuery()
+    //            ->getResult()
+    //        ;
+    //    }
+
+    //    public function findOneBySomeField($value): ?FamilleAnimal
+    //    {
+    //        return $this->createQueryBuilder('f')
+    //            ->andWhere('f.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
 }

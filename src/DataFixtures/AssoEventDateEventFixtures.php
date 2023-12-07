@@ -17,22 +17,24 @@ class AssoEventDateEventFixtures extends Fixture implements DependentFixtureInte
         // $product = new Product();
         // $manager->persist($product);
 
-        $assos=AssoEventDateEventFactory::createMany(20,function (){
+        $assos = AssoEventDateEventFactory::createMany(20, function () {
             return [
                'event' => EventFactory::random(),
-                'dateEvent'=>DateEventFactory::random(),];
+                'dateEvent' => DateEventFactory::random(), ];
         });
-        foreach ($assos as $asso){
-            if($asso instanceof AssoEventDateEvent){
+        foreach ($assos as $asso) {
+            if ($asso instanceof AssoEventDateEvent) {
                 $manager->persist($asso);
             }
         }
         $manager->flush();
     }
-    public function getDependencies():array{
+
+    public function getDependencies(): array
+    {
         return [
             EventFixtures::class,
-            DateEventFixtures::class
+            DateEventFixtures::class,
         ];
     }
 }

@@ -11,21 +11,21 @@ use Zenstruck\Foundry\RepositoryProxy;
 /**
  * @extends ModelFactory<DateEvent>
  *
- * @method        DateEvent|Proxy create(array|callable $attributes = [])
- * @method static DateEvent|Proxy createOne(array $attributes = [])
- * @method static DateEvent|Proxy find(object|array|mixed $criteria)
- * @method static DateEvent|Proxy findOrCreate(array $attributes)
- * @method static DateEvent|Proxy first(string $sortedField = 'id')
- * @method static DateEvent|Proxy last(string $sortedField = 'id')
- * @method static DateEvent|Proxy random(array $attributes = [])
- * @method static DateEvent|Proxy randomOrCreate(array $attributes = [])
+ * @method        DateEvent|Proxy                     create(array|callable $attributes = [])
+ * @method static DateEvent|Proxy                     createOne(array $attributes = [])
+ * @method static DateEvent|Proxy                     find(object|array|mixed $criteria)
+ * @method static DateEvent|Proxy                     findOrCreate(array $attributes)
+ * @method static DateEvent|Proxy                     first(string $sortedField = 'id')
+ * @method static DateEvent|Proxy                     last(string $sortedField = 'id')
+ * @method static DateEvent|Proxy                     random(array $attributes = [])
+ * @method static DateEvent|Proxy                     randomOrCreate(array $attributes = [])
  * @method static DateEventRepository|RepositoryProxy repository()
- * @method static DateEvent[]|Proxy[] all()
- * @method static DateEvent[]|Proxy[] createMany(int $number, array|callable $attributes = [])
- * @method static DateEvent[]|Proxy[] createSequence(iterable|callable $sequence)
- * @method static DateEvent[]|Proxy[] findBy(array $attributes)
- * @method static DateEvent[]|Proxy[] randomRange(int $min, int $max, array $attributes = [])
- * @method static DateEvent[]|Proxy[] randomSet(int $number, array $attributes = [])
+ * @method static DateEvent[]|Proxy[]                 all()
+ * @method static DateEvent[]|Proxy[]                 createMany(int $number, array|callable $attributes = [])
+ * @method static DateEvent[]|Proxy[]                 createSequence(iterable|callable $sequence)
+ * @method static DateEvent[]|Proxy[]                 findBy(array $attributes)
+ * @method static DateEvent[]|Proxy[]                 randomRange(int $min, int $max, array $attributes = [])
+ * @method static DateEvent[]|Proxy[]                 randomSet(int $number, array $attributes = [])
  */
 final class DateEventFactory extends ModelFactory
 {
@@ -47,7 +47,7 @@ final class DateEventFactory extends ModelFactory
     protected function getDefaults(): array
     {
         return [
-            'dateEvent' => self::faker()->dateTimeInInterval('- 0 days','+ 4 weeks'),
+            'dateEvent' => self::faker()->dateTimeInInterval('- 0 days', '+ 4 weeks'),
         ];
     }
 

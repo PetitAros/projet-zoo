@@ -100,8 +100,13 @@
             "php bin/console doctrine:database:create --quiet --env=test",
             "php bin/console doctrine:schema:create --quiet --env=test",
             "php vendor/bin/codecept run"
+        ],
+        "test:cs": "php vendor/bin/php-cs-fixer fix --dry-run",
+        "fix:cs":  "php vendor/bin/php-cs-fixer fix",
+        "test" : [
+            "@test:codecept",
+            "@test:cs"
         ]
-
     },
     "conflict": {
         "symfony/symfony": "*"
@@ -118,6 +123,7 @@
         "codeception/module-doctrine2": "^3.0",
         "codeception/module-symfony": "^3.1",
         "doctrine/doctrine-fixtures-bundle": "^3.5",
+        "friendsofphp/php-cs-fixer": "^3.40",
         "phpunit/phpunit": "^9.5",
         "roave/security-advisories": "dev-latest",
         "symfony/browser-kit": "6.3.*",
@@ -131,6 +137,9 @@
     },
     "scripts-descriptions": {
         "start" : "Lance le serveur symfony",
-        "test:codecept" : "Lance les tests unitaires du projet après suppression et création d'une base de test"
+        "test:codecept" : "Lance les tests unitaires du projet après suppression et création d'une base de test",
+        "fix:cs" : "Lance un correctif à l'aide de csfixer",
+        "test:cs" : "Lance un correctif sans impact à l'aide de csfixer",
+        "test" : "Lance l'entièreté des tests du projet (csfixer et codeception)"
     }
 }

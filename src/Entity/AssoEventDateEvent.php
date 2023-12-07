@@ -4,8 +4,6 @@ namespace App\Entity;
 
 use App\Repository\AssoEventDateEventRepository;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AssoEventDateEventRepository::class)]
@@ -15,7 +13,6 @@ class AssoEventDateEvent
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
 
     #[ORM\ManyToOne(inversedBy: 'datesEvent')]
     #[ORM\JoinColumn(nullable: false)]
@@ -27,8 +24,6 @@ class AssoEventDateEvent
 
     #[ORM\Column(length: 10)]
     private ?string $horaire = null;
-
-
 
     public function __construct()
     {
@@ -76,5 +71,4 @@ class AssoEventDateEvent
 
         return $this;
     }
-
 }
