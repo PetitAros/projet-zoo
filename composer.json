@@ -139,6 +139,7 @@
         "start" : "Lance le serveur symfony",
         "test:codecept" : "Lance les tests unitaires du projet après suppression et création d'une base de test",
         "fix:cs" : "Lance un correctif à l'aide de csfixer",
-        "test:cs" : "Lance un correctif sans impact à l'aide de csfixer"
+        "test:cs" : "Lance un correctif sans impact à l'aide de csfixer",
+        "test" : "Lance l'entièreté des tests du projet (csfixer et codeception)"
     }
 }
