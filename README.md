@@ -50,6 +50,17 @@ Script de lancement des tests unitaires codeception:
 composer test:codecept
 ```
 
+Script de lancement de test phpcsfixer :
+
+- Test sans impact :  
+```bash
+composer test:cs
+```
+- Test avec impact :  
+```bash
+composer fix:cs
+```
+
 ### Users
 
 #### Louise
