@@ -3,31 +3,43 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <div class="mt-32">
-        <h1>Inscription</h1>
+    <div class="flex justify-center content-center h-[100%]">
+        <div class="mt-32">
+            <h1 class="text-center">Inscription</h1>
 
-        {{ form_errors(registrationForm) }}
+            {{ form_errors(registrationForm) }}
 
-        {{ form_start(registrationForm) }}
-            {{ form_row(registrationForm.nomUser,{
-                label:'Nom'
-            }) }}
-            {{ form_row(registrationForm.pnomUser,{
-                label:'Prénom'
-            }) }}
-            {{ form_row(registrationForm.email,{
-                label:'Email'
-            }) }}
-            {{ form_row(registrationForm.phoneUser,{
-                label:'Numéro de téléphone'
-            }) }}
-            {{ form_row(registrationForm.plainPassword, {
-                label: 'Mot de passe'
-            }) }}
+            {{ form_start(registrationForm) }}
+            <div>
+                {{ form_label(registrationForm.nomUser,'Nom') }}
+                {{ form_errors(registrationForm.nomUser) }}
+                {{ form_widget(registrationForm.nomUser)}}
+            </div>
+            <div>
+                {{ form_label(registrationForm.pnomUser,'Prénom') }}
+                {{ form_errors(registrationForm.pnomUser) }}
+                {{ form_widget(registrationForm.pnomUser)}}
+            </div>
+            <div>
+                {{ form_label(registrationForm.email,'Email') }}
+                {{ form_errors(registrationForm.email) }}
+                {{ form_widget(registrationForm.email)}}
+            </div>
+            <div>
+                {{ form_label(registrationForm.phoneUser,'Numéro de téléphone') }}
+                {{ form_errors(registrationForm.phoneUser) }}
+                {{ form_widget(registrationForm.phoneUser)}}
+            </div>
+            <div>
+                {{ form_label(registrationForm.plainPassword,'Mot de passe') }}
+                {{ form_errors(registrationForm.plainPassword) }}
+                {{ form_widget(registrationForm.plainPassword)}}
+            </div>
 
-            {{ form_row(registrationForm.agreeTerms) }}
+                {{ form_row(registrationForm.agreeTerms) }}
 
-            <button type="submit" class="btn">Register</button>
-        {{ form_end(registrationForm) }}
+                <button type="submit" class="btn">Register</button>
+            {{ form_end(registrationForm) }}
+        </div>
     </div>
 {% endblock %}
