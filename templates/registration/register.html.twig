@@ -4,45 +4,79 @@
 
 {% block body %}
     <div class="flex justify-center content-center h-[100%]">
-        <div class="mt-32 ">
-            <h1 class="text-center text-secondary-800">Inscription</h1>
+        <div class="mt-32 w-1/2">
+            <h1 class="text-center text-secondary-800 text-3xl md:text-5xl  lg:text-6xl lg:text-10xl mb-5">Inscription</h1>
             {{ form_errors(registrationForm) }}
 
             {{ form_start(registrationForm) }}
             <div class="flex flex-col">
                 {{ form_label(registrationForm.nomUser,'Nom',
-                    {'label_attr':{'class':'text-secondary-800'}}) }}
+                    {
+                        'label_attr':{
+                            'class':'text-secondary-800 text-xl md:text-2xl '
+                    }}) }}
                 {{ form_errors(registrationForm.nomUser) }}
-                {{ form_widget(registrationForm.nomUser,
-                    {'label_attr':{'class':''}})}}
+                {{ form_widget(registrationForm.nomUser,{
+                    'attr':{
+                        'class': 'text-lg p-3'
+                    }
+                }) }}
             </div>
             <div class="flex flex-col mt-4">
                 {{ form_label(registrationForm.pnomUser,'Prénom',
-                    {'label_attr':{'class':'text-secondary-800'}}) }}
+                    {
+                        'label_attr':{
+                        'class':'text-secondary-800 text-xl md:text-2xl  '
+                    }}) }}
                 {{ form_errors(registrationForm.pnomUser) }}
-                {{ form_widget(registrationForm.pnomUser)}}
+                {{ form_widget(registrationForm.pnomUser,{
+                    'attr':{
+                        'class': 'text-lg p-3'
+                }
+                })}}
             </div>
             <div class="flex flex-col mt-4">
                 {{ form_label(registrationForm.email,'Email',
-                    {'label_attr':{'class':'text-secondary-800'}}) }}
+                    {
+                        'label_attr':{
+                        'class':'text-secondary-800 text-xl md:text-2xl '
+                    }}) }}
                 {{ form_errors(registrationForm.email) }}
-                {{ form_widget(registrationForm.email)}}
+                {{ form_widget(registrationForm.email,{
+                    'attr':{
+                        'class': 'text-lg p-3'
+                    }
+                })}}
             </div>
             <div class="flex flex-col mt-4">
                 {{ form_label(registrationForm.phoneUser,'Numéro de téléphone',
-                    {'label_attr':{'class':'text-secondary-800'}}) }}
+                    {
+                        'label_attr':{
+                        'class':'text-secondary-800 text-xl md:text-2xl  '
+                    }}) }}
                 {{ form_errors(registrationForm.phoneUser) }}
-                {{ form_widget(registrationForm.phoneUser)}}
+                {{ form_widget(registrationForm.phoneUser,{
+                    'attr':{
+                        'class': 'text-lg p-3'
+                    }
+                })}}
             </div>
             <div class="flex flex-col mt-4">
                 {{ form_label(registrationForm.plainPassword,'Mot de passe',
-                    {'label_attr':{'class':'text-secondary-800'}}) }}
+                    {
+                        'label_attr':{
+                        'class':'text-secondary-800 text-xl md:text-2xl  '
+                    }}) }}
                 {{ form_errors(registrationForm.plainPassword) }}
-                {{ form_widget(registrationForm.plainPassword)}}
+                {{ form_widget(registrationForm.plainPassword,{
+                    'attr':{
+                        'class': 'text-lg p-3'
+                    }
+                })}}
             </div>
 
-            <div class="flex justify-center">
-                <button type="submit" class="btn bg-secondary-800 text-primary-100 rounded-2xl p-2">Register</button>
+            <div class="flex justify-center mt-4">
+                <button type="submit" class="btn bg-secondary-800 text-primary-100 rounded-2xl p-2 md:p-4 text-xl md:text-3xl  lg:text-4xl mt-4">Register</button>
             </div>
             {{ form_end(registrationForm) }}
         </div>
