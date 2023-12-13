@@ -15,7 +15,9 @@
                         'label_attr':{
                             'class':'text-secondary-800 text-xl md:text-2xl '
                     }}) }}
-                {{ form_errors(registrationForm.nomUser) }}
+                <div class="text-secondary-800" >
+                    {{ form_errors(registrationForm.nomUser) }}
+                </div>
                 {{ form_widget(registrationForm.nomUser,{
                     'attr':{
                         'class': 'text-lg text-secondary-50 p-3 bg-secondary-800 rounded-2xl'
@@ -28,7 +30,9 @@
                         'label_attr':{
                         'class':'text-secondary-800 text-xl md:text-2xl  '
                     }}) }}
-                {{ form_errors(registrationForm.pnomUser) }}
+                <div class="text-secondary-800" >
+                    {{ form_errors(registrationForm.pnomUser) }}
+                </div>
                 {{ form_widget(registrationForm.pnomUser,{
                     'attr':{
                         'class': 'text-lg text-secondary-50  p-3 bg-secondary-800 rounded-2xl'
@@ -41,7 +45,9 @@
                         'label_attr':{
                         'class':'text-secondary-800   text-xl md:text-2xl '
                     }}) }}
-                {{ form_errors(registrationForm.email) }}
+                <div class="text-secondary-800" >
+                    {{ form_errors(registrationForm.email) }}
+                </div>
                 {{ form_widget(registrationForm.email,{
                     'attr':{
                         'class': 'text-lg  text-secondary-50  p-3 bg-secondary-800 rounded-2xl'
@@ -54,7 +60,9 @@
                         'label_attr':{
                         'class':'text-secondary-800 text-xl md:text-2xl'
                     }}) }}
-                {{ form_errors(registrationForm.phoneUser) }}
+                <div class="text-secondary-800">
+                    {{ form_errors(registrationForm.phoneUser) }}
+                </div>
                 {{ form_widget(registrationForm.phoneUser,{
                     'attr':{
                         'class': 'text-lg text-secondary-50  p-3 bg-secondary-800 rounded-2xl'
@@ -67,7 +75,9 @@
                         'label_attr':{
                         'class':'text-secondary-800 text-xl md:text-2xl  '
                     }}) }}
-                {{ form_errors(registrationForm.plainPassword) }}
+                <div class="text-secondary-800">
+                    {{ form_errors(registrationForm.plainPassword) }}
+                </div>
                 {{ form_widget(registrationForm.plainPassword,{
                     'attr':{
                         'class': 'text-lg text-secondary-50  p-3 bg-secondary-800 rounded-2xl'
