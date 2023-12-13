@@ -3,8 +3,8 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <div class="flex justify-center content-center h-[100%]">
-        <div class="mt-32 w-1/2">
+    <div class="flex justify-center content-center h-[100%] bg-lion bg-cover bg-center bg-no-repeat">
+        <div class="mt-32 w-1/2 bg-secondary-50/40 backdrop-filter backdrop-blur-sm self-center border border-secondary-50 border-s rounded-2xl p-2" >
             <h1 class="text-center text-secondary-800 text-3xl md:text-5xl  lg:text-6xl lg:text-10xl mb-5">Inscription</h1>
             {{ form_errors(registrationForm) }}
 
@@ -18,7 +18,7 @@
                 {{ form_errors(registrationForm.nomUser) }}
                 {{ form_widget(registrationForm.nomUser,{
                     'attr':{
-                        'class': 'text-lg p-3'
+                        'class': 'text-lg text-secondary-50 p-3 bg-secondary-800 rounded-2xl'
                     }
                 }) }}
             </div>
@@ -31,7 +31,7 @@
                 {{ form_errors(registrationForm.pnomUser) }}
                 {{ form_widget(registrationForm.pnomUser,{
                     'attr':{
-                        'class': 'text-lg p-3'
+                        'class': 'text-lg text-secondary-50  p-3 bg-secondary-800 rounded-2xl'
                 }
                 })}}
             </div>
@@ -39,12 +39,12 @@
                 {{ form_label(registrationForm.email,'Email',
                     {
                         'label_attr':{
-                        'class':'text-secondary-800 text-xl md:text-2xl '
+                        'class':'text-secondary-800   text-xl md:text-2xl '
                     }}) }}
                 {{ form_errors(registrationForm.email) }}
                 {{ form_widget(registrationForm.email,{
                     'attr':{
-                        'class': 'text-lg p-3'
+                        'class': 'text-lg  text-secondary-50  p-3 bg-secondary-800 rounded-2xl'
                     }
                 })}}
             </div>
@@ -52,12 +52,12 @@
                 {{ form_label(registrationForm.phoneUser,'Numéro de téléphone',
                     {
                         'label_attr':{
-                        'class':'text-secondary-800 text-xl md:text-2xl  '
+                        'class':'text-secondary-800 text-xl md:text-2xl'
                     }}) }}
                 {{ form_errors(registrationForm.phoneUser) }}
                 {{ form_widget(registrationForm.phoneUser,{
                     'attr':{
-                        'class': 'text-lg p-3'
+                        'class': 'text-lg text-secondary-50  p-3 bg-secondary-800 rounded-2xl'
                     }
                 })}}
             </div>
@@ -70,13 +70,13 @@
                 {{ form_errors(registrationForm.plainPassword) }}
                 {{ form_widget(registrationForm.plainPassword,{
                     'attr':{
-                        'class': 'text-lg p-3'
+                        'class': 'text-lg text-secondary-50  p-3 bg-secondary-800 rounded-2xl'
                     }
                 })}}
             </div>
 
             <div class="flex justify-center mt-4">
-                <button type="submit" class="btn bg-secondary-800 text-primary-100 rounded-2xl p-2 md:p-4 text-xl md:text-3xl  lg:text-4xl mt-4">Register</button>
+                <button type="submit" class="btn bg-primary-500/70 col-start-2 col-end-4 text-4xl lg:text-xl rounded-xl p-2 border border-primary-50 border-s">Register</button>
             </div>
             {{ form_end(registrationForm) }}
         </div>
