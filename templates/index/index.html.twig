@@ -3,53 +3,53 @@
 {% block title %}index{% endblock %}
 
 {% block body %}
-    <div class="flex justify-center bg-lion bg-cover bg-center bg-no-repeat">
-        <div class="flex flex-col w-80 justify-center  rounded p-4 bg-secondary-50/50 backdrop-filter backdrop-blur-sm ">
+    {# Hero #}
+    <div class="grid grid-cols-12 bg-lion bg-cover bg-center bg-no-repeat h-[90svh] min-h-fit">
+
+        <div class="col-start-2 col-end-12 lg:col-end-7 xl:col-end-6 flex gap-3 flex-col justify-center rounded-3xl lg:rounded-2xl p-4 bg-secondary-50/40 backdrop-filter backdrop-blur-sm self-center border border-secondary-50 border-s">
             <div class="flex justify-center">
-                <img class="w-40"  src="images/LogoZoo.png">
+                <img class="w-60 lg:w-40" src="images/LogoZoo.png" alt="Logo">
             </div>
-            <p class="text-center">Découvrez le Zoo Parc de Laval, un joyau de la biodiversité en plein cœur de la Mayenne. Rencontrez des animaux fascinants, vivez des moments uniques en famille et explorez la beauté de la nature. Une aventure inoubliable vous attend !</p>
-            <div class="flex flex-col">
-                <button class="bg-primary-500 rounded-2xl p-2 ">Réservez vos billets</button>
-                <button class="bg-secondary-800 rounded-2xl m-3 p-1 text-background-50 backdrop-filter backdrop-blur-sm">Réservez votre hôtel</button>
+            <p class="text-4xl lg:text-2xl text-justify px-2">Découvrez le Zoo Parc de Laval, un joyau de la biodiversité en plein cœur de la Mayenne. Rencontrez des animaux fascinants, vivez des moments uniques en famille et explorez la beauté de la nature. Une aventure inoubliable vous attend&nbsp;!</p>
+            <div class="grid grid-cols-4">
+                <button class="bg-primary-500/70 col-start-2 col-end-4 text-4xl lg:text-xl rounded-xl p-2 border border-primary-50 border-s">Réservez vos billets</button>
+                <button class="bg-secondary-800/70 col-start-2 col-end-4 text-3xl lg:text-lg rounded-xl m-3 p-1 text-text-50 backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Réservez votre hôtel</button>
             </div>
         </div>
     </div>
+
+    {# Animations #}
+
     <div class="flex flex-col grow">
         <div class="bg-secondary-800 grow">
-            <H1 class="text-background-100 ml-3 mt-3 ">Nos Animations</H1>
+            <H1 class="text-text-50 text-center text-8xl lg:text-4xl mt-3 mb-6">Nos Animations</H1>
                 <div class="flex overflow-x-scroll pb-10 hide-scroll-bar ">
                     <div class="flex flex-nowrap lg:ml-40 md:ml-20 ml-10 ">
-                        <div class="flex inline-block px-3 flex-row">
-                        {% for event in events %}
-
-                        <a href="{{ path('app_index') }}" class="bg-secondary-700 flex w-64 h-80 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out m-3 flex-col">
-
-                                <span><img src="images/lion.png" class="w-[100%]"></span>
-                                <h3 class="font-bold">{{ event.nomEvent }}</h3>
-                                <p class="truncate overflow-hidden">{{ event.description }}</p>
-                        </a>
-
-                        {% endfor %}
+                        <div class="flex inline-block px-3 flex-row gap-6">
+                            {% for event in events %}
+                                <a href="{{ path('app_index') }}" class="bg-secondary-700 w-[40rem] lg:w-72 rounded-3xl">
+                                    <img src="images/lion.png" class="w-full rounded-t-3xl flex-grow" alt="image de {{ event.nomEvent }}">
+                                    <p class="my-12 lg:my-6 text-center justify-center text-6xl lg:text-2xl text">{{ event.nomEvent }}</p>
+                                    <p class="mb-12 lg:mb-6 justify-center text-4xl lg:text-xl text">{{ event.description|u.truncate(100, '...') }}</p>
+                                </a>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
         </div>
     </div>
 
+    {# Animaux #}
         <div class="bg-background-100 grow">
-            <H1 class="text-secondary-800  ml-3 mt-3 ">Nos Animaux</H1>
+            <H1 class="text-text-900 text-center text-8xl lg:text-4xl mt-3 mb-6">Nos Animaux</H1>
             <div class="flex overflow-x-scroll pb-10 hide-scroll-bar ">
                 <div class="flex flex-nowrap lg:ml-40 md:ml-20 ml-10 ">
-                    <div class="flex inline-block px-3 flex-row">
+                    <div class="flex inline-block px-3 flex-row gap-6">
                         {% for famille in familles %}
-
-                            <a href="{{ path('app_index') }}" class="bg-secondary-700 flex w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out m-3 flex-col">
-
-                                <span><img src="images/lion.png" class="w-[100%]"></span>
-                                <h3 class="font-bold text-center justify-center">{{ famille.nomFamilleAnimal }}</h3>
+                            <a href="{{ path('app_index') }}" class="bg-secondary-700 w-[40rem] lg:w-72 rounded-3xl">
+                                <img src="images/lion.png" class="w-full rounded-t-3xl flex-grow" alt="image de {{ famille.nomFamilleAnimal }}">
+                                    <p class="my-12 lg:my-6 text-center justify-center text-6xl lg:text-2xl  text">{{ famille.nomFamilleAnimal }}</p>
                             </a>
-
                         {% endfor %}
                     </div>
                 </div>
