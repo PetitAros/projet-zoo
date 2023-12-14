@@ -23,11 +23,11 @@
     <div class="flex flex-col grow">
         <div class="bg-secondary-800 grow">
             <H1 class="text-text-50 text-center text-8xl lg:text-4xl mt-3 mb-6">Nos Animations</H1>
-                <div class="flex overflow-x-scroll pb-10 hide-scroll-bar ">
+                <div class="flex overflow-x-scroll pb-10 hide-scroll-bar scrollbar scrollbar-secondary">
                     <div class="flex flex-nowrap lg:ml-40 md:ml-20 ml-10 ">
-                        <div class="flex inline-block px-3 flex-row gap-6">
+                        <div class="flex inline-block px-3 flex-row gap-6 ">
                             {% for event in events %}
-                                <a href="{{ path('app_index') }}" class="bg-secondary-700 w-[40rem] lg:w-72 rounded-3xl">
+                                <a href="{{ path('app_index') }}" class=" bg-secondary-700 w-[40rem] lg:w-72 rounded-3xl">
                                     <img src="images/lion.png" class="w-full rounded-t-3xl flex-grow" alt="image de {{ event.nomEvent }}">
                                     <p class="my-12 lg:my-6 text-center justify-center text-6xl lg:text-2xl text">{{ event.nomEvent }}</p>
                                     <p class="mb-12 lg:mb-6 justify-center text-4xl lg:text-xl text">{{ event.description|u.truncate(100, '...') }}</p>
@@ -42,7 +42,7 @@
     {# Animaux #}
         <div class="bg-background-100 grow">
             <H1 class="text-text-900 text-center text-8xl lg:text-4xl mt-3 mb-6">Nos Animaux</H1>
-            <div class="flex overflow-x-scroll pb-10 hide-scroll-bar ">
+            <div class="flex overflow-x-scroll pb-10 hide-scroll-bar scrollbar">
                 <div class="flex flex-nowrap lg:ml-40 md:ml-20 ml-10 ">
                     <div class="flex inline-block px-3 flex-row gap-6">
                         {% for famille in familles %}
