@@ -8,21 +8,33 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
 
-// hides header buttons on small screens and show burger icon
+let headerLinks = document.querySelectorAll('header a');
 
+let headerLinksUrl =  [];
+
+for (let i = 0; i < headerLinks.length; i++) {
+    headerLinksUrl.push(headerLinks[i].href);
+}
+
+// erase all links in header
+for (let i = 0; i < headerLinks.length; i++) {
+    headerLinks[i].remove();
+}
 
 let fullHeader = `<header id="header" class="fixed flex justify-evenly z-10 w-full text-text-50">
     <div class="bg-secondary-800/50 w-full absolute h-24 lg:h-12 z-[-1] bg-clip-padding  backdrop-filter backdrop-blur-sm border-b border-secondary-50 border-s"></div>
+    <img src="images/LogoZoo.png" class="navbar__logo h-20 lg:h-10 pt-1 absolute m-auto" alt="Logo">
+    
     <div class="btn-container flex justify-between gap-6">
-        <button class="mt-3 p-4 bg-secondary-800/50  rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Découvrir le parc</button>
-        <button class="mt-3 p-4 bg-secondary-800/50  rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Préparez votre visite</button>
-        <button class="mt-3 p-4 bg-secondary-800/50  rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Spectacles et activités</button>
+        <a href="` + headerLinksUrl[0] + `" class="mt-3 p-4 bg-secondary-800/50  rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Découvrir le parc</a>
+        <a href="` + headerLinksUrl[1] + `" class="mt-3 p-4 bg-secondary-800/50  rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Évènements</a>
+        <a href="` + headerLinksUrl[2] + `" class="mt-3 p-4 bg-secondary-800/50  rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Nos animaux</a>
     </div>
-    <img src="images/LogoZoo.png" class="navbar__logo h-20 lg:h-10 pt-1" alt="Logo">
+    <div></div>
     <div class="btn-container flex justify-between gap-6">
-        <button class="mt-3 p-4 bg-secondary-800/50  rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Les hôtels du parc</button>
-        <button class="mt-3 p-4 bg-secondary-800/50  rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Se connecter</button>
-        <button class="mt-3 p-4 bg-primary-500/50 rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Réservez vos billets</button>
+        <a href="` + headerLinksUrl[3] + `" class="mt-3 p-4 bg-secondary-800/50  rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Nos espaces</a>
+        <a href="` + headerLinksUrl[4] + `" class="mt-3 p-4 bg-secondary-800/50  rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Se connecter</a>
+        <a href="` + headerLinksUrl[5] + `" class="mt-3 p-4 bg-primary-500/50 rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Réservez vos billets</a>
     </div>
 </header>`;
 
@@ -38,12 +50,12 @@ let mobileheader = `<header id="header" class="fixed flex justify-between z-10 w
                 </svg>
 
                 <div id="headerButtons" class="btn-container flex flex-col justify-between absolute top-24 w-full text-4xl hidden">
-                    <button class="p-3 bg-secondary-800/50  bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Découvrir le parc</button>
-                    <button class="p-3 bg-secondary-800/50  bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Préparez votre visite</button>
-                    <button class="p-3 bg-secondary-800/50  bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Spectacles et activités</button>
-                    <button class="p-3 bg-secondary-800/50  bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Les hôtels du parc</button>
-                    <button class="p-3 bg-secondary-800/50  bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Se connecter</button>
-                    <button class="p-3 bg-primary-500/50 bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Réservez vos billets</button>
+                    <a href="` + headerLinksUrl[0] + `" class="p-3 bg-secondary-800/50  bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Découvrir le parc</a>
+                    <a href="` + headerLinksUrl[1] + `" class="p-3 bg-secondary-800/50  bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Évènements</a>
+                    <a href="` + headerLinksUrl[2] + `" class="p-3 bg-secondary-800/50  bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Nos animaux</a>
+                    <a href="` + headerLinksUrl[3] + `" class="p-3 bg-secondary-800/50  bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Nos espaces</a>
+                    <a href="` + headerLinksUrl[4] + `" class="p-3 bg-secondary-800/50  bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Se connecter</a>
+                    <a href="` + headerLinksUrl[5] + `" class="p-3 bg-primary-500/50 bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Réservez vos billets</a>
                 </div>
         </header>`;
 
