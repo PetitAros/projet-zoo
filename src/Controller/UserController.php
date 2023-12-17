@@ -16,9 +16,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController
 {
     /**
-     * Redirection vers la page de l'utilisateur.
+     * Route vers la page de l'utilisateur.
      *
-     * Redirige la personne vers une page contenant les informations de l'utilisateur qui tente d'y accéder.
+     * Dirige la personne vers une page contenant les informations de l'utilisateur qui tente d'y accéder.
      * Si aucun utilisateur n'est authentitifé, redirige vers la page de conexion.
      */
     #[Route('/user', name: 'app_user')]
@@ -33,6 +33,12 @@ class UserController extends AbstractController
         ]);
     }
 
+    /**
+     * Route vers la page de modificaiton de l'utilisateur.
+     *
+     * Dirige la personne vers la page contenant son formulaire de modification.
+     * Si aucun utilisateur n'est authentifié, redirige vers la page de connexion.
+     */
     #[Route('/user/update', name: 'app_user_update')]
     public function update(Request $request, EntityManagerInterface $entityManager): Response
     {
