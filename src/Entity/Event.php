@@ -27,10 +27,14 @@ class Event
     #[ORM\OneToMany(mappedBy: 'event', targetEntity: AssoEventDateEvent::class)]
     private Collection $datesEvent;
 
+    #[ORM\OneToMany(mappedBy: 'event', targetEntity: AssoEventReservation::class)]
+    private Collection $reservation;
+
     public function __construct()
     {
         $this->dateEvent = new ArrayCollection();
         $this->datesEvent = new ArrayCollection();
+        $this->reservation = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -98,6 +102,36 @@ class Event
             // set the owning side to null (unless already changed)
             if ($datesEvent->getEvent() === $this) {
                 $datesEvent->setEvent(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, AssoEventReservation>
+     */
+    public function getReservation(): Collection
+    {
+        return $this->reservation;
+    }
+
+    public function addReservation(AssoEventReservation $reservation): static
+    {
+        if (!$this->reservation->contains($reservation)) {
+            $this->reservation->add($reservation);
+            $reservation->setEvent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservation(AssoEventReservation $reservation): static
+    {
+        if ($this->reservation->removeElement($reservation)) {
+            // set the owning side to null (unless already changed)
+            if ($reservation->getEvent() === $this) {
+                $reservation->setEvent(null);
             }
         }
 

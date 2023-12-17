@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ReservationRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -22,6 +24,14 @@ class Reservation
 
     #[ORM\Column]
     private ?int $nbPlacesChild = null;
+
+    #[ORM\OneToMany(mappedBy: 'reservation', targetEntity: AssoEventReservation::class)]
+    private Collection $assoEventReservations;
+
+    public function __construct()
+    {
+        $this->assoEventReservations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -60,6 +70,36 @@ class Reservation
     public function setNbPlacesChild(int $nbPlacesChild): static
     {
         $this->nbPlacesChild = $nbPlacesChild;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, AssoEventReservation>
+     */
+    public function getAssoEventReservations(): Collection
+    {
+        return $this->assoEventReservations;
+    }
+
+    public function addAssoEventReservation(AssoEventReservation $assoEventReservation): static
+    {
+        if (!$this->assoEventReservations->contains($assoEventReservation)) {
+            $this->assoEventReservations->add($assoEventReservation);
+            $assoEventReservation->setReservation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAssoEventReservation(AssoEventReservation $assoEventReservation): static
+    {
+        if ($this->assoEventReservations->removeElement($assoEventReservation)) {
+            // set the owning side to null (unless already changed)
+            if ($assoEventReservation->getReservation() === $this) {
+                $assoEventReservation->setReservation(null);
+            }
+        }
 
         return $this;
     }
