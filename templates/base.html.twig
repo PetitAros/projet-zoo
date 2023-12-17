@@ -14,7 +14,16 @@
         {% endblock %}
     </head>
     <body class="flex flex-col bg-background-100">
-        <header id="header"></header>
+        <header id="header">
+            <a href="{{ path('app_index') }}" class="hidden"></a>
+            <a href="{{ path('app_event') }}" class="hidden"></a>
+            <a href="{{ path('app_famille_animal') }}" class="hidden"></a>
+            <a href="{{ path('app_zone_parc') }}" class="hidden"></a>
+            <a href="{{ path('app_register') }}" class="hidden"></a>
+            <a href="{{ path('app_register') }}" class="hidden"></a>
+        </header>
         {% block body %}{% endblock %}
+
+
     </body>
 </html>
