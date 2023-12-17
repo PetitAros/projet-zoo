@@ -32,6 +32,10 @@ class Reservation
     #[ORM\JoinColumn(nullable: false)]
     private ?Billet $billet = null;
 
+    #[ORM\ManyToOne(inversedBy: 'reservations')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
+
     public function __construct()
     {
         $this->assoEventReservations = new ArrayCollection();
@@ -116,6 +120,18 @@ class Reservation
     public function setBillet(?Billet $billet): static
     {
         $this->billet = $billet;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }
