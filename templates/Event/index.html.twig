@@ -3,20 +3,21 @@
 {% block title %}Liste des événements{% endblock %}
 
 {% block body %}
-    <h1 class="text-center text-3xl md:text-5xl  lg:text-6xl mt-4 lg:mt-7 lg:mb-5 lg:text-10xl text-secondary-800">Liste des évenements</h1>
-    <div class="flex flex-col ">
-    {% for event in events %}
-        <div class="flex flex-row m-2 bg-secondary-800/40 rounded-2xl ">
-            <img class="w-1/4 rounded-2xl p-2" src="{{ asset("images/soigneur.jpg") }}">
-            <div class="flex flex-col justify-center grow">
-                <div class="flex flex-row">
-                    <p class="text-primary-50 text-6sm md:text-2xl text-center ">{{ event.nomEvent }} </p>
-                    <div class="hidden lg:flex justify-end grow lg:mr-3">
-                        <p class="text-primary-50 text-4sm md:text-2xl text-end">Nombre de places : {{ event.nbPlaces }}</p>
-                    </div>
+    <h1 class="text-center text-8xl lg:text-6xl mt-36 lg:mt-24 mb-5 text-secondary-800">Liste des évenements</h1>
+    <div class="grid grid-cols-6">
+        <div class="flex flex-col col-start-1 col-end-7 lg:col-start-2 lg:col-end-6">
+
+        {% for event in events %}
+            <div class="flex flex-row m-2 p-2 bg-secondary-800/70 rounded-2xl text-text-50 backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">
+                <img class="w-96 h-fit rounded-2xl p-2" src="{{ asset("images/soigneur.jpg") }}" alt="Image de l'événement">
+                <div class="flex flex-col grow">
+                        <p class="text-primary-50 text-6xl lg:text-4xl ">{{ event.nomEvent }} </p>
+                        <p class="text-primary-200 text-2xl lg:text-xl">Nombre de places : {{ event.nbPlaces }}</p>
+                        <p class="text-primary-50 text-2xl lg:text-xl">{{ event.description|u.truncate(300, '...') }}</p>
                 </div>
             </div>
+        {% endfor %}
+
         </div>
-    {% endfor %}
     </div>
 {% endblock %}
