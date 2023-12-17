@@ -4,8 +4,9 @@ namespace App\Controller;
 
 use App\Form\RegistrationFormType;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -55,6 +56,35 @@ class UserController extends AbstractController
 
         return $this->render('user/update.html.twig', [
             'controller_name' => 'UserController',
+            'form' => $form,
+        ]);
+    }
+
+    #[Route('/user/delete', name: 'app_user_delete')]
+    public function delete(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        if (!$this->isGranted('ROLE_USER')) {
+            return $this->redirectToRoute('app_login');
+        }
+        $user = $this->getUser();
+        $form = $this->createFormBuilder($user)
+            ->add('delete', SubmitType::class)
+            ->add('cancel', SubmitType::class)
+            ->getForm();
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            if ($form->get('delete')->isClicked()) {
+                $this->container->get('security.token_storage')->setToken(null); // Ligne trouvée sur un forum Synfony - Déconnecte l'utilisateur
+                $entityManager->remove($user);
+                $entityManager->flush();
+
+                return $this->redirectToRoute('app_index');
+            } else {
+                return $this->redirectToRoute('app_user');
+            }
+        }
+
+        return $this->render('user/delete.html.twig', [
             'form' => $form,
         ]);
     }
