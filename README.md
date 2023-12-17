@@ -22,6 +22,7 @@ Ce projet est un site de gestion pour un zoo. Il permet de gérer les animaux, l
 1. Cloner le projet
 2. Installer les dépendances Composer avec `composer install`
 3. Installer les dépendances JavaScript avec `npm install`
+4. Initialisez tailwindCSS `npx tailwindcss init -p`
 
 ### Configuration
 
