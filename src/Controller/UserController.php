@@ -52,6 +52,8 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $form->getData();
             $entityManager->flush();
+
+            return $this->redirectToRoute('app_user');
         }
 
         return $this->render('user/update.html.twig', [
