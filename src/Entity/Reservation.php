@@ -28,6 +28,10 @@ class Reservation
     #[ORM\OneToMany(mappedBy: 'reservation', targetEntity: AssoEventReservation::class)]
     private Collection $assoEventReservations;
 
+    #[ORM\ManyToOne(inversedBy: 'reservations')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Billet $billet = null;
+
     public function __construct()
     {
         $this->assoEventReservations = new ArrayCollection();
@@ -100,6 +104,18 @@ class Reservation
                 $assoEventReservation->setReservation(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getBillet(): ?Billet
+    {
+        return $this->billet;
+    }
+
+    public function setBillet(?Billet $billet): static
+    {
+        $this->billet = $billet;
 
         return $this;
     }
