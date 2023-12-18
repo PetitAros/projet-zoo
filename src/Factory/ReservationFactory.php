@@ -47,11 +47,9 @@ final class ReservationFactory extends ModelFactory
     protected function getDefaults(): array
     {
         return [
-            'billet' => BilletFactory::random(),
-            'dateReservation' => self::faker()->dateTimeBetween('-1week', '+1 week'),
-            'nbPlacesAdult' => self::faker()->randomNumber(2, 10),
+            'dateReservation' => self::faker()->dateTimeBetween('-1 week', '+1 week'),
+            'nbPlacesAdult' => self::faker()->numberBetween(2, 10),
             'nbPlacesChild' => self::faker()->numberBetween(0, 10),
-            'user' => UserFactory::random(),
         ];
     }
 
