@@ -14,10 +14,17 @@
             {% endif %}
 
             {% if app.user %}
-                <div class="mb-3">
-                    You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                <div>
+                    <div class="flex-col mb-3" >
+                        <div class="text-secondary-800 text-cl md:text-2xl">Vous êtes connecté(e) {{ app.user.pnomUser }}</div>
+                        <div class=" flex justify-center mt-4">
+                        <button class="btn bg-primary-500/70 hover:bg-primary-500 font-bold py-2 px-4 border border-s border-primary-50 rounded">
+                            <a href="{{ path('app_logout') }}">Se déconnecter</a>
+                        </button>
+                        </div>
+                    </div>
                 </div>
-            {% endif %}
+            {% else %}
 
             <div class="flex flex-col">
                 <label class="text-secondary-800 text-cl md:text-2xl required">Email</label>
@@ -40,6 +47,7 @@
             <div class="flex justify-center mt-4">
                 <button type="submit" class="btn bg-primary-500/70 col-start-2 col-end-4 text-4xl lg:text-xl rounded-xl p-2 border border-primary-50 border-s">Connexion</button>
             </div>
+            {% endif %}
         </form>
     </div>
 </div>
