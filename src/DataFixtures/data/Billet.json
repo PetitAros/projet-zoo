@@ -1,0 +1,12 @@
+[
+  {
+    "nbJours": 1,
+    "tarifAdult": 7.5,
+    "tarifChild": 5.0
+  },
+  {
+    "nbJours": 2,
+    "tarifAdult": 12.5,
+    "tarifChild": 7.5
+  }
+]
