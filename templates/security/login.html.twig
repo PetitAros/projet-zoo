@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+
+<div class="flex justify-center content-center h-[100%] bg-lion bg-cover bg-center bg-no-repeat pb-72">
+    <div class="mt-32 w-1/2 bg-secondary-50/40 backdrop-filter backdrop-blur-sm self-center border border-secondary-50 border-s rounded-2xl p-2" >
+        <h1 class="text-center text-secondary-800 text-3xl md:text-5xl  lg:text-6xl lg:text-10xl mb-5">Connexion</h1>
+
+        <form method="post">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            {% if app.user %}
+                <div>
+                    <div class="flex-col mb-3" >
+                        <div class="text-secondary-800 text-cl md:text-2xl">Vous êtes connecté(e) {{ app.user.pnomUser }}</div>
+                        <div class=" flex justify-center mt-4">
+                        <button class="btn bg-primary-500/70 hover:bg-primary-500 font-bold py-2 px-4 border border-s border-primary-50 rounded">
+                            <a href="{{ path('app_logout') }}">Se déconnecter</a>
+                        </button>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+
+            <div class="flex flex-col">
+                <label class="text-secondary-800 text-cl md:text-2xl required">Email</label>
+                <div class="text-secondary-800"></div>
+                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="text-lg text-secondary-50 p-3 bg-secondary-800 rounded-2xl" autocomplete="email" required autofocus>
+
+            </div>
+
+            <div class="flex flex-col mt-4">
+                <label class="text-secondary-800 text-cl md:text-2xl required">Mot de passe</label>
+                <div class="text-secondary-800"></div>
+                <input type="password" name="password" id="inputPassword" class="text-lg text-secondary-50 p-3 bg-secondary-800 rounded-2xl" autocomplete="current-password" required>
+
+            </div>
+
+            <input type="hidden" name="_csrf_token"
+                   value="{{ csrf_token('authenticate') }}"
+            >
+
+            <div class="flex justify-center mt-4">
+                <button type="submit" class="btn bg-primary-500/70 col-start-2 col-end-4 text-4xl lg:text-xl rounded-xl p-2 border border-primary-50 border-s">Connexion</button>
+            </div>
+            {% endif %}
+        </form>
+    </div>
+</div>
+{% endblock %}

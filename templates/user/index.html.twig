@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% set user = app.user %}
+
+<div class="main pt-20">
+    <h1>Bonjour {{ user.nomUser }}</h1>
+
+    <div class="info flex-col">
+        <article>Nom : {{ user.nomUser }}</article>
+        <article>Prenom : {{ user.pnomUser }}</article>
+        <article>Email : {{ user.email }}</article>
+        <article>Numéro de téléphone : {{ user.phoneUser }}</article>
+    </div>
+
+</div>
+{% endblock %}
