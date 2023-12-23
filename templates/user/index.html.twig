@@ -29,9 +29,35 @@
             </div>
         </div>
     </div>
-    <div>
-        <h1 class="text-center text-8xl lg:text-6xl mt-20 lg:mt-24 mb-5 text-secondary-800">Vos Réservations</h1>
+    <div class="flex justify-center">
+        <div class="flex flex-col">
+            <h1 class="text-center text-8xl lg:text-6xl mt-20 lg:mt-24 mb-5 text-secondary-800">Vos Réservations</h1>
 
+                {% for reserv in user.reservations | sort((a,b)=>a.dateReservation <=>b.dateReservation) %}
+                <div class="bg-secondary-800 m-2 rounded-xl flex flex-col p-2">
+                    <div>
+                        <p class="text-center text-primary-50 text-2xl lg:text-xl"> {{ reserv.dateReservation |date('d/m/y')}}</p>
+                    </div>
+                    <div class="flex justify-between bg-primary-50">
+                        <p class="text-primary-50 text-2xl lg:text-xl">Nombre places adultes: {{ reserv.nbPlacesAdult }}</p>
+                        <p class="text-primary-50 text-2xl lg:text-xl">Nombre places enfants: {{ reserv.nbPlacesChild }}</p>
+                    </div>
+                    <div class="">
+                        <p class="text-primary-50 text-2xl lg:text-xl">Tarif place adulte: {{ reserv.billet.tarifAdult }} €</p>
+                        <p class="text-primary-50 text-2xl lg:text-xl">Tarif place enfant: {{ reserv.billet.tarifChild }} €</p>
+                        <p class="text-primary-50 text-2xl lg:text-xl">Prix total:{{(reserv.billet.tarifAdult * reserv.nbPlacesAdult)+(reserv.nbPlacesChild * reserv.billet.tarifChild ) }} €</p>
+                    </div>
+                    {% if reserv.assoEventReservations is not empty %}
+                        <p class="text-primary-50 text-2xl lg:text-xl text-center">Les événements réservés</p>
+                        {% for asso in reserv.assoEventReservations %}
+                            <a href="{{ path('detail',{'id':asso.event.id}) }}">{{ asso.event.nomEvent }}</a>
+                        {% endfor %}
+
+                    {% endif %}
+                </div>
+                {% endfor %}
+
+        </div>
     </div>
 
 </div>
