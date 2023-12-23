@@ -3,14 +3,31 @@
 {% block body %}
     {% set user = app.user %}
 
-<div class="main ">
-    <h1 class="text-center text-8xl lg:text-6xl mt-36 lg:mt-24 mb-5 text-secondary-800">Bonjour {{ user.nomUser }}</h1>
+<div class="main flex flex-col">
+    <h1 class="text-center text-8xl lg:text-6xl mt-36 lg:mt-24 mb-5 text-secondary-800">Votre compte</h1>
 
-    <div class="info flex-col">
-        <article>Nom : {{ user.nomUser }}</article>
-        <article>Prenom : {{ user.pnomUser }}</article>
-        <article>Email : {{ user.email }}</article>
-        <article>Numéro de téléphone : {{ user.phoneUser }}</article>
+    <div class="flex justify-center ">
+        <div class="p-2 info flex flex-col w-fit rounded-2xl bg-secondary-800/70 backdrop-filter backdrop-blur-sm">
+            <div class="flex flex-col content-center mt-4">
+                <p class="text-primary-50 text-6xl lg:text-4xl">Nom :</p>
+                <p class="text-2xl lg:text-3xl text-secondary-50 p-3 bg-secondary-800 rounded-2xl"> {{ user.nomUser }}</p>
+            </div>
+
+            <div class="flex flex-col content-center mt-4">
+                <p class="text-primary-50 text-6xl lg:text-4xl ">Prenom :</p>
+                <p class="text-2xl lg:text-3xl text-secondary-50 p-3 bg-secondary-800 rounded-2xl"> {{ user.pnomUser }}</p>
+            </div>
+
+            <div class="flex flex-col content-center mt-4">
+                <p class="text-primary-50 text-6xl lg:text-4xl ">Email :</p>
+                <p class="text-2xl lg:text-3xl text-secondary-50 p-3 bg-secondary-800 rounded-2xl"> {{ user.email }}</p>
+            </div>
+
+            <div class="flex flex-col content-center mt-4">
+                <p class="text-6xl lg:text-4xl text-primary-50 ">Numéro de téléphone :</p>
+                <p class="text-2xl lg:text-3xl text-secondary-50 p-3 bg-secondary-800 rounded-2xl">{{ user.phoneUser }}</p>
+            </div>
+        </div>
     </div>
 
 </div>
