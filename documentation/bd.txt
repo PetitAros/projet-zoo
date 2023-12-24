@@ -1,0 +1,14 @@
+Adaptation de la base de donnée pour doctrine:
+
+- Création des entités-association pour les relation n,m:
+    - AssoEventDateEvent
+         Entitées:
+         - Event
+         - DateEvent
+         Donnée:
+            - horaire (string)
+
+    - AssoEventReservation
+        Entitées:
+             - Event
+             - Reservation
