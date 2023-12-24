@@ -5,7 +5,7 @@ Adaptation de la base de donnée pour doctrine:
          Entitées:
          - Event
          - DateEvent
-         Donnée:
+         Donnée supplémentaire:
             - horaire (string)
 
     - AssoEventReservation

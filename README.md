@@ -79,3 +79,7 @@ composer fix:cs
 - nom de famille: Noel
 - email: Wil@example.com
 - password: test
+
+## Documentation
+Les fichiers relatif au cahier des charges et à la documentation de la base de donnée si situent dans le repertoire ``/documentaiton``.
+Le fichier ``bd.txt`` contient les modifications effectué à la base de donnée pour Doctrine
