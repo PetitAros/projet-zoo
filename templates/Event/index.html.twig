@@ -9,7 +9,7 @@
 
         {% for event in events %}
             <div class="flex flex-row m-2 p-2 bg-secondary-800/70 rounded-2xl text-text-50 backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">
-                <img class="w-96 h-fit rounded-2xl p-2" src="{{ asset("images/soigneur.jpg") }}" alt="Image de l'événement">
+                <img class="w-96 h-fit rounded-2xl p-2" src="{{ asset("images/events/") }}{{ event.imgEvent }}" alt="Image de l'événement">
                 <div class="flex flex-col grow">
                         <p class="text-primary-50 text-6xl lg:text-4xl ">{{ event.nomEvent }} </p>
                         <p class="text-primary-200 text-2xl lg:text-xl">Nombre de places : {{ event.nbPlaces }}</p>
