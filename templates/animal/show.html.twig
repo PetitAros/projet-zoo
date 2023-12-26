@@ -10,7 +10,7 @@
                 {% if animal.imgAnimal is defined and animal.imgAnimal is not null %}
                         <img class="object-contain" src="{{ asset("images/animaux/")}}{{ animal.imgAnimal }}"  alt="Image de {{ animal.nom }}">
                     {% else %}
-                        <img class="object-contain" src="{{ asset("images/animaux/animal-placeholder.png")}}"  alt="Image de {{ animal.nom }}">
+                        <img class="object-contain" src="{{ asset("images/default_images/animal-placeholder.png")}}"  alt="Image de {{ animal.nom }}">
                 {% endif %}
 
             </article>
