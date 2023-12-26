@@ -30,6 +30,9 @@ class Event
     #[ORM\OneToMany(mappedBy: 'event', targetEntity: AssoEventReservation::class)]
     private Collection $reservation;
 
+    #[ORM\Column(length: 100, nullable: true)]
+    private ?string $imgEvent = null;
+
     public function __construct()
     {
         $this->dateEvent = new ArrayCollection();
@@ -134,6 +137,18 @@ class Event
                 $reservation->setEvent(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getImgEvent(): ?string
+    {
+        return $this->imgEvent;
+    }
+
+    public function setImgEvent(?string $imgEvent): static
+    {
+        $this->imgEvent = $imgEvent;
 
         return $this;
     }
