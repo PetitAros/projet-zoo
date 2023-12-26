@@ -28,8 +28,8 @@ class FamilleAnimal
     #[ORM\Column(length: 511)]
     private ?string $description = null;
 
-    #[ORM\Column(type: Types::BLOB, nullable: true)]
-    private $imgFamilleAnimal = null;
+    #[ORM\Column(length: 100, nullable: true)]
+    private ?string $imgFamilleAnimal = null;
 
     #[ORM\Column(length: 128)]
     private ?string $typeAlimentation = null;
@@ -98,12 +98,12 @@ class FamilleAnimal
         return $this;
     }
 
-    public function getImgFamilleAnimal()
+    public function getImgFamilleAnimal() : ?string
     {
         return $this->imgFamilleAnimal;
     }
 
-    public function setImgFamilleAnimal($imgFamilleAnimal): static
+    public function setImgFamilleAnimal(string $imgFamilleAnimal): static
     {
         $this->imgFamilleAnimal = $imgFamilleAnimal;
 
