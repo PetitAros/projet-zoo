@@ -19,11 +19,12 @@ class ZoneParc
     #[ORM\Column(length: 128)]
     private ?string $libZone = null;
 
-    #[ORM\Column(type: Types::BLOB, nullable: true)]
-    private $imgZone;
+    #[ORM\Column(length: 100, nullable: true)]
+    private ?string $imgZone;
 
     #[ORM\OneToMany(mappedBy: 'zoneParc', targetEntity: FamilleAnimal::class)]
     private Collection $familleAnimals;
+
 
     public function __construct()
     {

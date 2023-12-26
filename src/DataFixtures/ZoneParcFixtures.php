@@ -17,6 +17,7 @@ class ZoneParcFixtures extends Fixture
         foreach ($zoneArray as $zone) {
             $zoneParc = new ZoneParc();
             $zoneParc->setLibZone($zone['libZone']);
+            $zoneParc->setImgZone($zone['image']);
             $manager->persist($zoneParc);
         }
         $manager->flush();
