@@ -8,22 +8,26 @@
             <div class="flex flex-col w-1/2 bg-secondary-800/60  m-3 p-3 rounded-2xl">
                 <h1 class="text-center text-2xl text-background-100 md:text-4xl m-2">{{ zone.libZone }}</h1>
                 <div class="flex justify-center">
+                    {% if zone.imgZone is defined and zone.imgZone is not null %}
                     <img class="w-[100%] rounded-2xl" src="{{ asset('images/zone_parc/') }}{{ zone.imgZone }}">
+                    {% else %}
+                        <img src="{{ asset('images/default_images/zone-placeholder.jpg') }}" class="w-[100%] rounded">
+                    {% endif %}
                 </div>
             </div>
         </div>
 
 
 
-        <h1 class="text-center text-2xl md:text-3xl mt-10">Les Animaux que vous pouvez voir:</h1>
+        <h1 class="text-center text-2xl md:text-3xl mt-10 text-secondary-800">Les Animaux que vous pouvez voir:</h1>
         <div class="flex flex-row justify-center flex-wrap">
 
         {% for animal in animals %}
             <div class="flex flex-col  w-1/3 m-3 ">
                 <div class="bg-primary-500 p-2 rounded-2xl"><img class="w-[100%] rounded-2xl  " src="{{ asset('images/famille_animal/') }}{{ animal.imgFamilleAnimal }}"></div>
                 <div>
-                    <p class="text-center text-xl lg:text-2xl">{{ animal.nomFamilleAnimal }}</p>
-                    <p class="text-center text-md italic lg:text-2md">{{ animal.nomScientifique }}</p>
+                    <p class="text-center text-xl lg:text-2xl text-secondary-800">{{ animal.nomFamilleAnimal }}</p>
+                    <p class="text-center text-md italic lg:text-2md text-secondary-800">{{ animal.nomScientifique }}</p>
                 </div>
             </div>
         {%endfor%}
