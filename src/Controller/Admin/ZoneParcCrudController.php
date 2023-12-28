@@ -4,8 +4,9 @@ namespace App\Controller\Admin;
 
 use App\Entity\ZoneParc;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class ZoneParcCrudController extends AbstractCrudController
@@ -15,14 +16,14 @@ class ZoneParcCrudController extends AbstractCrudController
         return ZoneParc::class;
     }
 
-    /*
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            IdField::new('id')->hideOnForm(),
+            TextField::new('libZone', 'Nom de la zone'),
+            ImageField::new('imgZone', 'Image')
+                ->setBasePath('images/zone_parc')
+                ->setUploadDir('public/images/zone_parc'),
         ];
     }
-    */
 }
