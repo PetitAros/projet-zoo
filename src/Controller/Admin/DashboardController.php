@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Billet;
 use App\Entity\User;
+use App\Entity\ZoneParc;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -29,6 +30,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Home', 'fa fa-home');
         yield MenuItem::linkToCrud('User', 'fa-solid fa-user', User::class);
         yield MenuItem::linkToCrud('Billet', 'fa-solid fa-ticket', Billet::class);
+        yield MenuItem::linkToCrud('Zone Parc', 'fas fa-list', ZoneParc::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }
