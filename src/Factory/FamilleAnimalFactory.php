@@ -48,6 +48,8 @@ final class FamilleAnimalFactory extends ModelFactory
     {
         $Animal = ['Lion', 'Zebre', 'Vaches', 'Kiwi', 'Hérisson', 'Tigre', 'Serpent', 'Corbeau', 'Aigle', 'Requin', 'Corail'];
         $nourriture = ['Omnivore', 'Carnivore', 'Herbivore'];
+        $files = glob('public/images/famille_animal/*');
+        $file = array_rand($files);
 
         return [
             'dangerExtinction' => self::faker()->numberBetween(0, 5),
@@ -55,6 +57,7 @@ final class FamilleAnimalFactory extends ModelFactory
             'nomFamilleAnimal' => self::faker()->randomElement($Animal),
             'nomScientifique' => self::faker()->words(2, true),
             'typeAlimentation' => self::faker()->randomElement($nourriture),
+            'imgFamilleAnimal' => basename($files[$file]),
         ];
     }
 

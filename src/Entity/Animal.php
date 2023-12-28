@@ -36,6 +36,9 @@ class Animal
     #[ORM\JoinColumn(nullable: false)]
     private ?FamilleAnimal $famille = null;
 
+    #[ORM\Column(length: 100, nullable: true)]
+    private ?string $imgAnimal = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -121,6 +124,18 @@ class Animal
     public function setFamille(?FamilleAnimal $famille): static
     {
         $this->famille = $famille;
+
+        return $this;
+    }
+
+    public function getImgAnimal(): ?string
+    {
+        return $this->imgAnimal;
+    }
+
+    public function setImgAnimal(?string $imgAnimal): static
+    {
+        $this->imgAnimal = $imgAnimal;
 
         return $this;
     }

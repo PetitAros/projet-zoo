@@ -7,7 +7,12 @@
     <div class="flex-row sm:flex items-center bg-background-800/40 rounded-2xl justify-between min-h-[100%] p-6 m-8">
         <div class="h-[70%] md:h-[50%] max-w-[100%] sm:min-w-[30%] md:max-w-[50%]">
             <article class="flex p-6 m-8 ">
-                <img class="object-contain" src="{{ (animal.image is defined and animal.image is not null ? animal.image : '/images/animal-placeholder.png')}}"  alt="Image de {{ animal.nom }}">
+                {% if animal.imgAnimal is defined and animal.imgAnimal is not null %}
+                        <img class="object-contain" src="{{ asset("images/animaux/")}}{{ animal.imgAnimal }}"  alt="Image de {{ animal.nom }}">
+                    {% else %}
+                        <img class="object-contain" src="{{ asset("images/default_images/animal-placeholder.png")}}"  alt="Image de {{ animal.nom }}">
+                {% endif %}
+
             </article>
         </div>
         <div class="flex flex-col justify-evenly">

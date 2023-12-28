@@ -11,21 +11,21 @@ use Zenstruck\Foundry\RepositoryProxy;
 /**
  * @extends ModelFactory<Animal>
  *
- * @method        Animal|Proxy create(array|callable $attributes = [])
- * @method static Animal|Proxy createOne(array $attributes = [])
- * @method static Animal|Proxy find(object|array|mixed $criteria)
- * @method static Animal|Proxy findOrCreate(array $attributes)
- * @method static Animal|Proxy first(string $sortedField = 'id')
- * @method static Animal|Proxy last(string $sortedField = 'id')
- * @method static Animal|Proxy random(array $attributes = [])
- * @method static Animal|Proxy randomOrCreate(array $attributes = [])
+ * @method        Animal|Proxy                     create(array|callable $attributes = [])
+ * @method static Animal|Proxy                     createOne(array $attributes = [])
+ * @method static Animal|Proxy                     find(object|array|mixed $criteria)
+ * @method static Animal|Proxy                     findOrCreate(array $attributes)
+ * @method static Animal|Proxy                     first(string $sortedField = 'id')
+ * @method static Animal|Proxy                     last(string $sortedField = 'id')
+ * @method static Animal|Proxy                     random(array $attributes = [])
+ * @method static Animal|Proxy                     randomOrCreate(array $attributes = [])
  * @method static AnimalRepository|RepositoryProxy repository()
- * @method static Animal[]|Proxy[] all()
- * @method static Animal[]|Proxy[] createMany(int $number, array|callable $attributes = [])
- * @method static Animal[]|Proxy[] createSequence(iterable|callable $sequence)
- * @method static Animal[]|Proxy[] findBy(array $attributes)
- * @method static Animal[]|Proxy[] randomRange(int $min, int $max, array $attributes = [])
- * @method static Animal[]|Proxy[] randomSet(int $number, array $attributes = [])
+ * @method static Animal[]|Proxy[]                 all()
+ * @method static Animal[]|Proxy[]                 createMany(int $number, array|callable $attributes = [])
+ * @method static Animal[]|Proxy[]                 createSequence(iterable|callable $sequence)
+ * @method static Animal[]|Proxy[]                 findBy(array $attributes)
+ * @method static Animal[]|Proxy[]                 randomRange(int $min, int $max, array $attributes = [])
+ * @method static Animal[]|Proxy[]                 randomSet(int $number, array $attributes = [])
  */
 final class AnimalFactory extends ModelFactory
 {
@@ -56,17 +56,20 @@ final class AnimalFactory extends ModelFactory
      */
     protected function getDefaults(): array
     {
+        $files = glob('public/images/animaux/*');
+        $file = array_rand($files);
         $result = [
             'caracteristique' => self::faker()->text(128),
             'dateNaissance' => self::faker()->dateTimeInInterval('-20 years', '+10 years'),
             'nom' => self::faker()->firstName(),
-            'poids' => self::faker()->randomFloat(2,0,6000),
-            'taille' => self::faker()->randomFloat(2,0,800),
+            'poids' => self::faker()->randomFloat(2, 0, 6000),
+            'taille' => self::faker()->randomFloat(2, 0, 800),
+            'imgAnimal' => basename($files[$file]),
         ];
-        if (self::faker()->boolean(33))
-        {
+        if (self::faker()->boolean(33)) {
             $result['dateMort'] = self::faker()->dateTimeInInterval('-10 years', '+10 years');
         }
+
         return $result;
     }
 

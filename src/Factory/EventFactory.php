@@ -47,11 +47,14 @@ final class EventFactory extends ModelFactory
     protected function getDefaults(): array
     {
         $liste = ['Spectacle avec les oiseaux', 'Ballet de dauphins', 'Activités ludiques pour enfants', 'Visites guidées', 'Expérience de soigneur de pingouin'];
+        $files = glob('public/images/events/*');
+        $file = array_rand($files);
 
         return [
             'description' => self::faker()->text(512),
             'nbPlaces' => self::faker()->numberBetween(50, 100),
             'nomEvent' => self::faker()->randomElement($liste),
+            'imgEvent' => basename($files[$file]),
         ];
     }
 

@@ -8,7 +8,13 @@
     <div class="flex flex-row flex-wrap justify-center ">
     {% for zone in zones_Parc %}
         <div class="flex flex-col content-center m-3 pt-2 pl-2 pr-2 bg-background-800/40 backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">
-            <div class="bg-secondary-800/60 p-2 rounded"> <img src="{{ asset('images/zone_illustration.jpg') }}" class="w-[100] rounded"></div>
+            <div class="bg-secondary-800/60 p-2 rounded">
+                {% if zone.imgZone is defined and zone.imgZone is not null %}
+                <img src="{{ asset('images/zone_parc/') }}{{ zone.imgZone }}" class="w-[100%] rounded">
+                    {% else %}
+                        <img src="{{ asset('images/default_images/zone-placeholder.jpg') }}" class="w-[100%] rounded">
+                {% endif %}
+            </div>
             <p class="text-center m-2 text-2xl">{{ zone.libZone }}</p>
         </div>
     {% endfor %}
