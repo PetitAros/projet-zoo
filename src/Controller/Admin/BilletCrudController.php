@@ -5,8 +5,8 @@ namespace App\Controller\Admin;
 use App\Entity\Billet;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 
 class BilletCrudController extends AbstractCrudController
 {
@@ -15,14 +15,13 @@ class BilletCrudController extends AbstractCrudController
         return Billet::class;
     }
 
-    /*
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            IdField::new('id')->hideOnForm(),
+            IntegerField::new('nbJours', 'Nombre de Jours'),
+            NumberField::new('tarifAdult', 'Tarif Adulte'),
+            NumberField::new('tarifChild', 'Tarif Enfant'),
         ];
     }
-    */
 }
