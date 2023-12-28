@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Animal;
 use App\Entity\Billet;
 use App\Entity\Event;
 use App\Entity\FamilleAnimal;
@@ -35,6 +36,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Zone Parc', 'fas fa-tree', ZoneParc::class);
         yield MenuItem::linkToCrud('Evenement', 'fas fa-users', Event::class);
         yield MenuItem::linkToCrud('Famille d\'animaux', 'fas fa-hippo', FamilleAnimal::class);
+        yield MenuItem::linkToCrud('Animaux', 'fas fa-fish', Animal::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }
