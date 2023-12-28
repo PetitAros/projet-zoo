@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Billet;
+use App\Entity\Event;
 use App\Entity\User;
 use App\Entity\ZoneParc;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -31,6 +32,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('User', 'fa-solid fa-user', User::class);
         yield MenuItem::linkToCrud('Billet', 'fa-solid fa-ticket', Billet::class);
         yield MenuItem::linkToCrud('Zone Parc', 'fas fa-tree', ZoneParc::class);
+        yield MenuItem::linkToCrud('Evenement', 'fas fa-users', Event::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }
