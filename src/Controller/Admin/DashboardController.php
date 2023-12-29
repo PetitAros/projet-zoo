@@ -28,8 +28,8 @@ class DashboardController extends AbstractDashboardController
     {
         return Dashboard::new()
             ->setTitle('<img src="images/LogoZoo.png">');
-
     }
+
     public function configureAssets(): Assets
     {
         return parent::configureAssets()
