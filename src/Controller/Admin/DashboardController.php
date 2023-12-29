@@ -26,7 +26,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Zoo de Laval');
+            ->setTitle('<img src="images/LogoZoo.png">');
     }
 
     public function configureMenuItems(): iterable
