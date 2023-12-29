@@ -3,14 +3,64 @@
 {% block body %}
     {% set user = app.user %}
 
-<div class="main pt-20">
-    <h1>Bonjour {{ user.nomUser }}</h1>
+<div class="main flex flex-col">
+    <h1 class="text-center text-8xl lg:text-6xl mt-36 lg:mt-24 mb-5 text-secondary-800">Votre compte</h1>
 
-    <div class="info flex-col">
-        <article>Nom : {{ user.nomUser }}</article>
-        <article>Prenom : {{ user.pnomUser }}</article>
-        <article>Email : {{ user.email }}</article>
-        <article>Numéro de téléphone : {{ user.phoneUser }}</article>
+    <div class="flex justify-center ">
+        <div class="p-2 info flex flex-col w-fit rounded-2xl bg-secondary-800/70 backdrop-filter backdrop-blur-sm">
+            <div class="flex flex-col content-center mt-4">
+                <p class="text-primary-50 text-6xl lg:text-4xl">Nom :</p>
+                <p class="text-2xl lg:text-3xl text-secondary-50 p-3 bg-secondary-800 rounded-2xl"> {{ user.nomUser }}</p>
+            </div>
+
+            <div class="flex flex-col content-center mt-4">
+                <p class="text-primary-50 text-6xl lg:text-4xl ">Prenom :</p>
+                <p class="text-2xl lg:text-3xl text-secondary-50 p-3 bg-secondary-800 rounded-2xl"> {{ user.pnomUser }}</p>
+            </div>
+
+            <div class="flex flex-col content-center mt-4">
+                <p class="text-primary-50 text-6xl lg:text-4xl ">Email :</p>
+                <p class="text-2xl lg:text-3xl text-secondary-50 p-3 bg-secondary-800 rounded-2xl"> {{ user.email }}</p>
+            </div>
+
+            <div class="flex flex-col content-center mt-4">
+                <p class="text-6xl lg:text-4xl text-primary-50 ">Numéro de téléphone :</p>
+                <p class="text-2xl lg:text-3xl text-secondary-50 p-3 bg-secondary-800 rounded-2xl">{{ user.phoneUser }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="flex justify-center">
+        <div class="flex flex-col">
+            <h1 class="text-center text-8xl lg:text-6xl mt-20 lg:mt-24 mb-5 text-secondary-800">Vos Réservations</h1>
+
+                {% for reserv in user.reservations | sort((a,b)=>a.dateReservation <=>b.dateReservation) %}
+                <div class="bg-secondary-800/70 m-2 rounded-xl flex flex-col p-2">
+                    <div>
+                        <p class="text-center text-primary-50 text-3xl"> {{ reserv.dateReservation |date('d/m/y')}}</p>
+                    </div>
+                    <div class="m-4 flex justify-between ">
+                        <p class="text-primary-50 text-2xl ">Nb places adultes: {{ reserv.nbPlacesAdult }} </p>
+                        <p class="text-primary-50 text-2xl">&nbsp|&nbsp</p>
+                        <p class="text-primary-50 text-2xl ">Nb places enfants: {{ reserv.nbPlacesChild }}</p>
+                    </div>
+                    <div class="flex justify-between">
+                        <p class="text-primary-50 text-lg">Tarif place adulte: {{ reserv.billet.tarifAdult }} €</p>
+                        <p class="text-primary-50 text-lg">Tarif place enfant: {{ reserv.billet.tarifChild }} €</p>
+                    </div>
+                    <div class="">
+                        <p class="text-primary-50 text-2xl text-center">Prix total:{{(reserv.billet.tarifAdult * reserv.nbPlacesAdult)+(reserv.nbPlacesChild * reserv.billet.tarifChild ) }} €</p>
+                    </div>
+                    {% if reserv.assoEventReservations is not empty %}
+                        <p class="text-primary-50 text-3xl text-center m-2 underline">Les événements réservés :</p>
+                        {% for asso in reserv.assoEventReservations %}
+                            <a class="text-2xl text-center text-primary-50 hover:text-primary-200" href="{{ path('detail',{'id':asso.event.id}) }}"> - {{ asso.event.nomEvent }}</a>
+                        {% endfor %}
+
+                    {% endif %}
+                </div>
+                {% endfor %}
+
+        </div>
     </div>
 
 </div>
