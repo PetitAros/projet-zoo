@@ -71,4 +71,9 @@ class AssoEventDateEvent
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->dateEvent->getDateEvent()->format('d-m-Y');
+    }
 }

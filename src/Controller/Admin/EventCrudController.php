@@ -2,10 +2,9 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\DateEvent;
 use App\Entity\Event;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
@@ -29,6 +28,9 @@ class EventCrudController extends AbstractCrudController
             ImageField::new('imgEvent', 'Image')
                 ->setBasePath('images/events')
             ->setUploadDir('public/images/events'),
+            AssociationField::new('datesEvent', 'Dates')
+            ->setFormTypeOption('choice_label', 'dateEvent')
+            ->setFormTypeOption('by_reference', false),
         ];
     }
 }
