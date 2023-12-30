@@ -2,22 +2,24 @@
 
 {% block title %}{{ famille_animal.nomFamilleAnimal }} {% endblock %}
 {% block body %}
-<div class="mt-36 lg:mt-24">
+<div class="mt-36 lg:mt-24 ">
     <h1 class="text-center text-secondary-800 text-3xl md:text-5xl  lg:text-6xl lg:text-10xl mb-5">{{ famille_animal.nomFamilleAnimal }}</h1>
-    <div class="flex flex-row">
-        <div>
-            <img class="w-[100%] rounded-2xl  " src="{{ asset('images/famille_animal/') }}{{ famille_animal.imgFamilleAnimal }}">
+    <div class="flex flex-row p-4 ">
+        <div class=" xl:w-1/2">
+            <img class="w-[100%]  rounded-2xl  " src="{{ asset('images/famille_animal/') }}{{ famille_animal.imgFamilleAnimal }}">
         </div>
-        <div class="flex flex-col">
-            <div>
-                <p>Nom de la famille : {{ famille_animal.nomFamilleAnimal }}</p>
-                <p>Nom scientifique : {{ famille_animal.nomScientifique }}</p>
+        <div class="flex flex-col justify-evenly ml-2">
+            <div class="m-2 bg-secondary-800 rounded-xl p-1">
+                <p class="text-primary-100">Nom de la famille : {{ famille_animal.nomFamilleAnimal }}</p>
+                <p class="text-primary-100">Nom scientifique : {{ famille_animal.nomScientifique }}</p>
             </div>
-            <div>
-                <p>Degree de danger d'extinction : {{ famille_animal.dangerExtinction}}</p>
-                <p>Type d'alimentation : {{ famille_animal.typeAlimentation }} </p>
-                <p>Description : {{ famille_animal.description}}</p>
-                <p>{{ famille_animal.imgFamilleAnimal}}</p>
+            <div class="m-2 bg-secondary-800 rounded-xl p-1">
+                <p class="text-primary-100">Degrée de danger d'extinction : {{ famille_animal.dangerExtinction}}</p>
+                <p class="text-primary-100">Type d'alimentation : {{ famille_animal.typeAlimentation }} </p>
+
+            </div>
+            <div class="m-2 bg-secondary-800 rounded-xl p-1">
+                <p class="text-primary-100">Description : {{ famille_animal.description}}</p>
             </div>
         </div>
     </div>
