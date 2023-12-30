@@ -1,17 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ familleAnimal.nomFamilleAnimal }} {% endblock %}
+{% block title %}{{ famille_animal.nomFamilleAnimal }} {% endblock %}
 {% block body %}
-
+<div class="mt-36 lg:mt-24">
+    <h1 class="text-center text-secondary-800 text-3xl md:text-5xl  lg:text-6xl lg:text-10xl mb-5">{{ famille_animal.nomFamilleAnimal }}</h1>
     <ul>
-        <li>Nom de la famille : {{ familleAnimal.nomFamilleAnimal }}</li>
-        <li>Nom scientifique : {{ familleAnimal.nomScientifique }}</li>
-        <li>Degree de danger d'extinction : {{ familleAnimal.dangerExctinction}}
-        <li>Type d'alimentation : {{ familleAnimal.typeAlimentation }} </li>
-        <li>Description : {{ familleAnimal.description}}</li>
-        <li>{{ familleAnimal.imgFamilleAnimal}}</li>
-
+        <li>Nom de la famille : {{ famille_animal.nomFamilleAnimal }}</li>
+        <li>Nom scientifique : {{ famille_animal.nomScientifique }}</li>
+        <li>Degree de danger d'extinction : {{ famille_animal.dangerExtinction}}
+        <li>Type d'alimentation : {{ famille_animal.typeAlimentation }} </li>
+        <li>Description : {{ famille_animal.description}}</li>
+        <li>{{ famille_animal.imgFamilleAnimal}}</li>
     </ul>
+</div>
 {% endblock %}
 
 
