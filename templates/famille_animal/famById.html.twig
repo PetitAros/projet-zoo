@@ -10,16 +10,17 @@
         </div>
         <div class="flex flex-col justify-evenly ml-2">
             <div class="m-2 bg-secondary-800 rounded-xl p-1">
-                <p class="text-primary-100">Nom de la famille : {{ famille_animal.nomFamilleAnimal }}</p>
-                <p class="text-primary-100">Nom scientifique : {{ famille_animal.nomScientifique }}</p>
+                <p class="text-primary-100 text-2xl lg:text-xl">Nom de la famille : {{ famille_animal.nomFamilleAnimal }}</p>
+                <p class="text-primary-100 text-2xl lg:text-xl">Nom scientifique : {{ famille_animal.nomScientifique }}</p>
             </div>
             <div class="m-2 bg-secondary-800 rounded-xl p-1">
-                <p class="text-primary-100">Degrée de danger d'extinction : {{ famille_animal.dangerExtinction}}</p>
-                <p class="text-primary-100">Type d'alimentation : {{ famille_animal.typeAlimentation }} </p>
+                <p class="text-primary-100 text-2xl lg:text-xl">Degrée de danger d'extinction : {{ famille_animal.dangerExtinction}}</p>
+                <p class="text-primary-100 text-2xl lg:text-xl">Type d'alimentation : {{ famille_animal.typeAlimentation }} </p>
 
             </div>
             <div class="m-2 bg-secondary-800 rounded-xl p-1">
-                <p class="text-primary-100">Description : {{ famille_animal.description}}</p>
+                <p class="text-primary-100 text-2xl lg:text-xl text-center font-bold">Description</p>
+                <p class="text-primary-100 text-2xl lg:text-xl">{{ famille_animal.description}}</p>
             </div>
         </div>
     </div>
