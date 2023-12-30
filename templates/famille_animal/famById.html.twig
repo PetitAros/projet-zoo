@@ -4,14 +4,23 @@
 {% block body %}
 <div class="mt-36 lg:mt-24">
     <h1 class="text-center text-secondary-800 text-3xl md:text-5xl  lg:text-6xl lg:text-10xl mb-5">{{ famille_animal.nomFamilleAnimal }}</h1>
-    <ul>
-        <li>Nom de la famille : {{ famille_animal.nomFamilleAnimal }}</li>
-        <li>Nom scientifique : {{ famille_animal.nomScientifique }}</li>
-        <li>Degree de danger d'extinction : {{ famille_animal.dangerExtinction}}
-        <li>Type d'alimentation : {{ famille_animal.typeAlimentation }} </li>
-        <li>Description : {{ famille_animal.description}}</li>
-        <li>{{ famille_animal.imgFamilleAnimal}}</li>
-    </ul>
+    <div class="flex flex-row">
+        <div>
+            <img class="w-[100%] rounded-2xl  " src="{{ asset('images/famille_animal/') }}{{ famille_animal.imgFamilleAnimal }}">
+        </div>
+        <div class="flex flex-col">
+            <div>
+                <p>Nom de la famille : {{ famille_animal.nomFamilleAnimal }}</p>
+                <p>Nom scientifique : {{ famille_animal.nomScientifique }}</p>
+            </div>
+            <div>
+                <p>Degree de danger d'extinction : {{ famille_animal.dangerExtinction}}</p>
+                <p>Type d'alimentation : {{ famille_animal.typeAlimentation }} </p>
+                <p>Description : {{ famille_animal.description}}</p>
+                <p>{{ famille_animal.imgFamilleAnimal}}</p>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
 
