@@ -8,6 +8,7 @@
     <div class="flex flex-row flex-wrap justify-center ">
     {% for zone in zones_Parc %}
         <div class="flex flex-col content-center m-3 pt-2 pl-2 pr-2 bg-secondary-800/60 backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">
+            <a class="object-contain" href="{{ path('app_zoneParc_details',{'id':zone.id}) }}">
             <div class="bg-primary-500 p-2 rounded">
                 {% if zone.imgZone is defined and zone.imgZone is not null %}
                 <img src="{{ asset('images/zone_parc/') }}{{ zone.imgZone }}" class="w-[100%] rounded">
@@ -16,6 +17,7 @@
                 {% endif %}
             </div>
             <p class="text-primary-100 text-2xl lg:text-xl text-center m-2">{{ zone.libZone }}</p>
+            </a>
         </div>
     {% endfor %}
     </div>
