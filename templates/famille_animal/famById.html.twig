@@ -6,7 +6,7 @@
     <h1 class="text-center text-secondary-800 text-5xl md:text-5xl  lg:text-6xl lg:text-10xl mb-5">{{ famille_animal.nomFamilleAnimal }}</h1>
     <div class="flex flex-row p-4 ">
         <div>
-            <img class="w-[100%] rounded-2xl" src="{{ asset('images/famille_animal/') }}{{ famille_animal.imgFamilleAnimal }}">
+            <img class="w-[100%] rounded-2xl" src="{{ asset('images/famille_animal/') }}{{ famille_animal.imgFamilleAnimal }}" alt="imageFamilleAnimal">
         </div>
         <div class="flex flex-col justify-evenly ml-2 ">
             <div class="m-2 bg-secondary-800 rounded-xl p-1">
@@ -29,6 +29,14 @@
         </div>
     </div>
     <h2 class="text-center text-secondary-800 text-2xl md:text-4xl  lg:text-5xl mb-5 mt-5">Les animaux</h2>
+    {% for animal in animaux %}
+        <div class="flex bg-secondary-800 m-2 rounded-2xl w-fit">
+            <img  class="w-1/2 lg:w-1/4  lg:w-100 p-2" src="{{ asset('images/animaux/') }}{{ animal.imgAnimal }}" alt="imageAnimal">
+            <div class="flex flex-col justify-center ml-3 w-[100%]">
+                    <p class="text-primary-100 text-4xl lg:text-2xl">{{ animal.nom }}</p>
+            </div>
+        </div>
+    {% endfor %}
 </div>
 {% endblock %}
 
