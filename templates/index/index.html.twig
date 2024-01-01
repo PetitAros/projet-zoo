@@ -26,7 +26,7 @@
                     <div class="flex flex-nowrap lg:ml-40 md:ml-20 ml-10 ">
                         <div class="flex inline-block px-3 flex-row gap-6">
                             {% for event in events %}
-                                <a href="{{ path('app_index') }}" class="bg-secondary-700 w-[40rem] lg:w-72 rounded-3xl">
+                                <a href="{{ path('detail',{'id':event.id}) }}" class="bg-secondary-700 w-[40rem] lg:w-72 rounded-3xl">
                                     {% if event.imgEvent is defined and event.imgEvent is not null%}
                                         <img class="w-96 h-fit rounded-2xl p-2" src="{{ asset("images/events/") }}{{ event.imgEvent }}" alt="Image de l'événement">
                                     {% else %}
