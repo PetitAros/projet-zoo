@@ -49,7 +49,7 @@
                 <div class="flex flex-nowrap lg:ml-40 md:ml-20 ml-10 ">
                     <div class="flex inline-block px-3 flex-row gap-6">
                         {% for famille in familles %}
-                            <a href="{{ path('app_index') }}" class="bg-secondary-700 w-[40rem] lg:w-72 rounded-3xl">
+                            <a href="{{ path('app_famille_animal_fambyid',{'id':famille.id}) }}" class="bg-secondary-700 w-[40rem] lg:w-72 rounded-3xl">
                                 {% if famille.imgFamilleAnimal is defined and famille.imgFamilleAnimal is not null %}
                                     <img class="w-[100%] rounded-2xl" src="{{ asset('images/famille_animal/') }}{{ famille.imgFamilleAnimal }}"  alt="Image de {{ famille.nomFamilleAnimal }}">
                                 {% else %}
