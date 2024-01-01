@@ -14,8 +14,8 @@ class FamilleAnimalController extends AbstractController
     #[Route('/famille_animal', name: 'app_famille_animal')]
     public function index(FamilleAnimalRepository $animalRepository): Response
     {
-        $animalRepository->findAll();
-        return $this->render('famille_animal/index.html.twig', ['animaux' => $animalRepository]);
+        $animaux=$animalRepository->findAll();
+        return $this->render('famille_animal/index.html.twig', ['animaux' => $animaux]);
     }
 
     #[Route('/famille_animal/{id}', name: 'app_famille_animal_fambyid')]

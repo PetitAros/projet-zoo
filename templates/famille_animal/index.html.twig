@@ -3,6 +3,15 @@
 {% block title %}Familles{% endblock %}
 
 {% block body %}
-    <div>TODO quand base faite : liste toutes les familles</div>
+    <div class="mt-36 lg:mt-24">
+        <h1 class="text-center text-secondary-800 text-5xl md:text-5xl  lg:text-6xl lg:text-10xl mb-5">Nos animaux</h1>
+        <div class="flex flex-wrap">
+            {% for animal in animaux  %}
+            <div>
+                <p>{{ animal.nomFamilleAnimal }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 
 {% endblock %}
