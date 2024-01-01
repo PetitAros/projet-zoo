@@ -5,9 +5,21 @@
 {% block body %}
     <div class="mt-36 lg:mt-24">
         <h1 class="text-center text-secondary-800 text-5xl md:text-5xl  lg:text-6xl lg:text-10xl mb-5">Nos animaux</h1>
-
+        <div class="flex flex-row justify-center flex-wrap">
             {% for animal in animaux  %}
-
+                <div class="flex flex-col  w-1/3 m-3 ">
+                    <div class="bg-primary-500 p-2 rounded-2xl">
+                        {% if animal.imgFamilleAnimal  is defined and animal.imgFamilleAnimal is not null %}
+                            <img class="w-[100%] rounded-2xl" src="{{ asset('images/famille_animal/') }}{{ animal.imgFamilleAnimal }}"  alt="Image de {{ animal.nomFamilleAnimal }}">
+                        {% else %}
+                            <img class="w-[100%] rounded-2xl" src="{{ asset("images/default_images/famille_animal-placeholder.jpg")}}"  alt="Image de {{ animal.nomFamilleAnimal }}">
+                        {% endif %}
+                    </div>
+                    <div>
+                        <p class="text-center text-xl lg:text-2xl text-secondary-800">{{ animal.nomFamilleAnimal }}</p>
+                        <p class="text-center text-md italic lg:text-2md text-secondary-800">{{ animal.nomScientifique }}</p>
+                    </div>
+                </div>
             {% endfor %}
         </div>
     </div>
