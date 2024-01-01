@@ -33,7 +33,7 @@ let fullHeader = `<header id="header" class="fixed flex justify-evenly z-10 w-fu
     <div></div>
     <div class="btn-container flex justify-between gap-6">
         <a href="` + headerLinksUrl[3] + `" class="mt-3 p-4 bg-secondary-800/50  rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Nos espaces</a>
-        <a href="` + headerLinksUrl[4] + `" class="mt-3 p-4 bg-secondary-800/50  rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Se connecter</a>
+        <a href="` + headerLinksUrl[4] + `" class="mt-3 p-4 bg-secondary-800/50  rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Votre compte</a>
         <a href="` + headerLinksUrl[5] + `" class="mt-3 p-4 bg-primary-500/50 rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Réservez vos billets</a>
     </div>
 </header>`;
@@ -54,7 +54,7 @@ let mobileheader = `<header id="header" class="fixed flex justify-between z-10 w
                     <a href="` + headerLinksUrl[1] + `" class="p-3 bg-secondary-800/50  bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Évènements</a>
                     <a href="` + headerLinksUrl[2] + `" class="p-3 bg-secondary-800/50  bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Nos animaux</a>
                     <a href="` + headerLinksUrl[3] + `" class="p-3 bg-secondary-800/50  bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Nos espaces</a>
-                    <a href="` + headerLinksUrl[4] + `" class="p-3 bg-secondary-800/50  bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Se connecter</a>
+                    <a href="` + headerLinksUrl[4] + `" class="p-3 bg-secondary-800/50  bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Votre compte</a>
                     <a href="` + headerLinksUrl[5] + `" class="p-3 bg-primary-500/50 bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Réservez vos billets</a>
                 </div>
         </header>`;
