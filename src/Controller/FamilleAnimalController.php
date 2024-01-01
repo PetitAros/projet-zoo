@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\FamilleAnimal;
+use App\Repository\AnimalRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,8 +17,10 @@ class FamilleAnimalController extends AbstractController
     }
 
     #[Route('/famille_animal/{id}', name: 'app_famille_animal_fambyid')]
-    public function famById(FamilleAnimal $famAnId): Response
+    public function famById(FamilleAnimal $famAnId, AnimalRepository $animalRepository): Response
     {
-        return $this->render('famille_animal/famById.html.twig', ['famille_animal' => $famAnId]);
+        $animaux = $animalRepository->findBy(['famille' => $famAnId->getId()]);
+
+        return $this->render('famille_animal/famById.html.twig', ['famille_animal' => $famAnId, 'animaux' => $animaux]);
     }
 }
