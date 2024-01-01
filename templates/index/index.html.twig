@@ -27,7 +27,11 @@
                         <div class="flex inline-block px-3 flex-row gap-6">
                             {% for event in events %}
                                 <a href="{{ path('app_index') }}" class="bg-secondary-700 w-[40rem] lg:w-72 rounded-3xl">
-                                    <img src="images/lion.png" class="w-full rounded-t-3xl flex-grow" alt="image de {{ event.nomEvent }}">
+                                    {% if event.imgEvent is defined and event.imgEvent is not null%}
+                                        <img class="w-96 h-fit rounded-2xl p-2" src="{{ asset("images/events/") }}{{ event.imgEvent }}" alt="Image de l'événement">
+                                    {% else %}
+                                        <img class="object-contain" src="{{ asset("images/default_images/animal-placeholder.png")}}"  alt="Image de {{ event.nomEvent }}">
+                                    {% endif %}
                                     <p class="my-12 lg:my-6 text-center justify-center text-6xl lg:text-2xl text">{{ event.nomEvent }}</p>
                                     <p class="mb-12 lg:mb-6 justify-center text-4xl lg:text-xl text">{{ event.description|u.truncate(100, '...') }}</p>
                                 </a>
@@ -46,7 +50,11 @@
                     <div class="flex inline-block px-3 flex-row gap-6">
                         {% for famille in familles %}
                             <a href="{{ path('app_index') }}" class="bg-secondary-700 w-[40rem] lg:w-72 rounded-3xl">
-                                <img src="images/lion.png" class="w-full rounded-t-3xl flex-grow" alt="image de {{ famille.nomFamilleAnimal }}">
+                                {% if famille.imgFamilleAnimal is defined and famille.imgFamilleAnimal is not null %}
+                                    <img class="w-[100%] rounded-2xl" src="{{ asset('images/famille_animal/') }}{{ famille.imgFamilleAnimal }}"  alt="Image de {{ famille.nomFamilleAnimal }}">
+                                {% else %}
+                                    <img class="w-[100%] rounded-2xl" src="{{ asset("images/default_images/famille_animal-placeholder.jpg")}}"  alt="Image de {{ famille.nomFamilleAnimal }}">
+                                {% endif %}
                                     <p class="my-12 lg:my-6 text-center justify-center text-6xl lg:text-2xl  text">{{ famille.nomFamilleAnimal }}</p>
                             </a>
                         {% endfor %}
