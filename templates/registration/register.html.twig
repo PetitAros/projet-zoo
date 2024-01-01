@@ -3,8 +3,8 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <div class="flex justify-center content-center h-[100%] bg-lion bg-cover bg-center bg-no-repeat">
-        <div class="mt-36 lg:mt-24 w-1/2 bg-secondary-50/40 backdrop-filter backdrop-blur-sm self-center border border-secondary-50 border-s rounded-2xl p-2" >
+    <div class="flex flex-grow justify-center content-center h-[100%]  bg-cover bg-center bg-no-repeat">
+        <div style="background: linear-gradient(rgba(255,255,255,.4), rgba(255,255,255,.4)), url({{ asset('images/lion.png') }})" class="mt-36 lg:mt-24 w-1/2  bg-cover bg-center backdrop-filter backdrop-blur-sm self-center border border-secondary-50 border-s rounded-2xl p-2" >
             <h1 class="text-center text-secondary-800 text-3xl md:text-5xl  lg:text-6xl lg:text-10xl mb-5">Inscription</h1>
             {{ form_errors(registrationForm) }}
 
@@ -89,6 +89,6 @@
                 <button type="submit" class="btn bg-primary-500/70 col-start-2 col-end-4 text-4xl lg:text-2xl rounded-xl p-2 border border-primary-50 border-s">Register</button>
             </div>
             {{ form_end(registrationForm) }}
-        </div>
+        </divs>
     </div>
 {% endblock %}
