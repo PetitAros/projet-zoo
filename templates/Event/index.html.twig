@@ -8,19 +8,22 @@
         <div class="flex flex-col col-start-1 col-end-7 lg:col-start-2 lg:col-end-6">
 
         {% for event in events %}
-            <div class="flex flex-row m-2 p-2 bg-secondary-800/70 rounded-2xl text-text-50 backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">
-                {% if event.imgEvent is defined and event.imgEvent is not null%}
-                    <img class="w-96 h-fit rounded-2xl p-2" src="{{ asset("images/events/") }}{{ event.imgEvent }}" alt="Image de l'événement">
-                    {% else %}
-                        <img class="object-contain" src="{{ asset("images/default_images/animal-placeholder.png")}}"  alt="Image de {{ event.nomEvent }}">
-                {% endif %}
+            <a href="{{ path('detail',{'id':event.id}) }}">
+                <div class="flex flex-row m-2 p-2 bg-secondary-800/70 rounded-2xl text-text-50 backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">
+                        {% if event.imgEvent is defined and event.imgEvent is not null%}
+                            <img class="w-96 h-fit rounded-2xl p-2" src="{{ asset("images/events/") }}{{ event.imgEvent }}" alt="Image de l'événement">
+                            {% else %}
+                                <img class="object-contain" src="{{ asset("images/default_images/animal-placeholder.png")}}"  alt="Image de {{ event.nomEvent }}">
+                        {% endif %}
 
-                <div class="flex flex-col grow">
-                        <p class="text-primary-50 text-6xl lg:text-4xl ">{{ event.nomEvent }} </p>
-                        <p class="text-primary-200 text-2xl lg:text-xl">Nombre de places : {{ event.nbPlaces }}</p>
-                        <p class="text-primary-50 text-2xl lg:text-xl">{{ event.description|u.truncate(300, '...') }}</p>
+                        <div class="flex flex-col grow">
+                                <p class="text-primary-50 text-6xl lg:text-4xl ">{{ event.nomEvent }} </p>
+                                <p class="text-primary-200 text-2xl lg:text-xl">Nombre de places : {{ event.nbPlaces }}</p>
+                                <p class="text-primary-50 text-2xl lg:text-xl">{{ event.description|u.truncate(300, '...') }}</p>
+                        </div>
+
                 </div>
-            </div>
+            </a>
         {% endfor %}
 
         </div>
