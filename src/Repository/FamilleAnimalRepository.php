@@ -39,6 +39,20 @@ class FamilleAnimalRepository extends ServiceEntityRepository
 
         return array_slice($allList, 0, $number);
     }
+
+    public function findSearch(string $txt = ''): array
+    {
+        $request = $this->createQueryBuilder('famille')
+            ->where('famille.nomFamilleAnimal LIKE :txt')
+            ->setParameter(':txt', '%'.$txt.'%')
+            ->orderBy('famille.nomFamilleAnimal');
+
+        $query = $request->getQuery()->execute();
+
+        return array_filter($query, function ($item) {
+            return $item instanceof FamilleAnimal;
+        });
+    }
     //    /**
     //     * @return FamilleAnimal[] Returns an array of FamilleAnimal objects
     //     */
