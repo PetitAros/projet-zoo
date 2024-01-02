@@ -39,6 +39,27 @@ class EventRepository extends ServiceEntityRepository
 
         return array_slice($allList, 0, $number);
     }
+
+    /**
+     * Méthode de classe de Event Repository.
+     * Retourne une liste d'event dont le nom contient la chaîne de caractère passée en paramètre.
+     *
+     * @param string $txt chaîne de caractère à rechercher
+     *
+     * @return array Liste d'événements
+     */
+    public function findSearch(string $txt = '')
+    {
+        $request = $this->createQueryBuilder('event')
+            ->where('event.nomEvent LIKE :txt')
+            ->setParameter(':txt', '%'.$txt.'%')
+            ->orderBy('event.nomEvent');
+        $query = $request->getQuery()->execute();
+
+        return array_filter($query, function ($item) {
+            return $item instanceof Event;
+        });
+    }
     //    /**
     //     * @return Event[] Returns an array of Event objects
     //     */

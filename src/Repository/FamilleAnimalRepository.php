@@ -39,6 +39,28 @@ class FamilleAnimalRepository extends ServiceEntityRepository
 
         return array_slice($allList, 0, $number);
     }
+
+    /**
+     * Méthode de classe de FamilleAnimalRepository.
+     * Retourne une liste de famille d'animaux dont le nom contient la chaîne de caractère passée en paramètre.
+     *
+     * @param string $txt chaîne de caractère à rechercher
+     *
+     * @return array Liste de famille d'animaux
+     */
+    public function findSearch(string $txt = ''): array
+    {
+        $request = $this->createQueryBuilder('famille')
+            ->where('famille.nomFamilleAnimal LIKE :txt')
+            ->setParameter(':txt', '%'.$txt.'%')
+            ->orderBy('famille.nomFamilleAnimal');
+
+        $query = $request->getQuery()->execute();
+
+        return array_filter($query, function ($item) {
+            return $item instanceof FamilleAnimal;
+        });
+    }
     //    /**
     //     * @return FamilleAnimal[] Returns an array of FamilleAnimal objects
     //     */
