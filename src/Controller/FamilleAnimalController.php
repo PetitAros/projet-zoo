@@ -13,13 +13,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class FamilleAnimalController extends AbstractController
 {
     #[Route('/famille_animal', name: 'app_famille_animal')]
-    public function index(FamilleAnimalRepository $animalRepository, Request $request): Response
+    public function index(FamilleAnimalRepository $animalRepository, \Symfony\Component\HttpFoundation\Request $request): Response
     {
-        $value = $request->getQuery('search');
+        $value = $request->query->get('search');
         if (null == $value) {
             $value = '';
         }
-        $animaux = $animalRepository->findAll();
+        $animaux = $animalRepository->findSearch($value);
 
         return $this->render('famille_animal/index.html.twig', ['animaux' => $animaux, 'action' => 'famille_animal']);
     }
