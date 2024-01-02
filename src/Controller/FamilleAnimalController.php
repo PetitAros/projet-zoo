@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\FamilleAnimal;
 use App\Repository\AnimalRepository;
 use App\Repository\FamilleAnimalRepository;
+use http\Env\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,10 +13,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class FamilleAnimalController extends AbstractController
 {
     #[Route('/famille_animal', name: 'app_famille_animal')]
-    public function index(FamilleAnimalRepository $animalRepository): Response
+    public function index(FamilleAnimalRepository $animalRepository, Request $request): Response
     {
-        $animaux=$animalRepository->findAll();
-        return $this->render('famille_animal/index.html.twig', ['animaux' => $animaux,'action'=>'famille_animal']);
+        $value = $request->getQuery('search');
+        if (null == $value) {
+            $value = '';
+        }
+        $animaux = $animalRepository->findAll();
+
+        return $this->render('famille_animal/index.html.twig', ['animaux' => $animaux, 'action' => 'famille_animal']);
     }
 
     #[Route('/famille_animal/{id}', name: 'app_famille_animal_fambyid')]
