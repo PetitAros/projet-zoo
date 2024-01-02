@@ -74,4 +74,8 @@ class DateEvent
 
         return $this;
     }
+
+    public function __toString(){
+        return $this->dateEvent->format('d-m-Y');
+    }
 }

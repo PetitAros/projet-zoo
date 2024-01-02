@@ -23,6 +23,7 @@ class UserFixtures extends Fixture
             'pnomUser' => 'Wilfried',
             'nomUser' => 'Noel',
             'password' => 'test',
+            'roles' => ['ROLE_ADMIN'],
         ]);
 
         $manager->flush();

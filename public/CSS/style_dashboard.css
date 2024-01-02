@@ -1,0 +1,19 @@
+aside.sidebar{
+    background-color: #00663C;
+}
+input[type="search"]::after{
+    background-color: #00663C;
+}
+
+i.fa-gear{
+    color: #00663C;
+}
+i.fa-home::before,i.fa-user::before,i.fa-ticket::before,
+i.fa-tree::before,i.fa-users::before,i.fa-calendar-days::before,
+i.fa-hippo::before,i.fa-fish::before{
+    color: #ffbb00;
+}
+span.menu-item-label{
+    color:#ffbb00;
+}
+
