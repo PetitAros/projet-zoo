@@ -20,7 +20,7 @@ class EventController extends AbstractController
         }
         $events = $eRep->findSearch($value);
 
-        return $this->render('Event/index.html.twig', ['events' => $events, 'action' => 'event']);
+        return $this->render('Event/index.html.twig', ['events' => $events, 'action' => 'event','value'=>$value]);
     }
 
     #[Route('/event/{id}', name: 'detail')]
