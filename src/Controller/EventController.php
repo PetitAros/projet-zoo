@@ -18,7 +18,7 @@ class EventController extends AbstractController
         if (null == $value) {
             $value = '';
         }
-        $events = $eRep->findAll();
+        $events = $eRep->findSearch($value);
 
         return $this->render('Event/index.html.twig', ['events' => $events, 'action' => 'event']);
     }
