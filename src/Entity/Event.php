@@ -160,6 +160,14 @@ class Event
      */
     public function getNbPlacesLibres(): int
     {
-        return $this->nbPlaces - count($this->getReservation());
+        $nbPlacesUtilisees = 0;
+        $reservationsCollection = $this->getReservation();
+        foreach ($reservationsCollection as $reservation) {
+            $r = $reservation->getReservation();
+            $nbPlacesUtilisees += $r->getNbPlacesAdult();
+            $nbPlacesUtilisees += $r->getNbPlacesChild();
+        }
+
+        return $this->nbPlaces - $nbPlacesUtilisees;
     }
 }
