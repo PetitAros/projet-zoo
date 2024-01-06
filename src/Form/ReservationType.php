@@ -20,15 +20,6 @@ class ReservationType extends AbstractType
             ->add('dateReservation', DateType::class)
             ->add('nbPlacesAdult', NumberType::class)
             ->add('nbPlacesChild', NumberType::class)
-            ->add('billet', EntityType::class, [
-                'class' => Billet::class,
-                'required' => true,
-                'choice_label' => 'nbJours',
-                'query_builder' => function (EntityRepository $entityRepository) {
-                    return $entityRepository->createQueryBuilder('b')
-                        ->orderBy('b.nbJours', 'ASC');
-                },
-            ])
         ;
     }
 
