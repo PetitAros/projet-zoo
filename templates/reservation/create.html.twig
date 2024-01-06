@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'une réservation{% endblock %}
+
+{% block body %}
+    <p style="height: 50px">.</p>
+    {{ form_start(form) }}
+        {{ form_row(form.dateReservation, {'label':'Date de Réservation'}) }}
+        {{ form_row(form.nbPlacesAdult, {'label':'Nombre d\'adultes'}) }}
+        {{ form_row(form.nbPlacesChild, {'label':'Nombre d\'adultes'}) }}
+        {{ form_row(form.billet, {'label':'Nombre de jours'}) }}
+    <button type="submit"> Valider </button>
+    {{ form_end(form) }}
+{% endblock %}
