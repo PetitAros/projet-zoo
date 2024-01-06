@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Choix d'un tarif{% endblock %}
+
+
+{% block body %}
+    <div class="flex flex-col flex-grow justify-center content-center p-10 justify-evenly mt-36 md:flex-row sd:w-[90%]">
+        {% for billet in billets %}
+            <a href="{{ path('app_reservation_create', {'id':billet.id}) }}">
+                <button class="billet flex flex-col p-4 min-h-[40%] justify-center bg-secondary-50/40 border-4 rounded-2xl border-secondary-800">
+                    <div> {{ billet.nbJours }} Jours</div>
+                    <div> Tarif Enfant : {{ billet.tarifChild }} €</div>
+                    <div> Tarif Adulte : {{ billet.tarifAdult }} €</div>
+                </button>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}
