@@ -153,6 +153,11 @@ class Event
         return $this;
     }
 
+    /**
+     * Fonction d'instance de la classe Event. Renvoie le nombre de places libres de l'évènement qui l'appel.
+     *
+     * @return int
+     */
     public function getNbPlacesLibres(): int
     {
         return $this->nbPlaces - count($this->getReservation());
