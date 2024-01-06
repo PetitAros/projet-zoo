@@ -152,4 +152,9 @@ class Event
 
         return $this;
     }
+
+    public function getNbPlacesLibres(): int
+    {
+        return $this->nbPlaces - count($this->getReservation());
+    }
 }
