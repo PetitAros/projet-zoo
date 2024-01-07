@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Tests\Controller\Event;
 
 use App\Factory\EventFactory;
@@ -25,6 +24,11 @@ class indexCest
         $I->seeResponseCodeIs(200);
     }
 
+    /**
+     * Test qui vérifie le fonctionnement de la liste d'évènement.'.
+     *
+     * @return void
+     */
     public function listWorking(ControllerTester $I)
     {
         EventFactory::new()->createMany(5);
@@ -40,12 +44,11 @@ class indexCest
         EventFactory::new()->createSequence(
             [
                 ['nomEvent' => 'Evènement cool'],
-                ['nomEvent' => 'Evènement nul']
+                ['nomEvent' => 'Evènement nul'],
             ]
         );
         $I->flushToDatabase();
         $I->amOnPage('/event?search=cool');
         $I->assertEquals(['Evènement cool'], $I->grabMultiple('p.eventName'));
     }
-
 }
