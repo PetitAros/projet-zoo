@@ -3,11 +3,62 @@
 {% block title %}Création d'une réservation{% endblock %}
 
 {% block body %}
-    <p style="height: 50px">.</p>
-    {{ form_start(form) }}
-        {{ form_row(form.dateReservation, {'label':'Date de Réservation'}) }}
-        {{ form_row(form.nbPlacesAdult, {'label':'Nombre d\'adultes'}) }}
-        {{ form_row(form.nbPlacesChild, {'label':'Nombre d\'adultes'}) }}
-    <button type="submit"> Valider </button>
+    <div class="flex flex-grow justify-center content-center h-[100%]  bg-cover bg-center bg-no-repeat">
+        <div style="background: linear-gradient(rgba(255,255,255,.4), rgba(255,255,255,.4)), url({{ asset('images/lion.png') }})" class="mt-36 lg:mt-24 w-1/2  bg-cover bg-center backdrop-filter backdrop-blur-sm self-center border border-secondary-50 border-s rounded-2xl p-2" >
+            <h1 class="text-center text-secondary-800 text-3xl md:text-5xl  lg:text-6xl lg:text-10xl mb-5">Réservation</h1>
+            {{ form_errors(form) }}
+
+            {{ form_start(form) }}
+            <div class="flex flex-col">
+                {{ form_label(form.dateReservation,'Date de réservation',
+                {
+                    'label_attr':{
+                    'class':'text-secondary-800 text-xl md:text-2xl '
+                }}) }}
+            <div class="text-secondary-800" >
+            {{ form_errors(form.dateReservation) }}
+            </div>
+        {{ form_widget(form.dateReservation,{
+            'attr':{
+                'class': 'text-lg text-primary p-3 bg-secondary-800 rounded-2xl'
+            }
+        }) }}
+            </div>
+            <div class="flex flex-col">
+                {{ form_label(form.nbPlacesAdult,'Nombres d\'adultes',
+                    {
+                        'label_attr':{
+                        'class':'text-secondary-800 text-xl md:text-2xl '
+                    }}) }}
+                <div class="text-secondary-800" >
+                    {{ form_errors(form.nbPlacesAdult) }}
+                </div>
+                {{ form_widget(form.nbPlacesAdult,{
+                    'attr':{
+                        'class': 'text-lg text-secondary-50 p-3 bg-secondary-800 rounded-2xl'
+                        ,'type': 'number'
+                    }
+                }) }}
+            </div>
+            <div class="flex flex-col">
+                {{ form_label(form.nbPlacesChild,'Nombre d\'enfants',
+                    {
+                        'label_attr':{
+                        'class':'text-secondary-800 text-xl md:text-2xl '
+                    }}) }}
+                <div class="text-secondary-800" >
+                    {{ form_errors(form.nbPlacesChild) }}
+                </div>
+                {{ form_widget(form.nbPlacesChild,{
+                    'attr':{
+                        'class': 'text-lg text-secondary-50 p-3 bg-secondary-800 rounded-2xl'
+                    }
+                }) }}
+            </div>
+            <div class="flex justify-center mt-4">
+                <button type="submit" class="btn bg-primary-500/70 col-start-2 col-end-4 text-4xl lg:text-2xl rounded-xl p-2 border border-primary-50 border-s">Valider l'inscription</button>
+            </div>
     {{ form_end(form) }}
+        </div>
+    </div>
 {% endblock %}
