@@ -72,6 +72,8 @@ class userPageCest
     }
 
     /**
+     * Test qui vérifie qu'un administrateur peut bien accéder à la page CRUD.
+     *
      * @return void
      */
     public function adminsCanAccessCrud(ControllerTester $I)
