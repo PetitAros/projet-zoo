@@ -45,6 +45,11 @@ class indexCest
         $I->seeNumberOfElements('a.species', 5);
     }
 
+    /**
+     * Test qui vérifie le fonctionnement de la barre de recherche de la liste de famille animal.
+     *
+     * @return void
+     */
     public function search(ControllerTester $I): void
     {
         FamilleAnimalFactory::new()->createMany(5);
