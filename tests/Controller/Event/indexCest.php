@@ -3,6 +3,7 @@
 
 namespace App\Tests\Controller\Event;
 
+use App\Factory\EventFactory;
 use App\Tests\Support\ControllerTester;
 
 class indexCest
@@ -15,13 +16,22 @@ class indexCest
     public function correctName(ControllerTester $I)
     {
         $I->amOnPage('/event');
-        $I->seeInTitle('Evénements - Zoo Parc de Laval');
+        $I->seeInTitle('Liste des événements - Zoo Parc de Laval');
     }
 
     public function correctHttpResponse(ControllerTester $I)
     {
         $I->amOnPage('/event');
         $I->seeResponseCodeIs(200);
+    }
+
+    public function listWorking(ControllerTester $I)
+    {
+        EventFactory::new()->createMany(5);
+        $I->flushToDatabase();
+        $I->amOnPage('/event');
+        $I->seeResponseCodeIs(200);
+        $I->seeNumberOfElements('a[class=event]', 5);
     }
 
 }
