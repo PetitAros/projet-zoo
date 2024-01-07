@@ -34,4 +34,18 @@ class indexCest
         $I->seeNumberOfElements('a[class=event]', 5);
     }
 
+    public function search(ControllerTester $I): void
+    {
+        EventFactory::new()->createMany(5);
+        EventFactory::new()->createSequence(
+            [
+                ['nomEvent' => 'Evènement cool'],
+                ['nomEvent' => 'Evènement nul']
+            ]
+        );
+        $I->flushToDatabase();
+        $I->amOnPage('/event?search=cool');
+        $I->assertEquals(['Evènement cool'], $I->grabMultiple('p.eventName'));
+    }
+
 }
