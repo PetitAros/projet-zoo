@@ -3,6 +3,7 @@
 
 namespace App\Tests\Controller\Famille_animal;
 
+use App\Factory\FamilleAnimalFactory;
 use App\Tests\Support\ControllerTester;
 
 class indexCest
@@ -22,5 +23,14 @@ class indexCest
     {
         $I->amOnPage('/famille_animal');
         $I->seeResponseCodeIs(200);
+    }
+
+    public function listWorking(ControllerTester $I)
+    {
+        FamilleAnimalFactory::new()->createMany(5);
+        $I->flushToDatabase();
+        $I->amOnPage('/famille_animal');
+        $I->seeResponseCodeIs(200);
+        $I->seeNumberOfElements('a.species', 5);
     }
 }
