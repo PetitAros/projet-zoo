@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Tests\Controller\UserRedirection;
 
 use App\Factory\UserFactory;
@@ -17,6 +16,11 @@ class userPageCest
     {
     }
 
+    /**
+     * Test qui vérifie la redirection vers la page de connexion si l'utilisateur n'est pas connecté.
+     *
+     * @return void
+     */
     public function redirectionToLogin(ControllerTester $I)
     {
         $I->amOnPage('/user');
