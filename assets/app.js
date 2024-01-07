@@ -23,7 +23,7 @@ for (let i = 0; i < headerLinks.length; i++) {
 
 let fullHeader = `<header id="header" class="fixed flex justify-evenly z-10 w-full text-text-50">
     <div class="bg-secondary-800/50 w-full absolute h-24 lg:h-12 z-[-1] bg-clip-padding  backdrop-filter backdrop-blur-sm border-b border-secondary-50 border-s"></div>
-    <img src="images/LogoZoo.png" class="navbar__logo h-20 lg:h-10 pt-1 absolute m-auto" alt="Logo">
+    <img src="/images/LogoZoo.png" class="navbar__logo h-20 lg:h-10 pt-1 absolute m-auto" alt="Logo">
     
     <div class="btn-container flex justify-between gap-6">
         <a href="` + headerLinksUrl[0] + `" class="mt-3 p-4 bg-secondary-800/50  rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Découvrir le parc</a>
