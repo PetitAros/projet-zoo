@@ -48,4 +48,21 @@ class userPageCest
         $I->amOnPage('/user');
         $I->seeInTitle('Welcome - Zoo Parc de Laval');
     }
+
+    public function usersCantAccessCrud(ControllerTester $I)
+    {
+        $user = UserFactory::createOne([
+            'email' => 'test@test.com',
+            'password' => 'test',
+            'phoneUser' => '0606060606',
+            'roles' => ['ROLE_USER'],
+            'nomUser' => 'Moi',
+            'pnomUser' => 'Toujours',
+        ]);
+
+        $realUser = $user->object();
+        $I->amLoggedInAs($realUser);
+        $I->amOnPage('/admin');
+        $I->seeResponseCodeIs(403);
+    }
 }
