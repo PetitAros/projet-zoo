@@ -12,9 +12,6 @@ class userPageCest
     }
 
     // tests
-    public function tryToTest(ControllerTester $I)
-    {
-    }
 
     /**
      * Test qui vérifie la redirection vers la page de connexion si l'utilisateur n'est pas connecté.

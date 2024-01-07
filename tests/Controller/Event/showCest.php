@@ -12,9 +12,6 @@ class showCest
     }
 
     // tests
-    public function tryToTest(ControllerTester $I)
-    {
-    }
 
     /**
      * Test qui vérifie l'affichage d'un évènement.

@@ -12,9 +12,6 @@ class showCest
     }
 
     // tests
-    public function tryToTest(ControllerTester $I)
-    {
-    }
 
     /**
      * Test sur l'affichage d'une famille d'animal.
