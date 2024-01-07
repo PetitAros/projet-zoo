@@ -20,8 +20,8 @@ class ReservationType extends AbstractType
                 'years' => range(date('Y'), date('Y') + 2),
                 'attr' => ['min' => (new \DateTime() )->format('Y-m-d')],
             ])
-            ->add('nbPlacesAdult', IntegerType::class)
-            ->add('nbPlacesChild', IntegerType::class)
+            ->add('nbPlacesAdult', IntegerType::class, ['attr' => ['min' => 0, 'max' => 10]])
+            ->add('nbPlacesChild', IntegerType::class, ['attr' => ['min' => 0, 'max' => 10]])
         ;
     }
 
