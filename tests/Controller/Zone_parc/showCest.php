@@ -12,7 +12,4 @@ class showCest
     }
 
     // tests
-    public function tryToTest(ControllerTester $I)
-    {
-    }
 }
