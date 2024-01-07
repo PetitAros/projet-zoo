@@ -65,4 +65,21 @@ class userPageCest
         $I->amOnPage('/admin');
         $I->seeResponseCodeIs(403);
     }
+
+    public function adminsCanAccessCrud(ControllerTester $I)
+    {
+        $user = UserFactory::createOne([
+            'email' => 'test@test.com',
+            'password' => 'test',
+            'phoneUser' => '0606060606',
+            'roles' => ['ROLE_ADMIN'],
+            'nomUser' => 'Moi',
+            'pnomUser' => 'Toujours',
+        ]);
+
+        $realUser = $user->object();
+        $I->amLoggedInAs($realUser);
+        $I->amOnPage('/admin');
+        $I->seeResponseCodeIs(200);
+    }
 }
