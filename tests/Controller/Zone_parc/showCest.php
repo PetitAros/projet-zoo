@@ -5,7 +5,7 @@ namespace App\Tests\Controller\Zone_parc;
 
 use App\Tests\Support\ControllerTester;
 
-class detailsCest
+class showCest
 {
     public function _before(ControllerTester $I)
     {
