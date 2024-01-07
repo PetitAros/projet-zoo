@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Tests\Controller\Event;
 
 use App\Factory\EventFactory;
@@ -17,6 +16,11 @@ class showCest
     {
     }
 
+    /**
+     * Test qui vérifie l'affichage d'un évènement.
+     *
+     * @return void
+     */
     public function showEvent(ControllerTester $I)
     {
         EventFactory::createOne(['nomEvent' => 'Event très cool']);
