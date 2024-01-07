@@ -27,7 +27,6 @@ class indexCest
     /**
      * Test qui vérifie le fonctionnement de la liste de zones.
      *
-     * @param ControllerTester $I
      * @return void
      */
     public function listWorking(ControllerTester $I)
@@ -39,6 +38,11 @@ class indexCest
         $I->seeNumberOfElements('div.zone', 1);
     }
 
+    /**
+     * Test qui vérifie le fonctionnement de la liste de zones, vérifie le contenu de la page et non celui de la liste.
+     *
+     * @return void
+     */
     public function contentIsCorrect(ControllerTester $I)
     {
         $I->amOnPage('/zone_parc');
