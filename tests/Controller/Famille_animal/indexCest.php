@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Tests\Controller\Famille_animal;
 
 use App\Factory\FamilleAnimalFactory;
@@ -32,5 +31,18 @@ class indexCest
         $I->amOnPage('/famille_animal');
         $I->seeResponseCodeIs(200);
         $I->seeNumberOfElements('a.species', 5);
+    }
+
+    public function search(ControllerTester $I): void
+    {
+        FamilleAnimalFactory::new()->createMany(5);
+        FamilleAnimalFactory::new()->createSequence(
+            [
+                ['nomFamilleAnimal' => 'Licorne'],
+            ]
+        );
+        $I->flushToDatabase();
+        $I->amOnPage('/famille_animal?search=corne');
+        $I->assertEquals(['Licorne'], $I->grabMultiple('p.nameAnimal'));
     }
 }
