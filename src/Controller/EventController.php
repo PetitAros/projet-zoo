@@ -30,6 +30,12 @@ class EventController extends AbstractController
         return $this->render('Event/index.html.twig', ['events' => $events, 'action' => 'event','value'=>$value]);
     }
 
+    /**
+     * Permet d'envoyer les informations d'un évenement précis passé en paramètre vers la vue associée
+     *
+     * @param Event $event
+     * @return Response
+     */
     #[Route('/event/{id}', name: 'detail')]
     public function show(Event $event): Response
     {
