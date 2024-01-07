@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Tests\Controller\Famille_animal;
 
 use App\Factory\FamilleAnimalFactory;
@@ -17,6 +16,11 @@ class showCest
     {
     }
 
+    /**
+     * Test sur l'affichage d'une famille d'animal.
+     *
+     * @return void
+     */
     public function showFamilleAnimal(ControllerTester $I)
     {
         FamilleAnimalFactory::createOne(['nomFamilleAnimal' => 'Famille cool']);
