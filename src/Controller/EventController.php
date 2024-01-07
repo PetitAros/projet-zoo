@@ -11,6 +11,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class EventController extends AbstractController
 {
+    /**
+     * Permet d'envoyer la liste de tous les evènements vers la vue associée.
+     *
+     * @param EventRepository $eRep
+     * @param Request $request
+     * @return Response
+     */
     #[Route('/event', name: 'app_event')]
     public function index(EventRepository $eRep, Request $request): Response
     {
