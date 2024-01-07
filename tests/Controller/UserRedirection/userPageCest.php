@@ -27,6 +27,11 @@ class userPageCest
         $I->amOnRoute('app_login');
     }
 
+    /**
+     * Test qui vérifie si la page user est accessible si l'utilisateur est connecté. Vérifie également son contenu.
+     *
+     * @return void
+     */
     public function userPageWorkingIfLogged(ControllerTester $I)
     {
         $user = UserFactory::createOne([
