@@ -24,6 +24,12 @@ class indexCest
         $I->seeResponseCodeIs(200);
     }
 
+    /**
+     * Test qui vérifie le fonctionnement de la liste de zones.
+     *
+     * @param ControllerTester $I
+     * @return void
+     */
     public function listWorking(ControllerTester $I)
     {
         ZoneParcFactory::new()->create(['libZone' => 'Ici !', 'imgZone' => null]);
