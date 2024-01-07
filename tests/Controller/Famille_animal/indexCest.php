@@ -12,18 +12,30 @@ class indexCest
     }
 
     // tests
+
+    /**
+     * @return void
+     */
     public function correctName(ControllerTester $I)
     {
         $I->amOnPage('/famille_animal');
         $I->seeInTitle('Familles - Zoo Parc de Laval');
     }
 
+    /**
+     * @return void
+     */
     public function correctHttpResponse(ControllerTester $I)
     {
         $I->amOnPage('/famille_animal');
         $I->seeResponseCodeIs(200);
     }
 
+    /**
+     * Test qui vérifie le fonctionnement de la liste de famille d'animal.
+     *
+     * @return void
+     */
     public function listWorking(ControllerTester $I)
     {
         FamilleAnimalFactory::new()->createMany(5);
