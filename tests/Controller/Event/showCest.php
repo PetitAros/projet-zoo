@@ -28,5 +28,6 @@ class showCest
         $I->seeResponseCodeIs(200);
         $I->see('Informations complémentaires:', 'h2');
         $I->see('Les dates prochaines:', 'h2');
+        $I->see('Event très cool', 'h1');
     }
 }
