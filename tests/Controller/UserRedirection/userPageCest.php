@@ -49,6 +49,11 @@ class userPageCest
         $I->seeInTitle('Welcome - Zoo Parc de Laval');
     }
 
+    /**
+     * Test qui vérifie qu'un utlisateur non-admin ne peut pas accéder à la page CRUD.
+     *
+     * @return void
+     */
     public function usersCantAccessCrud(ControllerTester $I)
     {
         $user = UserFactory::createOne([
@@ -66,6 +71,9 @@ class userPageCest
         $I->seeResponseCodeIs(403);
     }
 
+    /**
+     * @return void
+     */
     public function adminsCanAccessCrud(ControllerTester $I)
     {
         $user = UserFactory::createOne([
