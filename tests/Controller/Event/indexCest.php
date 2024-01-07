@@ -38,6 +38,12 @@ class indexCest
         $I->seeNumberOfElements('a[class=event]', 5);
     }
 
+    /**
+     * Test qui vérifie le fonctionnement de la barre de recherche de la liste d'évènement.
+     *
+     * @param ControllerTester $I
+     * @return void
+     */
     public function search(ControllerTester $I): void
     {
         EventFactory::new()->createMany(5);
