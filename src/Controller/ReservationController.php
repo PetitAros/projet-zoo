@@ -50,4 +50,10 @@ class ReservationController extends AbstractController
 
         return $this->render('reservation/create.html.twig', ['form' => $form]);
     }
+
+    #[Route('/reservation/events/{id}', name: 'app_reservation_events')]
+    public function events(#[MapEntity] Reservation $reservation, Request $request): Response
+    {
+
+    }
 }
