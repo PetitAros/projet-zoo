@@ -1,9 +1,7 @@
 <?php
 
-
 namespace App\Tests\Controller\Zone_parc;
 
-use App\Entity\ZoneParc;
 use App\Factory\ZoneParcFactory;
 use App\Tests\Support\ControllerTester;
 
@@ -28,10 +26,18 @@ class indexCest
 
     public function listWorking(ControllerTester $I)
     {
-        ZoneParcFactory::new()->create(['libZone' => 'Ici !', 'imgZone' => NULL]);
+        ZoneParcFactory::new()->create(['libZone' => 'Ici !', 'imgZone' => null]);
         $I->flushToDatabase();
         $I->amOnPage('/zone_parc');
         $I->seeResponseCodeIs(200);
         $I->seeNumberOfElements('div.zone', 1);
+    }
+
+    public function contentIsCorrect(ControllerTester $I)
+    {
+        $I->amOnPage('/zone_parc');
+        $I->seeResponseCodeIs(200);
+        $I->seeInTitle('Zones Parc - Zoo Parc de Laval');
+        $I->see('Les zones du parc', 'h1');
     }
 }
