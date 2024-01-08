@@ -47,9 +47,6 @@ class ReservationController extends AbstractController
      * d'un formulaire ayant pour objectif de demander à l'utilisateur les modalités de sa reservation.
      *
      * @param Billet $billet
-     * @param EntityManagerInterface $entityManager
-     * @param Request $request
-     * @return Response
      */
     #[Route('/reservation/create/{id}', name: 'app_reservation_create')]
     public function create(#[MapEntity] Billet $billet, EntityManagerInterface $entityManager, Request $request): Response
@@ -72,6 +69,18 @@ class ReservationController extends AbstractController
         return $this->render('reservation/create.html.twig', ['reservation' => $reservation, 'form' => $form]);
     }
 
+    /**
+     * Application du controller de reservation.
+     *
+     * Permet la redirection vers une page de choix d'évènements. Cette page affiche tous les évènements correspondants à la date de la visite
+     * reservée par l'utilisateur et permet à ce dernier d'en choisir. Ces évènements ne s'affichent que si le nombre de place disponible
+     * est inférieur ou égale à la taille de la réservation effectuée.
+     *
+     * @param Reservation $reservation
+     * @param EntityManagerInterface $entityManager
+     * @param Request $request
+     * @return Response
+     */
     #[Route('/reservation/events/{id}', name: 'app_reservation_events')]
     public function events(#[MapEntity] Reservation $reservation, EntityManagerInterface $entityManager, Request $request): Response
     {
