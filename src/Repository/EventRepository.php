@@ -61,6 +61,16 @@ class EventRepository extends ServiceEntityRepository
         });
     }
 
+    /**
+     * Méthode de la classe EventRepository.
+     * Retourne une liste d'event entre une date entrée en paramètre et la date présente après le nombre de jours entré
+     * en paramètre.
+     *
+     * @param \DateTime $date    date de départ
+     * @param int       $nbJours nombre de jours séparant cette date et la prochaine
+     *
+     * @return Event[] la liste d'évènement entre ces deux jours
+     */
     public function findFromDateToN(\DateTime $date, int $nbJours): array
     {
         --$nbJours;
