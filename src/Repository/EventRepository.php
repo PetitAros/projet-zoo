@@ -74,14 +74,15 @@ class EventRepository extends ServiceEntityRepository
     public function findFromDateToN(\DateTime $date, int $nbJours): array
     {
         --$nbJours;
+
         $request = $this->createQueryBuilder('event')
-            ->join('App:assoEventDateEvent', 'aed')
-            ->join('App:dateEvent', 'de')
-            ->where('de.dateEvent >= :dateDeb')
-            ->andWhere('de.dateEvent <= :dateFin')
-            ->setParameter(':dateDeb', $date)
-            ->setParameter('dateFin', $date->modify("+{$nbJours} day"));
+            ->innerJoin('App:assoEventDateEvent', 'aed', 'WITH', 'event = aed.event')
+            ->innerJoin('App:dateEvent', 'de', 'WITH', 'aed.dateEvent = de')
+            ->where("de.dateEvent BETWEEN :date AND DATE_ADD(:date,:jours, 'day')")
+            ->setParameter('date', $date->format('Y-m-d'))
+            ->setParameter('jours', $nbJours);
         $query = $request->getQuery()->execute();
+        dump($date);
 
         return array_filter($query, function ($item) {
             return $item instanceof Event;
