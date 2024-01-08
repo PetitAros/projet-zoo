@@ -90,6 +90,7 @@ class ReservationController extends AbstractController
                 $reservationEvent = new AssoEventReservation();
                 $reservationEvent->setReservation($reservation);
                 $reservationEvent->setEvent($eventRepo->find($eventID));
+                $entityManager->persist($reservationEvent);
                 $entityManager->flush();
             }
 
