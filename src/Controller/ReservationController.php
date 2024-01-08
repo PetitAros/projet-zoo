@@ -84,14 +84,15 @@ class ReservationController extends AbstractController
         $form = $form->getForm();
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            dump($form->get('events'));
             $selectedEventsID = $form->get('events')->getData();
             foreach ($selectedEventsID as $eventID) {
                 $reservationEvent = new AssoEventReservation();
                 $reservationEvent->setReservation($reservation);
                 $reservationEvent->setEvent($eventRepo->find($eventID));
-                $entityManager->persist($reservationEvent);
-                $entityManager->flush();
+                if (in_array($reservationEvent->getEvent(), $possibleEvents)) {
+                    $entityManager->persist($reservationEvent);
+                    $entityManager->flush();
+                }
             }
 
             return $this->redirectToRoute('app_user');
