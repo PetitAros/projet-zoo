@@ -8,11 +8,11 @@ use App\Entity\Event;
 use App\Entity\Reservation;
 use App\Form\ReservationType;
 use App\Repository\BilletRepository;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -65,22 +65,32 @@ class ReservationController extends AbstractController
         $nbJours = $billet->getNbJours();
         $eventRepo = $entityManager->getRepository(Event::class);
         $events = $eventRepo->findFromDateToN(\DateTime::createFromInterface($reservation->getDateReservation()), $nbJours);
-        $form = $this->createFormBuilder();
+        $possibleEvents = [];
         foreach ($events as $event) {
-            if ($event->getNbPlacesLibres() >= $nbPlacesReserv) {
-                $form->add('events', CheckboxType::class, [
-                    'value' => $event->getId(),
-                ]);
+            if ($nbPlacesReserv <= $event->getNbPlacesLibres()) {
+                $possibleEvents[$event->getNomEvent()] = $event->getId();
             }
         }
+        $form = $this->createFormBuilder();
+        $form->add('events', ChoiceType::class, [
+            'expanded' => true,
+            'multiple' => true,
+            'choices' => [
+                'evenements' => $possibleEvents,
+            ],
+            'required' => false,
+            'label' => 'Choix des évènements lors du séjour',
+        ]);
         $form = $form->getForm();
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $selectedEventsID = $form->get('events');
+            dump($form->get('events'));
+            $selectedEventsID = $form->get('events')->getData();
             foreach ($selectedEventsID as $eventID) {
                 $reservationEvent = new AssoEventReservation();
                 $reservationEvent->setReservation($reservation);
                 $reservationEvent->setEvent($eventRepo->find($eventID));
+                $entityManager->flush();
             }
 
             return $this->redirectToRoute('app_user');
