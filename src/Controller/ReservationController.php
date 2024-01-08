@@ -12,7 +12,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -35,6 +34,17 @@ class ReservationController extends AbstractController
         return $this->render('reservation/choose.html.twig', ['billets' => $billets]);
     }
 
+    /**
+     * Application du controller de Reservation.
+     *
+     * Permet la redirection de l'utilisateur vers la page de création d'une réservation. Cette création est composée
+     * d'un formulaire ayant pour objectif de demander à l'utilisateur les modalités de sa reservation.
+     *
+     * @param Billet $billet
+     * @param EntityManagerInterface $entityManager
+     * @param Request $request
+     * @return Response
+     */
     #[Route('/reservation/create/{id}', name: 'app_reservation_create')]
     public function create(#[MapEntity] Billet $billet, EntityManagerInterface $entityManager, Request $request): Response
     {
