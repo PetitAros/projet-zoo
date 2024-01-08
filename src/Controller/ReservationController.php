@@ -26,6 +26,12 @@ class ReservationController extends AbstractController
         ]);
     }
 
+    /**
+     * Application du controller de Reservation.
+     *
+     * Permet la redirection de l'utilisateur vers la page de choix d'un billet. Cette page est un affichage de bouton
+     * présentant les différents tarifs et billets.
+     */
     #[Route('/reservation/create', name : 'app_reservation_choose')]
     public function choose(BilletRepository $billetRepository): Response
     {
