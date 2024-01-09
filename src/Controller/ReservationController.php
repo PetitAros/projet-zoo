@@ -156,6 +156,7 @@ class ReservationController extends AbstractController
      *
      * @return Response
      */
+    #[Route('/reservation/delete/{id}', name: 'app_reservation_delete')]
     public function delete(#[MapEntity] Reservation $reservation, EntityManagerInterface $entityManager, Request $request): Response
     {
         if (!$this->isGranted('ROLE_USER')) {
