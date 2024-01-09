@@ -100,7 +100,7 @@ class Habitat
     }
 
     /**
-     * Permet d'ajouter une une ou plusieures familles d'animaux dans un habitat, si ces familles n'y étaient pas déjà auparavant.
+     * Permet d'ajouter une ou plusieures familles d'animaux dans un habitat, si ces familles n'y étaient pas déjà auparavant.
      *
      * @param FamilleAnimal $famillesAnimaux
      * @return $this
@@ -115,6 +115,12 @@ class Habitat
         return $this;
     }
 
+    /**
+     * Permet de supprimer une ou plusieures familles d'animaux dans un habitat, si ces familles y étaient auparavant.
+     *
+     * @param FamilleAnimal $famillesAnimaux
+     * @return $this
+     */
     public function removeFamillesAnimaux(FamilleAnimal $famillesAnimaux): static
     {
         if ($this->famillesAnimaux->removeElement($famillesAnimaux)) {
