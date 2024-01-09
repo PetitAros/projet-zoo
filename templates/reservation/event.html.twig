@@ -3,11 +3,35 @@
 {% block title %}Hello ReservationController!{% endblock %}
 
 {% block body %}
-    <p class="mt-36">.</p>
-    {{ form_start(form)}}
-    {{ form_widget(form) }}
-    <div class="flex justify-center mt-4">
-        <button type="submit" class="btn bg-primary-500/70 col-start-2 col-end-4 text-4xl lg:text-2xl rounded-xl p-2 border border-primary-50 border-s">Valider l'inscription</button>
+    <div class="mt-36 main flex flex-col items-center">
+        {{ form_start(form, {label:''})}}
+
+
+        <h1 class="text-center text-8xl lg:text-6xl mt-36 lg:mt-24 mb-5 text-secondary-800">{{form_label(form, 'Choix des évènements')}}</h1>
+        {% if form.events is not empty %}
+            {% for event in form.events %}
+                <div class="flex justify-center items-center ps-4 border-4 border-secondary-800 rounded-xl p-6">
+                    {{ form_widget(event, {
+                        'attr' : {
+                            'class' : 'mr-12 w-6 h-6 w-[30%] text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500'
+                        }
+                    })
+                    }}
+                    {{ form_label(event, null, {
+                        'label_attr' : {
+                            'class' : 'text-2xl text-secondary-800'
+                        }
+                    })
+                    }}
+                </div>
+            {% endfor %}
+        {% else %}
+            <h2>Aucun évènement prévu à cette date </h2>
+        {% endif %}
+        <div class="flex justify-center mt-4">
+            <button type="submit" class="btn bg-primary-500/70 col-start-2 col-end-4 text-4xl lg:text-2xl rounded-xl p-2 border border-primary-50 border-s">Valider l'inscription</button>
+        </div>
+
+        {{ form_end(form) }}
     </div>
-    {{ form_end(form) }}
 {% endblock %}
