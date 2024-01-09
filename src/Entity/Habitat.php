@@ -33,6 +33,11 @@ class Habitat
         $this->famillesAnimaux = new ArrayCollection();
     }
 
+    /**
+     * Accesseur de l'attribut Id de la classe Habitat.
+     *
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
