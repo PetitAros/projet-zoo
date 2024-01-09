@@ -21,28 +21,37 @@ class AssoEventReservationRepository extends ServiceEntityRepository
         parent::__construct($registry, AssoEventReservation::class);
     }
 
-//    /**
-//     * @return AssoEventReservation[] Returns an array of AssoEventReservation objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('a')
-//            ->andWhere('a.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('a.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function deleteAllEventFromReservationId(int $id): void
+    {
+        $events = $this->findBy(['id' => $id]);
+        foreach ($events as $e) {
+            $em = $this->getEntityManager();
+            $em->remove($e);
+        }
+    }
 
-//    public function findOneBySomeField($value): ?AssoEventReservation
-//    {
-//        return $this->createQueryBuilder('a')
-//            ->andWhere('a.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    //    /**
+    //     * @return AssoEventReservation[] Returns an array of AssoEventReservation objects
+    //     */
+    //    public function findByExampleField($value): array
+    //    {
+    //        return $this->createQueryBuilder('a')
+    //            ->andWhere('a.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->orderBy('a.id', 'ASC')
+    //            ->setMaxResults(10)
+    //            ->getQuery()
+    //            ->getResult()
+    //        ;
+    //    }
+
+    //    public function findOneBySomeField($value): ?AssoEventReservation
+    //    {
+    //        return $this->createQueryBuilder('a')
+    //            ->andWhere('a.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
 }
