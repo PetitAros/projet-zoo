@@ -54,6 +54,10 @@ class ReservationController extends AbstractController
     #[Route('/reservation/create/{id}', name: 'app_reservation_create')]
     public function create(#[MapEntity] Billet $billet, EntityManagerInterface $entityManager, Request $request): Response
     {
+        if (!$this->isGranted('ROLE_USER')) {
+            return $this->redirectToRoute('app_login');
+        }
+
         $user = $this->getUser();
         $reservation = new Reservation();
         $form = $this->createForm(ReservationType::class, $reservation);
