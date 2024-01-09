@@ -146,7 +146,17 @@ class ReservationController extends AbstractController
         ]);
     }
 
-    public function delete(#[MapEntity] Reservation $reservation, EntityManagerInterface $entityManager, Request $request)
+    /**
+     * Application du controller de reservation.
+     *
+     * Permet l'affichage d'une page de supression d'une réservation par un utilisateur. Ne fonctionne que si l'utilisateur
+     * est connecté est possède un accès à cette réservation
+     *
+     * @param Reservation $reservation
+     *
+     * @return Response
+     */
+    public function delete(#[MapEntity] Reservation $reservation, EntityManagerInterface $entityManager, Request $request): Response
     {
         if (!$this->isGranted('ROLE_USER')) {
             return $this->redirectToRoute('app_login');
@@ -172,5 +182,10 @@ class ReservationController extends AbstractController
 
             return $this->redirectToRoute('app_user');
         }
+
+        return $this->render('reservation/delete.html.twig', [
+            'reservation' => $reservation,
+            'form' => $form,
+        ]);
     }
 }
