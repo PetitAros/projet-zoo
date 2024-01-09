@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="mt-36 main flex flex-col items-center">
-        {{ form_start(form, {label:''})}}
+        {{ form_start(form, {label:' '})}}
 
 
         <h1 class="text-center text-8xl lg:text-6xl mt-36 lg:mt-24 mb-5 text-secondary-800">{{form_label(form, 'Choix des évènements')}}</h1>
@@ -26,10 +26,11 @@
                 </div>
             {% endfor %}
         {% else %}
-            <h2>Aucun évènement prévu à cette date </h2>
+            <h2 class="text-2xl text-primary-800">Aucun évènement prévu à cette date </h2>
+            {{ form_widget(form.events, {label: ' '}) }}
         {% endif %}
         <div class="flex justify-center mt-4">
-            <button type="submit" class="btn bg-primary-500/70 col-start-2 col-end-4 text-4xl lg:text-2xl rounded-xl p-2 border border-primary-50 border-s">Valider l'inscription</button>
+            <button type="submit" class="btn bg-primary-500/70 col-start-2 col-end-4 text-4xl lg:text-2xl rounded-xl p-2 border border-primary-50 border-s">Valider le choix</button>
         </div>
 
         {{ form_end(form) }}
