@@ -25,6 +25,9 @@ class Habitat
     #[ORM\ManyToMany(targetEntity: FamilleAnimal::class, mappedBy: 'habitat')]
     private Collection $famillesAnimaux;
 
+    /**
+     * Constructeur de la classe Habitat. Définit l'attribut famillesAnimaux.
+     */
     public function __construct()
     {
         $this->famillesAnimaux = new ArrayCollection();
