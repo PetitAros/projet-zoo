@@ -53,8 +53,16 @@
                         <p class="text-primary-50 text-lg">Tarif place adulte: {{ reserv.billet.tarifAdult }} €</p>
                         <p class="text-primary-50 text-lg">Tarif place enfant: {{ reserv.billet.tarifChild }} €</p>
                     </div>
-                    <div class="">
+                    <div class='' class="">
                         <p class="text-primary-50 text-2xl text-center">Prix total:{{(reserv.billet.tarifAdult * reserv.nbPlacesAdult)+(reserv.nbPlacesChild * reserv.billet.tarifChild ) }} €</p>
+                    </div>
+                    <div class="flex flex-row justify-center">
+                    <a href="{{ path('app_reservation_events', {'id': reserv.id}) }}">
+                        <button class="btn bg-primary-500 col-start-2 col-end-4 text-4xl lg:text-2xl rounded-xl p-2 m-4">Planifier</button>
+                    </a>
+                    <a href="{{ path('app_reservation_delete', {'id': reserv.id}) }}">
+                        <button class="btn bg-primary-500 col-start-2 col-end-4 text-4xl lg:text-2xl rounded-xl p-2 m-4">Supprimer</button>
+                    </a>
                     </div>
                     {% if reserv.assoEventReservations is not empty %}
                         <p class="text-primary-50 text-3xl text-center m-2 underline">Les événements réservés :</p>
