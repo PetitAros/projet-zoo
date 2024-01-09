@@ -39,9 +39,13 @@ class FamilleAnimal
     #[ORM\OneToMany(mappedBy: 'famille', targetEntity: Animal::class)]
     private Collection $animals;
 
+    #[ORM\ManyToMany(targetEntity: Habitat::class, inversedBy: 'famillesAnimaux')]
+    private Collection $habitats;
+
     public function __construct()
     {
         $this->animals = new ArrayCollection();
+        $this->habitats = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -159,6 +163,30 @@ class FamilleAnimal
                 $animal->setFamille(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Habitat>
+     */
+    public function getHabitats(): Collection
+    {
+        return $this->habitats;
+    }
+
+    public function addHabitat(Habitat $habitats): static
+    {
+        if (!$this->habitats->contains($habitats)) {
+            $this->habitats->add($habitats);
+        }
+
+        return $this;
+    }
+
+    public function removeHabitat(Habitat $habitats): static
+    {
+        $this->habitats->removeElement($habitats);
 
         return $this;
     }
