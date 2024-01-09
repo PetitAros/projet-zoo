@@ -77,7 +77,7 @@ class Habitat
     }
 
     /**
-     * Modifie l'icone d'un habitat (ou bien l'attribue s'il n'y en avait pas au préalable).
+     * Modifie l'icone d'un habitat passé en paramètre (ou bien l'attribue s'il n'y en avait pas au préalable).
      *
      * @param $iconeHabitat
      * @return $this
@@ -90,6 +90,8 @@ class Habitat
     }
 
     /**
+     * Accesseur des fammilles d'animaux présentes dans un habitat.
+     *
      * @return Collection<int, FamilleAnimal>
      */
     public function getFamillesAnimaux(): Collection
