@@ -76,6 +76,12 @@ class Habitat
         return $this->iconeHabitat;
     }
 
+    /**
+     * Modifie l'icone d'un habitat (ou bien l'attribue s'il n'y en avait pas au préalable).
+     *
+     * @param $iconeHabitat
+     * @return $this
+     */
     public function setIconeHabitat($iconeHabitat): static
     {
         $this->iconeHabitat = $iconeHabitat;
