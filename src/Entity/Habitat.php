@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\HabitatRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -19,6 +21,14 @@ class Habitat
 
     #[ORM\Column(type: Types::BLOB, nullable: true)]
     private $iconeHabitat = null;
+
+    #[ORM\ManyToMany(targetEntity: FamilleAnimal::class, mappedBy: 'habitat')]
+    private Collection $famillesAnimaux;
+
+    public function __construct()
+    {
+        $this->famillesAnimaux = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -45,6 +55,33 @@ class Habitat
     public function setIconeHabitat($iconeHabitat): static
     {
         $this->iconeHabitat = $iconeHabitat;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, FamilleAnimal>
+     */
+    public function getFamillesAnimaux(): Collection
+    {
+        return $this->famillesAnimaux;
+    }
+
+    public function addFamillesAnimaux(FamilleAnimal $famillesAnimaux): static
+    {
+        if (!$this->famillesAnimaux->contains($famillesAnimaux)) {
+            $this->famillesAnimaux->add($famillesAnimaux);
+            $famillesAnimaux->addHabitat($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFamillesAnimaux(FamilleAnimal $famillesAnimaux): static
+    {
+        if ($this->famillesAnimaux->removeElement($famillesAnimaux)) {
+            $famillesAnimaux->removeHabitat($this);
+        }
 
         return $this;
     }
