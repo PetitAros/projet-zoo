@@ -66,6 +66,11 @@ class Habitat
         return $this;
     }
 
+    /**
+     * Accesseur de l'icone de l'habitat. Peut retourner null si l'habitat n'a pas d'image liée.
+     *
+     * @return null
+     */
     public function getIconeHabitat()
     {
         return $this->iconeHabitat;
