@@ -7,6 +7,7 @@ use App\Entity\Billet;
 use App\Entity\Event;
 use App\Entity\Reservation;
 use App\Form\ReservationType;
+use App\Repository\AssoEventReservationRepository;
 use App\Repository\BilletRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
@@ -99,7 +100,7 @@ class ReservationController extends AbstractController
         $user = $this->getUser();
 
         if ($reservation->getUser() !== $user) {
-            throw new AccessDeniedException('Vous n\avez pas la permission d\'accéder à cette page');
+            throw new AccessDeniedException('Vous n\'avez pas la permission d\'accéder à cette page');
         }
 
         $nbPlacesReserv = $reservation->getNbPlacesChild() + $reservation->getNbPlacesAdult();
@@ -128,6 +129,8 @@ class ReservationController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $selectedEventsID = $form->get('events')->getData();
+            $assoRepo = $entityManager->getRepository(AssoEventReservationRepository::class);
+            $assoRepo->deleteAllEventFromReservationId($reservation->getId());
             foreach ($selectedEventsID as $eventID) {
                 $reservationEvent = new AssoEventReservation();
                 $reservationEvent->setReservation($reservation);
