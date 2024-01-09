@@ -11,6 +11,7 @@ use App\Repository\BilletRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Finder\Exception\AccessDeniedException;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -93,6 +94,12 @@ class ReservationController extends AbstractController
     {
         if (!$this->isGranted('ROLE_USER')) {
             return $this->redirectToRoute('app_login');
+        }
+
+        $user = $this->getUser();
+
+        if ($reservation->getUser() !== $user) {
+            throw new AccessDeniedException('Vous n\avez pas la permission d\'accéder à cette page');
         }
 
         $nbPlacesReserv = $reservation->getNbPlacesChild() + $reservation->getNbPlacesAdult();
