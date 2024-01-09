@@ -7,13 +7,13 @@ use App\Entity\Billet;
 use App\Entity\Event;
 use App\Entity\Reservation;
 use App\Form\ReservationType;
-use App\Repository\AssoEventReservationRepository;
 use App\Repository\BilletRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -34,7 +34,7 @@ class ReservationController extends AbstractController
      * Permet la redirection de l'utilisateur vers la page de choix d'un billet. Cette page est un affichage de bouton
      * présentant les différents tarifs et billets.
      */
-    #[Route('/reservation/create', name : 'app_reservation_choose')]
+    #[Route('/reservation/create', name: 'app_reservation_choose')]
     public function choose(BilletRepository $billetRepository): Response
     {
         if (!$this->isGranted('ROLE_USER')) {
@@ -86,9 +86,6 @@ class ReservationController extends AbstractController
      * est inférieur ou égale à la taille de la réservation effectuée.
      *
      * @param Reservation $reservation
-     * @param EntityManagerInterface $entityManager
-     * @param Request $request
-     * @return Response
      */
     #[Route('/reservation/events/{id}', name: 'app_reservation_events')]
     public function events(#[MapEntity] Reservation $reservation, EntityManagerInterface $entityManager, Request $request): Response
@@ -147,5 +144,33 @@ class ReservationController extends AbstractController
             'reservation' => $reservation,
             'form' => $form,
         ]);
+    }
+
+    public function delete(#[MapEntity] Reservation $reservation, EntityManagerInterface $entityManager, Request $request)
+    {
+        if (!$this->isGranted('ROLE_USER')) {
+            return $this->redirectToRoute('app_login');
+        }
+
+        $user = $this->getUser();
+
+        if ($reservation->getUser() !== $user) {
+            throw new AccessDeniedException('Vous n\'avez pas la permission d\'accéder à cette page');
+        }
+        $form = $this->createFormBuilder($reservation)
+            ->add('delete', SubmitType::class)
+            ->add('cancel', SubmitType::class)
+            ->getForm();
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            if ($form->get('delete')->isClicked()) {
+                $assoRepo = $entityManager->getRepository(AssoEventReservation::class);
+                $assoRepo->deleteAllEventFromReservationId($reservation);
+                $entityManager->remove($reservation);
+                $entityManager->flush();
+            }
+
+            return $this->redirectToRoute('app_user');
+        }
     }
 }
