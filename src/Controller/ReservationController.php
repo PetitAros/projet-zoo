@@ -123,7 +123,6 @@ class ReservationController extends AbstractController
                 'evenements' => $possibleEvents,
             ],
             'required' => false,
-            'label' => 'Choix des évènements lors du séjour',
         ]);
         $form = $form->getForm();
         $form->handleRequest($request);
