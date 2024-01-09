@@ -34,7 +34,7 @@ class Habitat
     }
 
     /**
-     * Accesseur de l'attribut Id de la classe Habitat.
+     * Accesseur de l'identifiant d'un habitat.
      *
      * @return int|null
      */
@@ -43,6 +43,11 @@ class Habitat
         return $this->id;
     }
 
+    /**
+     * Accesseur du libellé de l'habitat.
+     *
+     * @return string|null
+     */
     public function getLibHabitat(): ?string
     {
         return $this->libHabitat;
