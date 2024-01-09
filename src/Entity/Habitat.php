@@ -99,6 +99,12 @@ class Habitat
         return $this->famillesAnimaux;
     }
 
+    /**
+     * Permet d'ajouter une une ou plusieures familles d'animaux dans un habitat, si ces familles n'y étaient pas déjà auparavant.
+     *
+     * @param FamilleAnimal $famillesAnimaux
+     * @return $this
+     */
     public function addFamillesAnimaux(FamilleAnimal $famillesAnimaux): static
     {
         if (!$this->famillesAnimaux->contains($famillesAnimaux)) {
