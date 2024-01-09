@@ -35,6 +35,9 @@ class ReservationController extends AbstractController
     #[Route('/reservation/create', name : 'app_reservation_choose')]
     public function choose(BilletRepository $billetRepository): Response
     {
+        if (!$this->isGranted('ROLE_USER')) {
+            return $this->redirectToRoute('app_login');
+        }
         $billets = $billetRepository->findAll();
 
         return $this->render('reservation/choose.html.twig', ['billets' => $billets]);
