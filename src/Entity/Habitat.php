@@ -53,6 +53,12 @@ class Habitat
         return $this->libHabitat;
     }
 
+    /**
+     * Modifie le libellé d'un habitat séléctionné en paramètre.
+     *
+     * @param string $libHabitat
+     * @return $this
+     */
     public function setLibHabitat(string $libHabitat): static
     {
         $this->libHabitat = $libHabitat;
