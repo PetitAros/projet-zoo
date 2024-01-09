@@ -91,6 +91,10 @@ class ReservationController extends AbstractController
     #[Route('/reservation/events/{id}', name: 'app_reservation_events')]
     public function events(#[MapEntity] Reservation $reservation, EntityManagerInterface $entityManager, Request $request): Response
     {
+        if (!$this->isGranted('ROLE_USER')) {
+            return $this->redirectToRoute('app_login');
+        }
+
         $nbPlacesReserv = $reservation->getNbPlacesChild() + $reservation->getNbPlacesAdult();
 
         $billet = $reservation->getBillet();
