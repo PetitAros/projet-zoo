@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\AssoEventReservation;
+use App\Entity\Reservation;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -21,13 +22,14 @@ class AssoEventReservationRepository extends ServiceEntityRepository
         parent::__construct($registry, AssoEventReservation::class);
     }
 
-    public function deleteAllEventFromReservationId(int $id): void
+    public function deleteAllEventFromReservationId(Reservation $reservation): void
     {
-        $events = $this->findBy(['id' => $id]);
-        foreach ($events as $e) {
-            $em = $this->getEntityManager();
-            $em->remove($e);
+        $em = $this->getEntityManager();
+        $liens = $this->findBy(['reservation' => $reservation]);
+        foreach ($liens as $l) {
+            $em->remove($l);
         }
+        $em->flush();
     }
 
     //    /**
