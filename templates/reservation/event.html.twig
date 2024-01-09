@@ -7,7 +7,7 @@
         {{ form_start(form, {label:' '})}}
 
 
-        <h1 class="text-center text-8xl lg:text-6xl mt-36 lg:mt-24 mb-5 text-secondary-800">{{form_label(form, 'Choix des évènements')}}</h1>
+        <h1 class="text-center text-4xl lg:text-6xl mt-36 lg:mt-24 mb-5 text-secondary-800 md:text-6xl">{{form_label(form, 'Choix des évènements')}}</h1>
         {% if form.events is not empty %}
             {% for event in form.events %}
                 <div class="flex justify-center items-center ps-4 border-4 border-secondary-800 rounded-xl p-6">
