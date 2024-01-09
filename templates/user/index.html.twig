@@ -38,7 +38,9 @@
     <div class="flex justify-center">
         <div class="flex flex-col">
             <h1 class="text-center text-8xl lg:text-6xl mt-20 lg:mt-24 mb-5 text-secondary-800">Vos Réservations</h1>
-
+            <a href="{{ path('app_reservation_choose')}}" class="flex justify-center">
+                <button class="btn bg-primary-500 col-start-2 col-end-4 text-4xl lg:text-2xl rounded-xl p-2 m-4">Ajouter une réservation</button>
+            </a>
                 {% for reserv in user.reservations | sort((a,b)=>a.dateReservation <=>b.dateReservation) %}
                 <div class="bg-secondary-800/70 m-2 rounded-xl flex flex-col p-2">
                     <div>
@@ -55,6 +57,14 @@
                     </div>
                     <div class="">
                         <p class="text-primary-50 text-2xl text-center">Prix total:{{(reserv.billet.tarifAdult * reserv.nbPlacesAdult)+(reserv.nbPlacesChild * reserv.billet.tarifChild ) }} €</p>
+                    </div>
+                    <div class="flex flex-row justify-center">
+                    <a href="{{ path('app_reservation_events', {'id': reserv.id}) }}">
+                        <button class="btn bg-primary-500 col-start-2 col-end-4 text-4xl lg:text-2xl rounded-xl p-2 m-4">Planifier</button>
+                    </a>
+                    <a href="{{ path('app_reservation_delete', {'id': reserv.id}) }}">
+                        <button class="btn bg-primary-500 col-start-2 col-end-4 text-4xl lg:text-2xl rounded-xl p-2 m-4">Supprimer</button>
+                    </a>
                     </div>
                     {% if reserv.assoEventReservations is not empty %}
                         <p class="text-primary-50 text-3xl text-center m-2 underline">Les événements réservés :</p>

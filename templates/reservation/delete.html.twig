@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% set title = 'Supression d\'une réservation' %}
+
+{% block title %} {{ title}} {% endblock %}
+
+{% block body %}
+    <h1 class="text-center text-4xl lg:text-6xl mt-36 lg:mt-24 mb-5 text-secondary-800 md:text-6xl">{{ title }}</h1>
+    <p class="m-6 text-center text-2xl lg:text-4xl mt-36 lg:mt-24 mb-10 text-secondary-900">Voulez-vous vraiment supprimer cette réservation ?</p>
+    <div class="flex flex-row justify-center">
+        {{ form_start(form, {attr : {class : 'flex justify-content-around d-flex p-4 flex-row'}}) }}
+        {{ form_row(form.delete, {label:'Supprimer', attr: {class: 'm-6 btn bg-primary-500/70 col-start-2 col-end-4 text-4xl lg:text-2xl rounded-xl p-2 border border-primary-50 border-s'}}) }}
+        {{ form_row(form.cancel, {label:'Annuler', attr: {class: 'm-6 btn bg-primary-500/70 col-start-2 col-end-4 text-4xl lg:text-2xl rounded-xl p-2 border border-primary-50 border-s'}}) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
