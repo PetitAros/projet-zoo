@@ -11,6 +11,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class EventController extends AbstractController
 {
+    /**
+     * Permet d'envoyer la liste de tous les evènements vers la vue associée.
+     *
+     * @param EventRepository $eRep
+     * @param Request $request
+     * @return Response
+     */
     #[Route('/event', name: 'app_event')]
     public function index(EventRepository $eRep, Request $request): Response
     {
@@ -23,6 +30,12 @@ class EventController extends AbstractController
         return $this->render('Event/index.html.twig', ['events' => $events, 'action' => 'event','value'=>$value]);
     }
 
+    /**
+     * Permet d'envoyer les informations d'un évenement précis passé en paramètre vers la vue associée
+     *
+     * @param Event $event
+     * @return Response
+     */
     #[Route('/event/{id}', name: 'detail')]
     public function show(Event $event): Response
     {
