@@ -7,6 +7,7 @@ use App\Entity\Billet;
 use App\Entity\DateEvent;
 use App\Entity\Event;
 use App\Entity\FamilleAnimal;
+use App\Entity\Habitat;
 use App\Entity\User;
 use App\Entity\ZoneParc;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
@@ -46,6 +47,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Date Evenement', 'fas fa-calendar-days', DateEvent::class);
         yield MenuItem::linkToCrud('Famille d\'animaux', 'fas fa-hippo', FamilleAnimal::class);
         yield MenuItem::linkToCrud('Animaux', 'fas fa-fish', Animal::class);
+        yield MenuItem::linkToCrud('Habitat', 'fas fa-mountain-sun', Habitat::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }
