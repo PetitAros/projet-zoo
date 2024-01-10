@@ -5,7 +5,6 @@ namespace App\Entity;
 use App\Repository\HabitatRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: HabitatRepository::class)]
@@ -22,7 +21,6 @@ class Habitat
     #[ORM\OneToMany(mappedBy: 'habitat', targetEntity: AssoHabitatFamilleAnimal::class)]
     private Collection $assoHabitatFamilleAnimal;
 
-
     /**
      * Constructeur de la classe Habitat. Définit l'attribut famillesAnimaux.
      */
@@ -34,8 +32,6 @@ class Habitat
 
     /**
      * Accesseur de l'identifiant d'un habitat.
-     *
-     * @return int|null
      */
     public function getId(): ?int
     {
@@ -44,8 +40,6 @@ class Habitat
 
     /**
      * Accesseur du libellé de l'habitat.
-     *
-     * @return string|null
      */
     public function getLibHabitat(): ?string
     {
@@ -55,7 +49,6 @@ class Habitat
     /**
      * Modifie le libellé d'un habitat séléctionné en paramètre.
      *
-     * @param string $libHabitat
      * @return $this
      */
     public function setLibHabitat(string $libHabitat): static
