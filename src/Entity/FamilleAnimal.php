@@ -39,13 +39,13 @@ class FamilleAnimal
     #[ORM\OneToMany(mappedBy: 'famille', targetEntity: Animal::class)]
     private Collection $animals;
 
-    #[ORM\ManyToMany(targetEntity: Habitat::class, inversedBy: 'famillesAnimaux')]
-    private Collection $habitats;
+    #[ORM\OneToMany(mappedBy: 'FamilleAnimal', targetEntity: AssoHabitatFamilleAnimal::class)]
+    private Collection $assoHabitatFamilleAnimals;
 
     public function __construct()
     {
         $this->animals = new ArrayCollection();
-        $this->habitats = new ArrayCollection();
+        $this->assoHabitatFamilleAnimals = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -168,25 +168,31 @@ class FamilleAnimal
     }
 
     /**
-     * @return Collection<int, Habitat>
+     * @return Collection<int, AssoHabitatFamilleAnimal>
      */
-    public function getHabitats(): Collection
+    public function getAssoHabitatFamilleAnimals(): Collection
     {
-        return $this->habitats;
+        return $this->assoHabitatFamilleAnimals;
     }
 
-    public function addHabitat(Habitat $habitats): static
+    public function addAssoHabitatFamilleAnimal(AssoHabitatFamilleAnimal $assoHabitatFamilleAnimal): static
     {
-        if (!$this->habitats->contains($habitats)) {
-            $this->habitats->add($habitats);
+        if (!$this->assoHabitatFamilleAnimals->contains($assoHabitatFamilleAnimal)) {
+            $this->assoHabitatFamilleAnimals->add($assoHabitatFamilleAnimal);
+            $assoHabitatFamilleAnimal->setFamilleAnimal($this);
         }
 
         return $this;
     }
 
-    public function removeHabitat(Habitat $habitats): static
+    public function removeAssoHabitatFamilleAnimal(AssoHabitatFamilleAnimal $assoHabitatFamilleAnimal): static
     {
-        $this->habitats->removeElement($habitats);
+        if ($this->assoHabitatFamilleAnimals->removeElement($assoHabitatFamilleAnimal)) {
+            // set the owning side to null (unless already changed)
+            if ($assoHabitatFamilleAnimal->getFamilleAnimal() === $this) {
+                $assoHabitatFamilleAnimal->setFamilleAnimal(null);
+            }
+        }
 
         return $this;
     }
