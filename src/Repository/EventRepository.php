@@ -76,8 +76,8 @@ class EventRepository extends ServiceEntityRepository
         --$nbJours;
 
         $request = $this->createQueryBuilder('event')
-            ->innerJoin('App:assoEventDateEvent', 'aed', 'WITH', 'event = aed.event')
-            ->innerJoin('App:dateEvent', 'de', 'WITH', 'aed.dateEvent = de')
+            ->innerJoin('App:AssoEventDateEvent', 'aed', 'WITH', 'event = aed.event')
+            ->innerJoin('App:DateEvent', 'de', 'WITH', 'aed.dateEvent = de')
             ->where("de.dateEvent BETWEEN :date AND DATE_ADD(:date,:jours, 'day')")
             ->setParameter('date', $date->format('Y-m-d'))
             ->setParameter('jours', $nbJours);
