@@ -18,8 +18,9 @@ class Espece
     #[ORM\Column(length: 128)]
     private ?string $libEspece = null;
 
-    #[ORM\OneToMany(mappedBy: 'espÃÃ¨ce', targetEntity: FamilleAnimal::class)]
+    #[ORM\OneToMany(mappedBy: 'espece', targetEntity: FamilleAnimal::class)]
     private Collection $familleAnimals;
+
 
     public function __construct()
     {
@@ -55,7 +56,7 @@ class Espece
     {
         if (!$this->familleAnimals->contains($familleAnimal)) {
             $this->familleAnimals->add($familleAnimal);
-            $familleAnimal->setEspÃÃ¨ce($this);
+            $familleAnimal->setEspece($this);
         }
 
         return $this;
@@ -65,8 +66,8 @@ class Espece
     {
         if ($this->familleAnimals->removeElement($familleAnimal)) {
             // set the owning side to null (unless already changed)
-            if ($familleAnimal->getEspÃÃ¨ce() === $this) {
-                $familleAnimal->setEspÃÃ¨ce(null);
+            if ($familleAnimal->getEspece() === $this) {
+                $familleAnimal->setEspece(null);
             }
         }
 
