@@ -19,10 +19,7 @@ class Habitat
     #[ORM\Column(length: 128)]
     private ?string $libHabitat = null;
 
-    #[ORM\Column(type: Types::BLOB, nullable: true)]
-    private $iconeHabitat = null;
-
-    #[ORM\ManyToMany(targetEntity: FamilleAnimal::class, mappedBy: 'habitat')]
+    #[ORM\ManyToMany(targetEntity: FamilleAnimal::class, mappedBy: 'habitats')]
     private Collection $famillesAnimaux;
 
     /**
@@ -66,28 +63,6 @@ class Habitat
         return $this;
     }
 
-    /**
-     * Accesseur de l'icone de l'habitat. Peut retourner null si l'habitat n'a pas d'image liée.
-     *
-     * @return null
-     */
-    public function getIconeHabitat()
-    {
-        return $this->iconeHabitat;
-    }
-
-    /**
-     * Modifie l'icone d'un habitat passé en paramètre (ou bien l'attribue s'il n'y en avait pas au préalable).
-     *
-     * @param $iconeHabitat
-     * @return $this
-     */
-    public function setIconeHabitat($iconeHabitat): static
-    {
-        $this->iconeHabitat = $iconeHabitat;
-
-        return $this;
-    }
 
     /**
      * Accesseur des fammilles d'animaux présentes dans un habitat.
