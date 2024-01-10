@@ -24,7 +24,16 @@
                 <p class="text-primary-100 text-2xl lg:text-xl text-center">{{ famille_animal.dangerExtinction}}</p>
                 <p class="text-primary-100 text-2xl lg:text-xl text-center font-bold">Type d'alimentation :</p>
                 <p class="text-primary-100 text-2xl lg:text-xl text-center">{{ famille_animal.typeAlimentation }} </p>
-
+                <p class="text-primary-100 text-2xl lg:text-xl text-center font-bold">Habitat</p>
+                {% if famille_animal.assoHabitatFamilleAnimals is not empty %}
+                    <p class="text-primary-100 text-2xl lg:text-xl text-center">
+                    {% for habitat in famille_animal.assoHabitatFamilleAnimals %}
+                       {{ habitat.habitat.libHabitat }}
+                    {% endfor%}
+                    </p>
+                {% else %}
+                    <p class="text-primary-100 text-2xl lg:text-xl text-center">Habitat non renseigné</p>
+                {% endif %}
             </div>
             <div class="m-2 bg-secondary-800 rounded-xl p-1">
                 <p class="text-primary-100 text-2xl lg:text-xl text-center font-bold">Description</p>
