@@ -82,7 +82,6 @@ class EventRepository extends ServiceEntityRepository
             ->setParameter('date', $date->format('Y-m-d'))
             ->setParameter('jours', $nbJours);
         $query = $request->getQuery()->execute();
-        dump($date);
 
         return array_filter($query, function ($item) {
             return $item instanceof Event;
