@@ -43,7 +43,7 @@ class FamilleAnimal
     private Collection $assoHabitatFamilleAnimals;
 
     #[ORM\ManyToOne(inversedBy: 'familleAnimals')]
-    private ?Espece $espÃÃ¨ce = null;
+    private ?Espece $espece = null;
 
 
     public function __construct()
@@ -202,14 +202,14 @@ class FamilleAnimal
         return $this;
     }
 
-    public function getEspÃÃ¨ce(): ?Espece
+    public function getEspece(): ?Espece
     {
-        return $this->espÃÃ¨ce;
+        return $this->espece;
     }
 
-    public function setEspÃÃ¨ce(?Espece $espÃÃ¨ce): static
+    public function setEspece(?Espece $espece): static
     {
-        $this->espÃÃ¨ce = $espÃÃ¨ce;
+        $this->espece = $espece;
 
         return $this;
     }
