@@ -42,10 +42,16 @@ class FamilleAnimal
     #[ORM\OneToMany(mappedBy: 'FamilleAnimal', targetEntity: AssoHabitatFamilleAnimal::class)]
     private Collection $assoHabitatFamilleAnimals;
 
+    #[ORM\ManyToOne(inversedBy: 'familleAnimals')]
+    private ?Espece $espece = null;
+
+
+
     public function __construct()
     {
         $this->animals = new ArrayCollection();
         $this->assoHabitatFamilleAnimals = new ArrayCollection();
+        $this->espèce = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -193,6 +199,18 @@ class FamilleAnimal
                 $assoHabitatFamilleAnimal->setFamilleAnimal(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getEspece(): ?Espece
+    {
+        return $this->espece;
+    }
+
+    public function setEspece(?Espece $espece): static
+    {
+        $this->espece = $espece;
 
         return $this;
     }

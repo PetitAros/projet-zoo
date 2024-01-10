@@ -18,6 +18,14 @@
                 <p class="text-primary-100 text-2xl lg:text-xl text-center">{{ famille_animal.nomFamilleAnimal }}</p>
                 <p class="text-primary-100 text-2xl lg:text-xl text-center font-bold">Nom scientifique</p>
                 <p class="text-primary-100 text-2xl lg:text-xl text-center italic">{{ famille_animal.nomScientifique }}</p>
+                <p class="text-primary-100 text-2xl lg:text-xl text-center font-bold">Espèce</p>
+                <p class="text-primary-100 text-2xl lg:text-xl text-center">
+                {% if famille_animal.espece is not empty%}
+                    {{ famille_animal.espece.libEspece }}
+                {% else %}
+                    Non renseigné
+                {% endif %}
+                </p>
             </div>
             <div class="m-2 bg-secondary-800 rounded-xl p-1">
                 <p class="text-primary-100 text-2xl lg:text-xl text-center font-bold">Degrée de danger d'extinction</p>

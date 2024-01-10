@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\FamilleAnimal;
+use App\Factory\EspeceFactory;
 use App\Factory\FamilleAnimalFactory;
 use App\Factory\ZoneParcFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -16,6 +17,7 @@ class FamilleAnimalFixtures extends Fixture implements DependentFixtureInterface
         $familles = FamilleAnimalFactory::createMany(20, function () {
             return [
                 'zoneParc' => ZoneParcFactory::random(),
+                'espece' => EspeceFactory::random(),
             ];
         });
         foreach ($familles as $famille) {
@@ -30,6 +32,7 @@ class FamilleAnimalFixtures extends Fixture implements DependentFixtureInterface
     {
         return [
             ZoneParcFixtures::class,
+            EspèceFixtures::class,
         ];
     }
 }
