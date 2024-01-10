@@ -1,11 +1,5 @@
-{% extends 'base.html.twig' %}
+{% set title = 'Erreur !' %}
+{% set content = 'Oups, une erreur est survenue...' %}
+{%  set elts = {'title':title, 'content':content} %}
 
-{% block title %}Oups...{% endblock %}
-
-
-{% block body %}
-    <div class="flex justify-center flex-col content-center items-center">
-        <h1 class="text-center text-4xl lg:text-6xl mt-36 lg:mt-24 mb-5 text-secondary-800 md:text-6xl">Oups !..</h1>
-        <p class="text-2xl text-secondary-800">Une erreur est survenue loers du chargement de cette page... </p>
-    </div>
-{% endblock %}
+{% include 'bundles/TwigBundle/Exception/_error.html.twig' with elts %}
