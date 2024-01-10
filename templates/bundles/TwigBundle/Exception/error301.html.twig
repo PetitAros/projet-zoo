@@ -1,0 +1,5 @@
+{% set title = 'Erreur 301 !' %}
+{% set content = 'Oups, une erreur 301 est survenue... Vous n\'êtes pas authorisé à atteindre cette page !'%}
+{%  set elts = {'title':title, 'content':content} %}
+
+{% include 'bundles/TwigBundle/Exception/_error.html.twig' with elts %}
