@@ -1,0 +1,5 @@
+{% set title = 'Erreur 500 !' %}
+{% set content = 'Oups, une erreur 500 est survenue... Le serveur a rencontré un soucis.' %}
+{%  set elts = {'title':title, 'content':content} %}
+
+{% include 'bundles/TwigBundle/Exception/_error.html.twig' with elts %}
