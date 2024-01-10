@@ -11,9 +11,6 @@ class HabitatFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        // $product = new Product();
-        // $manager->persist($product);
-
-        $manager->flush();
+        HabitatFactory::createMany(5);
     }
 }
