@@ -1,0 +1,5 @@
+{% set title = 'Erreur 404 !' %}
+{% set content = 'Oups, une erreur 404 est survenue... Il nous est impossible de trouver cette page.' %}
+{%  set elts = {'title':title, 'content':content} %}
+
+{% include 'bundles/TwigBundle/Exception/_error.html.twig' with elts %}
