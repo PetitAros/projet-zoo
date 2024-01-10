@@ -42,8 +42,9 @@ class FamilleAnimal
     #[ORM\OneToMany(mappedBy: 'FamilleAnimal', targetEntity: AssoHabitatFamilleAnimal::class)]
     private Collection $assoHabitatFamilleAnimals;
 
-    #[ORM\OneToMany(mappedBy: 'familleAnimal', targetEntity: Espece::class)]
-    private Collection $esp√®ce;
+    #[ORM\ManyToOne(inversedBy: 'familleAnimals')]
+    private ?Espece $esp√√®ce = null;
+
 
     public function __construct()
     {
@@ -201,32 +202,14 @@ class FamilleAnimal
         return $this;
     }
 
-    /**
-     * @return Collection<int, Espece>
-     */
-    public function getEsp√®ce(): Collection
+    public function getEsp√√®ce(): ?Espece
     {
-        return $this->esp√®ce;
+        return $this->esp√√®ce;
     }
 
-    public function addEspCe(Espece $espCe): static
+    public function setEsp√√®ce(?Espece $esp√√®ce): static
     {
-        if (!$this->esp√®ce->contains($espCe)) {
-            $this->esp√®ce->add($espCe);
-            $espCe->setFamilleAnimal($this);
-        }
-
-        return $this;
-    }
-
-    public function removeEspCe(Espece $espCe): static
-    {
-        if ($this->esp√®ce->removeElement($espCe)) {
-            // set the owning side to null (unless already changed)
-            if ($espCe->getFamilleAnimal() === $this) {
-                $espCe->setFamilleAnimal(null);
-            }
-        }
+        $this->esp√√®ce = $esp√√®ce;
 
         return $this;
     }
