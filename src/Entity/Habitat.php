@@ -19,9 +19,6 @@ class Habitat
     #[ORM\Column(length: 128)]
     private ?string $libHabitat = null;
 
-    #[ORM\Column(type: Types::BLOB, nullable: true)]
-    private $iconeHabitat = null;
-
     #[ORM\ManyToMany(targetEntity: FamilleAnimal::class, mappedBy: 'habitat')]
     private Collection $famillesAnimaux;
 
