@@ -19,7 +19,7 @@ class Habitat
     #[ORM\Column(length: 128)]
     private ?string $libHabitat = null;
 
-    #[ORM\ManyToMany(targetEntity: FamilleAnimal::class, mappedBy: 'habitat')]
+    #[ORM\ManyToMany(targetEntity: FamilleAnimal::class, mappedBy: 'habitats')]
     private Collection $famillesAnimaux;
 
     /**
