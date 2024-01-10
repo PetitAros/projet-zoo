@@ -22,7 +22,7 @@ class AssoHabitatFamilleAnimalRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return AssoHabitatFamilleAnimal[] Returns an array of AssoHabitatFamilleAnimal objects
+//     * @return AssoHabitatFamilleAnimalFixtures[] Returns an array of AssoHabitatFamilleAnimalFixtures objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -36,7 +36,7 @@ class AssoHabitatFamilleAnimalRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?AssoHabitatFamilleAnimal
+//    public function findOneBySomeField($value): ?AssoHabitatFamilleAnimalFixtures
 //    {
 //        return $this->createQueryBuilder('a')
 //            ->andWhere('a.exampleField = :val')
