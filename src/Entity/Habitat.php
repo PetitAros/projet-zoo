@@ -19,8 +19,9 @@ class Habitat
     #[ORM\Column(length: 128)]
     private ?string $libHabitat = null;
 
-    #[ORM\ManyToMany(targetEntity: FamilleAnimal::class, mappedBy: 'habitats')]
-    private Collection $famillesAnimaux;
+    #[ORM\OneToMany(mappedBy: 'habitat', targetEntity: AssoHabitatFamilleAnimal::class)]
+    private Collection $assoHabitatFamilleAnimal;
+
 
     /**
      * Constructeur de la classe Habitat. Définit l'attribut famillesAnimaux.
@@ -28,6 +29,7 @@ class Habitat
     public function __construct()
     {
         $this->famillesAnimaux = new ArrayCollection();
+        $this->assoHabitatFamilleAnimal = new ArrayCollection();
     }
 
     /**
@@ -63,43 +65,31 @@ class Habitat
         return $this;
     }
 
-
     /**
-     * Accesseur des fammilles d'animaux présentes dans un habitat.
-     *
-     * @return Collection<int, FamilleAnimal>
+     * @return Collection<int, AssoHabitatFamilleAnimal>
      */
-    public function getFamillesAnimaux(): Collection
+    public function getAssoHabitatFamilleAnimal(): Collection
     {
-        return $this->famillesAnimaux;
+        return $this->assoHabitatFamilleAnimal;
     }
 
-    /**
-     * Permet d'ajouter une ou plusieures familles d'animaux dans un habitat, si ces familles n'y étaient pas déjà auparavant.
-     *
-     * @param FamilleAnimal $famillesAnimaux
-     * @return $this
-     */
-    public function addFamillesAnimaux(FamilleAnimal $famillesAnimaux): static
+    public function addAssoHabitatFamilleAnimal(AssoHabitatFamilleAnimal $assoHabitatFamilleAnimal): static
     {
-        if (!$this->famillesAnimaux->contains($famillesAnimaux)) {
-            $this->famillesAnimaux->add($famillesAnimaux);
-            $famillesAnimaux->addHabitat($this);
+        if (!$this->assoHabitatFamilleAnimal->contains($assoHabitatFamilleAnimal)) {
+            $this->assoHabitatFamilleAnimal->add($assoHabitatFamilleAnimal);
+            $assoHabitatFamilleAnimal->setHabitat($this);
         }
 
         return $this;
     }
 
-    /**
-     * Permet de supprimer une ou plusieures familles d'animaux dans un habitat, si ces familles y étaient auparavant.
-     *
-     * @param FamilleAnimal $famillesAnimaux
-     * @return $this
-     */
-    public function removeFamillesAnimaux(FamilleAnimal $famillesAnimaux): static
+    public function removeAssoHabitatFamilleAnimal(AssoHabitatFamilleAnimal $assoHabitatFamilleAnimal): static
     {
-        if ($this->famillesAnimaux->removeElement($famillesAnimaux)) {
-            $famillesAnimaux->removeHabitat($this);
+        if ($this->assoHabitatFamilleAnimal->removeElement($assoHabitatFamilleAnimal)) {
+            // set the owning side to null (unless already changed)
+            if ($assoHabitatFamilleAnimal->getHabitat() === $this) {
+                $assoHabitatFamilleAnimal->setHabitat(null);
+            }
         }
 
         return $this;
