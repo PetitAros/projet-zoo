@@ -46,8 +46,9 @@ final class HabitatFactory extends ModelFactory
      */
     protected function getDefaults(): array
     {
+        $liste = ['Jungle', 'Forêt', 'Savane', 'Ocean', 'Lac', 'Banquise'];
         return [
-            'libHabitat' => self::faker()->text(128),
+            'libHabitat' => self::faker()->randomElement($liste),
         ];
     }
 
