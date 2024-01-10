@@ -42,10 +42,14 @@ class FamilleAnimal
     #[ORM\OneToMany(mappedBy: 'FamilleAnimal', targetEntity: AssoHabitatFamilleAnimal::class)]
     private Collection $assoHabitatFamilleAnimals;
 
+    #[ORM\OneToMany(mappedBy: 'familleAnimal', targetEntity: Espece::class)]
+    private Collection $espèce;
+
     public function __construct()
     {
         $this->animals = new ArrayCollection();
         $this->assoHabitatFamilleAnimals = new ArrayCollection();
+        $this->espèce = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -191,6 +195,36 @@ class FamilleAnimal
             // set the owning side to null (unless already changed)
             if ($assoHabitatFamilleAnimal->getFamilleAnimal() === $this) {
                 $assoHabitatFamilleAnimal->setFamilleAnimal(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Espece>
+     */
+    public function getEspèce(): Collection
+    {
+        return $this->espèce;
+    }
+
+    public function addEspCe(Espece $espCe): static
+    {
+        if (!$this->espèce->contains($espCe)) {
+            $this->espèce->add($espCe);
+            $espCe->setFamilleAnimal($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEspCe(Espece $espCe): static
+    {
+        if ($this->espèce->removeElement($espCe)) {
+            // set the owning side to null (unless already changed)
+            if ($espCe->getFamilleAnimal() === $this) {
+                $espCe->setFamilleAnimal(null);
             }
         }
 
