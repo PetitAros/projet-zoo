@@ -10,7 +10,7 @@
             <div class="grid grid-cols-2 lg:grid-cols-3 gap-5 w-[90%] lg:w-[70%] m-auto">
                 {% for animal in animaux %}
                     <div class="flex flex-col bg-secondary-800/60 backdrop-filter backdrop-blur-sm border border-secondary-50 border-s rounded-3xl ">
-                        <a class="object-contain m-2" href="{{ path('app_famille_animal_fambyid',{'id':animal.id}) }}">
+                        <a class="species object-contain m-2" href="{{ path('app_famille_animal_fambyid',{'id':animal.id}) }}">
                             <div class="bg-secondary-800/60 backdrop-filter backdrop-blur-sm border border-secondary-50 border-s p-2 rounded-2xl">
                                 {% if animal.imgFamilleAnimal  is defined and animal.imgFamilleAnimal is not null %}
                                     <img class="w-[100%] rounded-2xl" src="{{ asset('images/famille_animal/') }}{{ animal.imgFamilleAnimal }}"  alt="Image de {{ animal.nomFamilleAnimal }}">
@@ -19,7 +19,7 @@
                                 {% endif %}
                             </div>
                             <div>
-                                <p class="text-center text-4xl lg:text-2xl text-text-50">{{ animal.nomFamilleAnimal }}</p>
+                                <p class="nameAnimal text-center text-4xl lg:text-2xl text-text-50">{{ animal.nomFamilleAnimal }}</p>
                                 <p class="text-center text-xl lg:text-md italic text-text-200/50">{{ animal.nomScientifique }}</p>
                             </div>
                         </a>
