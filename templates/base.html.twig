@@ -13,7 +13,7 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body class="flex flex-col bg-background-100">
+    <body class="flex flex-col bg-background-100 min-h-full">
         <header id="header">
             <a href="{{ path('app_index') }}" class="hidden"></a>
             <a href="{{ path('app_event') }}" class="hidden"></a>
@@ -27,8 +27,45 @@
             <a href="{{ path('app_reservation_choose') }}" class="hidden"></a>
             <img class="logo h-20 lg:h-10 pt-1" src="{{ asset('images/LogoZoo.png') }}" alt="Logo du Zoo Parc de Laval">
         </header>
+
         {% block body %}{% endblock %}
 
+        <footer class="bg-secondary-800">
+            <div class="w-[90%] grid grid-cols-1 lg:grid-cols-5 m-auto py-3 gap-5">
+                <div class="lg:col-start-1">
+                    <h2 class="text-background-200 text-6xl lg:text-2xl mb-3 border-b-2 border-background-200 block">Zoo Parc de Laval</h2>
+                    <a class="text-background-400 text-4xl lg:text-lg">contact@zooparc-laval.com</a> <br/>
+                    <a class="text-background-400 text-4xl lg:text-lg">(+33) 1 23 88 88 03</a> <br/>
+                    <a class="text-background-400 text-4xl lg:text-lg">1 Rue du Parc, Laval (53000)</a>
+                </div>
+                <div class="lg:col-start-3">
+                    <h2 class="text-background-200 text-6xl lg:text-2xl mb-3 border-b-2 border-background-200 block">Ressources</h2>
+                    <a class="text-background-400 text-4xl lg:text-lg" href="{{ path('app_reservation_choose') }}">Billeterie</a> <br/>
+                    <a class="text-background-400 text-4xl lg:text-lg" href="{{ path('app_animal') }}">Animaux</a> <br/>
+                    <a class="text-background-400 text-4xl lg:text-lg" href="{{ path('app_event') }}">Programme</a> <br/>
+                    <a class="text-background-400 text-4xl lg:text-lg" href="{{ path('app_user') }}">Mon compte</a>
+                </div>
+                <div class="lg:col-start-4">
+                    <h2 class="text-background-200 text-6xl lg:text-2xl mb-3 border-b-2 border-background-200 block">Entreprise</h2>
+                    <a class="text-background-400 text-4xl lg:text-lg">À propos</a> <br/>
+                    <a class="text-background-400 text-4xl lg:text-lg">Emplois</a> <br/>
+                    <a class="text-background-400 text-4xl lg:text-lg">Actualités</a> <br/>
+                    <a class="text-background-400 text-4xl lg:text-lg">Nous contacter</a> <br/>
+                    <a class="text-background-400 text-4xl lg:text-lg">Administration</a>
+                </div>
+
+                <div class="lg:col-start-5">
+                    <h2 class="text-background-200 text-6xl lg:text-2xl mb-3 border-b-2 border-background-200 block">Informations</h2>
+                    <a class="text-background-400 text-4xl lg:text-lg">Mentions légales</a> <br/>
+                    <a class="text-background-400 text-4xl lg:text-lg">CGV billeterie</a> <br/>
+                    <a class="text-background-400 text-4xl lg:text-lg">Règlement</a> <br/>
+                    <a class="text-background-400 text-4xl lg:text-lg">Confidentialité</a> <br/>
+                    <a class="text-background-400 text-4xl lg:text-lg">FAQ</a>
+                </div>
+
+            </div>
+            <p class="text-background-400 text-center mb-3">Tous droits réservés ©2024 - Zoo Parc de Laval</p>
+        </footer>
 
     </body>
 </html>
