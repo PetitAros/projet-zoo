@@ -32,15 +32,19 @@
                     <div class="flex flex-nowrap lg:ml-40 md:ml-20 ml-10 ">
                         <div class="flex inline-block px-3 flex-row gap-6">
                             {% for event in events %}
-                                <a href="{{ path('detail',{'id':event.id}) }}" class="bg-secondary-700 w-[40rem] lg:w-72 rounded-3xl">
-                                    {% if event.imgEvent is defined and event.imgEvent is not null%}
-                                        <img class="w-96 h-fit rounded-2xl p-2" src="{{ asset("images/events/") }}{{ event.imgEvent }}" alt="Image de l'événement">
-                                    {% else %}
-                                        <img class="object-contain" src="{{ asset("images/default_images/animal-placeholder.png")}}"  alt="Image de {{ event.nomEvent }}">
-                                    {% endif %}
-                                    <p class="my-12 lg:my-6 text-center justify-center text-6xl lg:text-2xl text">{{ event.nomEvent }}</p>
-                                    <p class="mb-12 lg:mb-6 justify-center text-4xl lg:text-xl text">{{ event.description|u.truncate(100, '...') }}</p>
-                                </a>
+                                <div class="flex flex-col w-96 content-center m-3 rounded-3xl pt-2 pl-2 pr-2 bg-background-200/60 backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">
+                                    <a class="object-contain" href="{{ path('app_famille_animal_fambyid',{'id':event.id}) }}">
+                                        <div class="bg-accent-200/60 backdrop-filter backdrop-blur-sm border border-secondary-50 border-s p-2 rounded-2xl">
+                                            {% if event.imgEvent is defined and event.imgEvent is not null%}
+                                                <img class="w-96 h-fit rounded-2xl" src="{{ asset("images/events/") }}{{ event.imgEvent }}" alt="Image de l'événement">
+                                            {% else %}
+                                                <img class="object-contain" src="{{ asset("images/default_images/animal-placeholder.png")}}"  alt="Image de {{ event.nomEvent }}">
+                                            {% endif %}
+                                        </div>
+                                        <p class="text-center justify-center text-6xl lg:text-2xl text">{{ event.nomEvent }}</p>
+                                        <p class="justify-center text-4xl lg:text-xl text">{{ event.description|u.truncate(100, '...') }}</p>
+                                    </a>
+                                </div>
                             {% endfor %}
                         </div>
                     </div>
@@ -53,16 +57,20 @@
             <H1 class="text-text-900 text-center text-8xl lg:text-4xl mt-3 mb-6">Nos Animaux</H1>
             <div class="flex overflow-x-scroll pb-10 hide-scroll-bar ">
                 <div class="flex flex-nowrap lg:ml-40 md:ml-20 ml-10 ">
-                    <div class="flex inline-block px-3 flex-row gap-6">
+                    <div class="flex inline-block px-3 flex-row gap-5">
                         {% for famille in familles %}
-                            <a href="{{ path('app_famille_animal_fambyid',{'id':famille.id}) }}" class="bg-secondary-700 w-[40rem] lg:w-72 rounded-3xl">
-                                {% if famille.imgFamilleAnimal is defined and famille.imgFamilleAnimal is not null %}
-                                    <img class="w-[100%] rounded-2xl" src="{{ asset('images/famille_animal/') }}{{ famille.imgFamilleAnimal }}"  alt="Image de {{ famille.nomFamilleAnimal }}">
-                                {% else %}
-                                    <img class="w-[100%] rounded-2xl" src="{{ asset("images/default_images/famille_animal-placeholder.jpg")}}"  alt="Image de {{ famille.nomFamilleAnimal }}">
-                                {% endif %}
-                                    <p class="my-12 lg:my-6 text-center justify-center text-6xl lg:text-2xl  text">{{ famille.nomFamilleAnimal }}</p>
-                            </a>
+                            <div class="flex flex-col w-96 content-center m-3 rounded-3xl pt-2 pl-2 pr-2 bg-secondary-800/60 backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">
+                                <a class="object-contain" href="{{ path('app_famille_animal_fambyid',{'id':famille.id}) }}">
+                                    <div class="bg-secondary-800/60 backdrop-filter backdrop-blur-sm border border-secondary-50 border-s p-2 rounded-2xl">
+                                        {% if famille.imgFamilleAnimal is defined and famille.imgFamilleAnimal is not null %}
+                                            <img src="{{ asset('images/famille_animal/') }}{{ famille.imgFamilleAnimal }}" class="rounded-xl">
+                                        {% else %}
+                                            <img src="{{ asset('images/default_images/zone-placeholder.jpg') }}" class="rounded-xl">
+                                        {% endif %}
+                                    </div>
+                                    <p class="text-primary-100 text-4xl lg:text-2xl text-center m-2">{{ famille.nomFamilleAnimal }}</p>
+                                </a>
+                            </div>
                         {% endfor %}
                     </div>
                 </div>
