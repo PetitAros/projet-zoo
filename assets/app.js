@@ -10,7 +10,7 @@ import './styles/app.css';
 
 let headerLinks = document.querySelectorAll('header a');
 
-let mobileLogo = document.querySelector('img.logo');
+let mobileLogo = document.querySelector('a.logo');
 let desktopLogo = mobileLogo.cloneNode(true);
 
 desktopLogo.classList.add('absolute');
