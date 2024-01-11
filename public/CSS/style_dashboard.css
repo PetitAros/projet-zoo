@@ -10,7 +10,7 @@ i.fa-gear{
 }
 i.fa-home::before,i.fa-user::before,i.fa-ticket::before,
 i.fa-tree::before,i.fa-users::before,i.fa-calendar-days::before,
-i.fa-hippo::before,i.fa-fish::before{
+i.fa-hippo::before,i.fa-fish::before,i.fa-worm::before,i.fa-mountain-sun::before{
     color: #ffbb00;
 }
 span.menu-item-label{

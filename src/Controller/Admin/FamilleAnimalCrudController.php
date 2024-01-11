@@ -35,6 +35,14 @@ class FamilleAnimalCrudController extends AbstractCrudController
             ImageField::new('imgFamilleAnimal', 'Image')
                 ->setBasePath('images/famille_animal')
                 ->setUploadDir('public/images/famille_animal'),
+            AssociationField::new('espece', 'Espèce')
+                ->setFormTypeOption('choice_label', 'libEspece')
+                ->formatValue(function ($entity) {
+                    return isset($entity) ? $entity->getLibEspece() : 'Pas de d\'espèce';
+                }),
+            AssociationField::new('assoHabitatFamilleAnimals', 'Habitat')
+                ->setFormTypeOption('choice_label', 'habitat.libHabitat')
+                ->setFormTypeOption('by_reference', false),
         ];
     }
 }
