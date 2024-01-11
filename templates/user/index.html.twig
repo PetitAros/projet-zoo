@@ -3,82 +3,82 @@
 {% block body %}
     {% set user = app.user %}
 
-<div class="main flex flex-col">
-    <h1 class="text-center text-8xl lg:text-6xl mt-36 lg:mt-24 mb-5 text-secondary-800">Votre compte</h1>
+    <div class="main flex flex-col">
+        <h1 class="text-center text-8xl lg:text-6xl mt-36 lg:mt-24 mb-5 text-secondary-800">Votre compte</h1>
 
-    <div class="flex justify-center ">
-        <div class="p-2 info flex flex-col w-fit rounded-2xl bg-secondary-800/70 backdrop-filter backdrop-blur-sm">
-            <div class="flex flex-col content-center mt-4">
-                <p class="text-primary-50 text-6xl lg:text-4xl">Nom :</p>
-                <p class="text-2xl lg:text-3xl text-secondary-50 p-3 bg-secondary-800 rounded-2xl"> {{ user.nomUser }}</p>
-            </div>
+        <div class="flex justify-center ">
+            <div class="p-2 info flex flex-col w-fit rounded-2xl bg-secondary-800/70 backdrop-filter backdrop-blur-sm">
+                <div class="flex flex-col content-center mt-4">
+                    <p class="text-primary-50 text-6xl lg:text-4xl">Nom :</p>
+                    <p class="text-2xl lg:text-3xl text-secondary-50 p-3 bg-secondary-800 rounded-2xl"> {{ user.nomUser }}</p>
+                </div>
 
-            <div class="flex flex-col content-center mt-4">
-                <p class="text-primary-50 text-6xl lg:text-4xl ">Prenom :</p>
-                <p class="text-2xl lg:text-3xl text-secondary-50 p-3 bg-secondary-800 rounded-2xl"> {{ user.pnomUser }}</p>
-            </div>
+                <div class="flex flex-col content-center mt-4">
+                    <p class="text-primary-50 text-6xl lg:text-4xl ">Prenom :</p>
+                    <p class="text-2xl lg:text-3xl text-secondary-50 p-3 bg-secondary-800 rounded-2xl"> {{ user.pnomUser }}</p>
+                </div>
 
-            <div class="flex flex-col content-center mt-4">
-                <p class="text-primary-50 text-6xl lg:text-4xl ">Email :</p>
-                <p class="text-2xl lg:text-3xl text-secondary-50 p-3 bg-secondary-800 rounded-2xl"> {{ user.email }}</p>
-            </div>
+                <div class="flex flex-col content-center mt-4">
+                    <p class="text-primary-50 text-6xl lg:text-4xl ">Email :</p>
+                    <p class="text-2xl lg:text-3xl text-secondary-50 p-3 bg-secondary-800 rounded-2xl"> {{ user.email }}</p>
+                </div>
 
-            <div class="flex flex-col content-center mt-4">
-                <p class="text-6xl lg:text-4xl text-primary-50 ">Numéro de téléphone :</p>
-                <p class="text-2xl lg:text-3xl text-secondary-50 p-3 bg-secondary-800 rounded-2xl">{{ user.phoneUser }}</p>
+                <div class="flex flex-col content-center mt-4">
+                    <p class="text-6xl lg:text-4xl text-primary-50 ">Numéro de téléphone :</p>
+                    <p class="text-2xl lg:text-3xl text-secondary-50 p-3 bg-secondary-800 rounded-2xl">{{ user.phoneUser }}</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="flex justify-center mt-5">
-        <a class="bg-primary-500 text-secondary-800 mr-2 rounded-2xl p-2 text-4xl lg:text-2xl" href="{{ path('app_user_update') }}">Modifiez votre compte</a>
-        <a class="bg-primary-500 text-secondary-800 mr-2 rounded-2xl p-2 text-4xl lg:text-2xl" href="{{ path('app_logout') }}">Déconnexion</a>
-        {% if is_granted('ROLE_ADMIN') %}
-            <a class="bg-primary-500 text-secondary-800 mr-2 rounded-2xl p-2 text-4xl lg:text-2xl" href="{{ path('admin') }}">Accédez au back-office</a>
-        {% endif %}
-    </div>
-    <div class="flex justify-center">
-        <div class="flex flex-col">
-            <h1 class="text-center text-8xl lg:text-6xl mt-20 lg:mt-24 mb-5 text-secondary-800">Vos Réservations</h1>
-            <a href="{{ path('app_reservation_choose')}}" class="flex justify-center">
-                <button class="btn bg-primary-500 col-start-2 col-end-4 text-4xl lg:text-2xl rounded-xl p-2 m-4">Ajouter une réservation</button>
-            </a>
+        <div class="flex justify-center mt-5 pb-20">
+            <a class="bg-primary-500 text-secondary-800 mr-2 rounded-2xl p-2 text-4xl lg:text-2xl" href="{{ path('app_user_update') }}">Modifiez votre compte</a>
+            <a class="bg-primary-500 text-secondary-800 mr-2 rounded-2xl p-2 text-4xl lg:text-2xl" href="{{ path('app_logout') }}">Déconnexion</a>
+            {% if is_granted('ROLE_ADMIN') %}
+                <a class="bg-primary-500 text-secondary-800 mr-2 rounded-2xl p-2 text-4xl lg:text-2xl" href="{{ path('admin') }}">Accédez au back-office</a>
+            {% endif %}
+        </div>
+        <div class="flex justify-center bg-background-200">
+            <div class="flex flex-col ">
+                <h1 class="text-center text-8xl lg:text-6xl mt-6 lg:mt-24 mb-2 text-secondary-800">Vos Réservations</h1>
+                <a href="{{ path('app_reservation_choose')}}" class="flex justify-center">
+                    <button class="btn bg-primary-500 col-start-2 col-end-4 text-4xl lg:text-2xl rounded-xl p-2 m-4">Ajouter une réservation</button>
+                </a>
                 {% for reserv in user.reservations | sort((a,b)=>a.dateReservation <=>b.dateReservation) %}
-                <div class="bg-secondary-800/70 m-2 rounded-xl flex flex-col p-2">
-                    <div>
-                        <p class="text-center text-primary-50 text-3xl"> {{ reserv.dateReservation |date('d/m/y')}}</p>
-                    </div>
-                    <div class="m-4 flex justify-between ">
-                        <p class="text-primary-50 text-2xl ">Nb places adultes: {{ reserv.nbPlacesAdult }} </p>
-                        <p class="text-primary-50 text-2xl">&nbsp|&nbsp</p>
-                        <p class="text-primary-50 text-2xl ">Nb places enfants: {{ reserv.nbPlacesChild }}</p>
-                    </div>
-                    <div class="flex justify-between">
-                        <p class="text-primary-50 text-lg">Tarif place adulte: {{ reserv.billet.tarifAdult }} €</p>
-                        <p class="text-primary-50 text-lg">Tarif place enfant: {{ reserv.billet.tarifChild }} €</p>
-                    </div>
-                    <div class="">
-                        <p class="text-primary-50 text-2xl text-center">Prix total:{{(reserv.billet.tarifAdult * reserv.nbPlacesAdult)+(reserv.nbPlacesChild * reserv.billet.tarifChild ) }} €</p>
-                    </div>
-                    <div class="flex flex-row justify-center">
-                    <a href="{{ path('app_reservation_events', {'id': reserv.id}) }}">
-                        <button class="btn bg-primary-500 col-start-2 col-end-4 text-4xl lg:text-2xl rounded-xl p-2 m-4">Planifier</button>
-                    </a>
-                    <a href="{{ path('app_reservation_delete', {'id': reserv.id}) }}">
-                        <button class="btn bg-primary-500 col-start-2 col-end-4 text-4xl lg:text-2xl rounded-xl p-2 m-4">Supprimer</button>
-                    </a>
-                    </div>
-                    {% if reserv.assoEventReservations is not empty %}
-                        <p class="text-primary-50 text-3xl text-center m-2 underline">Les événements réservés :</p>
-                        {% for asso in reserv.assoEventReservations %}
-                            <a class="text-2xl text-center text-primary-50 hover:text-primary-200" href="{{ path('detail',{'id':asso.event.id}) }}"> - {{ asso.event.nomEvent }}</a>
-                        {% endfor %}
+                    <div class="bg-secondary-800/70 m-2 rounded-xl flex flex-col p-2">
+                        <div>
+                            <p class="text-center text-primary-50 text-3xl"> {{ reserv.dateReservation |date('d/m/y')}}</p>
+                        </div>
+                        <div class="m-4 flex justify-between ">
+                            <p class="text-primary-50 text-2xl ">Nb places adultes: {{ reserv.nbPlacesAdult }} </p>
+                            <p class="text-primary-50 text-2xl">&nbsp|&nbsp</p>
+                            <p class="text-primary-50 text-2xl ">Nb places enfants: {{ reserv.nbPlacesChild }}</p>
+                        </div>
+                        <div class="flex justify-between">
+                            <p class="text-primary-50 text-lg">Tarif place adulte: {{ reserv.billet.tarifAdult }} €</p>
+                            <p class="text-primary-50 text-lg">Tarif place enfant: {{ reserv.billet.tarifChild }} €</p>
+                        </div>
+                        <div class="">
+                            <p class="text-primary-50 text-2xl text-center">Prix total:{{(reserv.billet.tarifAdult * reserv.nbPlacesAdult)+(reserv.nbPlacesChild * reserv.billet.tarifChild ) }} €</p>
+                        </div>
+                        <div class="grid grid-cols-4 gap-5">
+                            <a class="col-start-2" href="{{ path('app_reservation_events', {'id': reserv.id}) }}">
+                                <button class="bg-primary-500/60 col-start-2 col-end-4 text-4xl lg:text-2xl backdrop-filter backdrop-blur-sm border border-primary-50 border-s p-2 rounded-2xl">Planifier</button>
+                            </a>
+                            <a class="col-start-3" href="{{ path('app_reservation_delete', {'id': reserv.id}) }}">
+                                <button class="bg-primary-500/60 col-start-2 col-end-4 text-4xl lg:text-2xl backdrop-filter backdrop-blur-sm border border-primary-50 border-s p-2 rounded-2xl">Supprimer</button>
+                            </a>
+                        </div>
+                        {% if reserv.assoEventReservations is not empty %}
+                            <p class="text-primary-50 text-3xl text-center m-2 underline">Les événements réservés :</p>
+                            {% for asso in reserv.assoEventReservations %}
+                                <a class="text-2xl text-center text-primary-50 hover:text-primary-200" href="{{ path('detail',{'id':asso.event.id}) }}"> - {{ asso.event.nomEvent }}</a>
+                            {% endfor %}
 
-                    {% endif %}
-                </div>
+                        {% endif %}
+                    </div>
                 {% endfor %}
 
+            </div>
         </div>
-    </div>
 
-</div>
+    </div>
 {% endblock %}
