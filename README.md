@@ -32,6 +32,12 @@ Ce projet est un site de gestion pour un zoo. Il permet de gérer les animaux, l
 2. Modifiez la variable `DATABASE_URL` avec vos informations de connexion
 
 
+## Serveur WEB et BD
+
+Le serveur web et BD répondent tous deux à l'adresse 10.31.32.157 sur le département.
+
+Toutes les configurations relatifs à ses deux espaces sont disponibles dans le fichier server-config.md.
+
 ## Scripts Composer 
 Script de lancement du serveur :
 
