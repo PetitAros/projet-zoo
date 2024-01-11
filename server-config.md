@@ -84,3 +84,37 @@ apt-get install phpmyadmin
 ```
 
 password : `saezoo`
+
+## Configuration de Apache2
+
+Création d'une configuration de VHost afin d'héberger le projet.
+
+## Installation de Symfony
+
+## Installation de NodeJS
+
+Installation de NVM
+
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+```
+
+Exportation de NVM dans les variables d'environment dans le bashrc.
+
+Reload du bashrc
+
+```
+source ~/.bashrc
+```
+
+Installation de NodeJS et de NPM
+
+```
+nvm install -lts
+```
+
+Lancement du build de la version de prod du projet
+
+```
+npm run build
+```
