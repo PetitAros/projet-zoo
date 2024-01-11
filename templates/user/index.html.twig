@@ -31,6 +31,7 @@
     </div>
     <div class="flex justify-center mt-5">
         <a class="bg-primary-500 text-secondary-800 mr-2 rounded-2xl p-2 text-4xl lg:text-2xl" href="{{ path('app_user_update') }}">Modifiez votre compte</a>
+        <a class="bg-primary-500 text-secondary-800 mr-2 rounded-2xl p-2 text-4xl lg:text-2xl" href="{{ path('app_logout') }}">Déconnexion</a>
         {% if is_granted('ROLE_ADMIN') %}
             <a class="bg-primary-500 text-secondary-800 mr-2 rounded-2xl p-2 text-4xl lg:text-2xl" href="{{ path('admin') }}">Accédez au back-office</a>
         {% endif %}
