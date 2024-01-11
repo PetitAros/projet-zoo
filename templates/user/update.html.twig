@@ -3,9 +3,9 @@
 {% block title %}Hello UserController!{% endblock %}
 
 {% block body %}
-    <div class="flex flex-grow justify-center content-center h-[100%]  bg-cover bg-center bg-no-repeat">
-    <div style="background: linear-gradient(rgba(255,255,255,.4), rgba(255,255,255,.4)), url({{ asset('images/lion.png') }})" class="mt-36 lg:mt-24 w-1/2  bg-cover bg-center backdrop-filter backdrop-blur-sm self-center border border-secondary-50 border-s rounded-2xl p-2" >
-        <h1 class="text-center text-secondary-800 text-3xl md:text-5xl  lg:text-6xl lg:text-10xl mb-5">Inscription</h1>
+    <div class="flex justify-center min-h-full w-[90%] lg:w-[50%] mt-36 lg:mt-24 mb-24 mx-auto ">
+    <div style="background: linear-gradient(rgba(255,255,255,.4), rgba(255,255,255,.4)), url({{ asset('images/lion.png') }})" class="w-full p-12 rounded-3xl lg:rounded-2xl" >
+        <h1 class="text-center text-text-950 text-3xl md:text-5xl  lg:text-6xl lg:text-10xl mb-5">Inscription</h1>
         {{ form_errors(form) }}
 
         {{ form_start(form) }}
@@ -13,14 +13,14 @@
             {{ form_label(form.nomUser,'Nom',
                 {
                     'label_attr':{
-                    'class':'text-secondary-800 text-xl md:text-2xl '
+                    'class':'text-text-950 text-xl md:text-2xl '
                 }}) }}
-            <div class="text-secondary-800" >
+            <div class="text-text-950" >
                 {{ form_errors(form.nomUser) }}
             </div>
             {{ form_widget(form.nomUser,{
                 'attr':{
-                    'class': 'text-lg text-secondary-50 p-3 bg-secondary-800 rounded-2xl'
+                    'class': 'text-lg text-secondary-50 p-3 bg-secondary-800/60 backdrop-filter backdrop-blur-sm border border-secondary-50 border-s rounded-2xl'
                 }
             }) }}
         </div>
@@ -28,14 +28,14 @@
             {{ form_label(form.pnomUser,'Prénom',
                 {
                     'label_attr':{
-                    'class':'text-secondary-800 text-xl md:text-2xl  '
+                    'class':'text-text-950 text-xl md:text-2xl  '
                 }}) }}
-            <div class="text-secondary-800" >
+            <div class="text-text-950" >
                 {{ form_errors(form.pnomUser) }}
             </div>
             {{ form_widget(form.pnomUser,{
                 'attr':{
-                    'class': 'text-lg text-secondary-50  p-3 bg-secondary-800 rounded-2xl'
+                    'class': 'text-lg text-secondary-50  p-3 bg-secondary-800/60 backdrop-filter backdrop-blur-sm border border-secondary-50 border-s rounded-2xl'
                 }
             })}}
         </div>
@@ -43,14 +43,14 @@
             {{ form_label(form.email,'Email',
                 {
                     'label_attr':{
-                    'class':'text-secondary-800   text-xl md:text-2xl '
+                    'class':'text-text-950   text-xl md:text-2xl '
                 }}) }}
-            <div class="text-secondary-800" >
+            <div class="text-text-950" >
                 {{ form_errors(form.email) }}
             </div>
             {{ form_widget(form.email,{
                 'attr':{
-                    'class': 'text-lg  text-secondary-50  p-3 bg-secondary-800 rounded-2xl'
+                    'class': 'text-lg  text-secondary-50  p-3 bg-secondary-800/60 backdrop-filter backdrop-blur-sm border border-secondary-50 border-s rounded-2xl'
                 }
             })}}
         </div>
@@ -58,14 +58,14 @@
             {{ form_label(form.phoneUser,'Numéro de téléphone',
                 {
                     'label_attr':{
-                    'class':'text-secondary-800 text-xl md:text-2xl'
+                    'class':'text-text-950 text-xl md:text-2xl'
                 }}) }}
-            <div class="text-secondary-800">
+            <div class="text-text-950">
                 {{ form_errors(form.phoneUser) }}
             </div>
             {{ form_widget(form.phoneUser,{
                 'attr':{
-                    'class': 'text-lg text-secondary-50  p-3 bg-secondary-800 rounded-2xl'
+                    'class': 'text-lg text-secondary-50  p-3 bg-secondary-800/60 backdrop-filter backdrop-blur-sm border border-secondary-50 border-s rounded-2xl'
                 }
             })}}
         </div>
