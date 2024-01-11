@@ -4,6 +4,8 @@ Ce fichier permet de définir les configurations faites sur le serveur.
 
 ## Informations sur le serveur
 
+### Informations diverses
+
 Adresse du serveur sur le réseau de l'IUT: `10.31.32.157`
 
 Nom de l'utilisateur sudo : `root`  
@@ -91,6 +93,18 @@ Création d'une configuration de VHost afin d'héberger le projet.
 
 ## Installation de Symfony
 
+Installation de composer
+
+```
+apt-get install composer
+```
+
+Installation de symfony
+
+```
+curl -sS https://get.symfony.com/cli/installer | bash
+```
+
 ## Installation de NodeJS
 
 Installation de NVM
@@ -118,3 +132,12 @@ Lancement du build de la version de prod du projet
 ```
 npm run build
 ```
+
+## Mise en place du projet
+
+Installation du projet :
+
+- Installations liées à composer
+- Installations liées à NPM
+- Environement du projet passé en DEV dans le .env.local
+- Création des données
