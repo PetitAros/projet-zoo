@@ -3,15 +3,15 @@
 {% block title %}Zones Parc{% endblock %}
 
 {% block body %}
-<div class="flex flex-col mt-36 lg:mt-24">
+<div class="flex flex-col mt-36 lg:mt-24 w-[70%] m-auto">
     <h1 class="text-center text-secondary-800 text-5xl md:text-5xl  lg:text-6xl lg:text-10xl mb-5">Les zones du parc</h1>
-    <div class="flex flex-row flex-wrap justify-center ">
+    <div class="grid grid-cols-2">
     {% for zone in zones_Parc %}
-        <div class="zone flex flex-col content-center m-3 pt-2 pl-2 pr-2 bg-secondary-800/60 backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">
+        <div class="zone flex flex-col content-center m-3 rounded-3xl pt-2 pl-2 pr-2 bg-secondary-800/60 backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">
             <a class="object-contain" href="{{ path('app_zoneParc_details',{'id':zone.id}) }}">
-            <div class="bg-primary-500 p-2 rounded">
+            <div class="bg-secondary-800/60 backdrop-filter backdrop-blur-sm border border-secondary-50 border-s p-2 rounded-2xl">
                 {% if zone.imgZone is defined and zone.imgZone is not null %}
-                <img src="{{ asset('images/zone_parc/') }}{{ zone.imgZone }}" class="w-[100%] rounded">
+                <img src="{{ asset('images/zone_parc/') }}{{ zone.imgZone }}" class="w-[100%] rounded-xl">
                     {% else %}
                         <img src="{{ asset('images/default_images/zone-placeholder.jpg') }}" class="w-[100%] rounded">
                 {% endif %}
