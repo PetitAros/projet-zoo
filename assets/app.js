@@ -10,6 +10,12 @@ import './styles/app.css';
 
 let headerLinks = document.querySelectorAll('header a');
 
+let mobileLogo = document.querySelector('img.logo');
+let desktopLogo = mobileLogo.cloneNode(true);
+
+desktopLogo.classList.add('absolute');
+desktopLogo.classList.add('m-auto');
+
 let headerLinksUrl =  [];
 
 for (let i = 0; i < headerLinks.length; i++) {
@@ -23,7 +29,7 @@ for (let i = 0; i < headerLinks.length; i++) {
 
 let fullHeader = `<header id="header" class="fixed flex justify-evenly z-10 w-full text-text-50">
     <div class="bg-secondary-800/50 w-full absolute h-24 lg:h-12 z-[-1] bg-clip-padding  backdrop-filter backdrop-blur-sm border-b border-secondary-50 border-s"></div>
-    <img src="/images/LogoZoo.png" class="navbar__logo h-20 lg:h-10 pt-1 absolute m-auto" alt="Logo">
+    ${desktopLogo.outerHTML}
     
     <div class="btn-container flex justify-between gap-6">
         <a href="` + headerLinksUrl[0] + `" class="mt-3 p-4 bg-secondary-800/50  rounded-2xl bg-clip-padding  backdrop-filter backdrop-blur-sm border border-secondary-50 border-s">Découvrir le parc</a>
@@ -43,7 +49,7 @@ let mobileheader = `<header id="header" class="fixed flex justify-between z-10 w
 
                 <div class="my-auto pt-2 h-20 w-20"></div>
 
-                <img src="images/LogoZoo.png" class="navbar__logo h-20 lg:h-10 pt-1" alt="Logo">
+                ${mobileLogo.outerHTML}
 
                 <svg id="burger" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="my-auto pt-2 h-20 w-20 cursor-pointer">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
