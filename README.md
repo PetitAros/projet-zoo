@@ -76,12 +76,12 @@ composer fix:cs
 
 ### Users
 
-#### Louise
+#### Louise : Utilisateur X
 - nom de famille: Parent
 - email: louise@example.com
 - password: password
 
-#### Wilfried
+#### Wilfried : Utilisateur Admin
 - nom de famille: Noel
 - email: Wil@example.com
 - password: test
